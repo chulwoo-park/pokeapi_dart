@@ -3,6 +3,8 @@ import 'package:meta/meta.dart';
 
 import 'common.dart';
 
+part 'language.g.dart';
+
 @immutable
 @JsonSerializable()
 class Language {
@@ -33,4 +35,9 @@ class Language {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory Language.fromJson(Map<String, dynamic> json) =>
+      _$LanguageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LanguageToJson(this);
 }

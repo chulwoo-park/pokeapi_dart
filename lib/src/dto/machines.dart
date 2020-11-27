@@ -6,6 +6,8 @@ import 'items.dart';
 import 'moves.dart';
 import 'utility/common.dart';
 
+part 'machines.g.dart';
+
 @immutable
 @JsonSerializable()
 class Machine {
@@ -40,4 +42,9 @@ class Machine {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory Machine.fromJson(Map<String, dynamic> json) =>
+      _$MachineFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MachineToJson(this);
 }

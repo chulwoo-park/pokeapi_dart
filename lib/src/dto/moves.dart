@@ -7,6 +7,8 @@ import 'pokemon.dart';
 import 'utility/common.dart';
 import 'utility/language.dart';
 
+part 'moves.g.dart';
+
 @immutable
 @JsonSerializable()
 class Move {
@@ -146,6 +148,10 @@ class Move {
   ///
   ///  * [Type]
   final NamedApiResource type;
+
+  factory Move.fromJson(Map<String, dynamic> json) => _$MoveFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveToJson(this);
 }
 
 @immutable
@@ -164,6 +170,11 @@ class ContestComboSets {
   /// additional appeal points in super contests.
   @JsonKey(name: 'super')
   final ContestComboDetail supers;
+
+  factory ContestComboSets.fromJson(Map<String, dynamic> json) =>
+      _$ContestComboSetsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ContestComboSetsToJson(this);
 }
 
 @immutable
@@ -189,6 +200,11 @@ class ContestComboDetail {
   ///  * [Move]
   @JsonKey(name: 'use_after')
   final List<NamedApiResource> useAfter;
+
+  factory ContestComboDetail.fromJson(Map<String, dynamic> json) =>
+      _$ContestComboDetailFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ContestComboDetailToJson(this);
 }
 
 @immutable
@@ -218,6 +234,11 @@ class MoveFlavorText {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory MoveFlavorText.fromJson(Map<String, dynamic> json) =>
+      _$MoveFlavorTextFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveFlavorTextToJson(this);
 }
 
 @immutable
@@ -295,6 +316,11 @@ class MoveMetaData {
   /// The likelihood this attack will cause a stat change in the target Pokémon.
   @JsonKey(name: 'stat_chance')
   final int statChance;
+
+  factory MoveMetaData.fromJson(Map<String, dynamic> json) =>
+      _$MoveMetaDataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveMetaDataToJson(this);
 }
 
 @immutable
@@ -314,6 +340,11 @@ class MoveStatChange {
   ///
   ///  * [Stat]
   final NamedApiResource stat;
+
+  factory MoveStatChange.fromJson(Map<String, dynamic> json) =>
+      _$MoveStatChangeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveStatChangeToJson(this);
 }
 
 @immutable
@@ -361,6 +392,11 @@ class PastMoveStatValues {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory PastMoveStatValues.fromJson(Map<String, dynamic> json) =>
+      _$PastMoveStatValuesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PastMoveStatValuesToJson(this);
 }
 
 @immutable
@@ -388,6 +424,11 @@ class MoveAilment {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory MoveAilment.fromJson(Map<String, dynamic> json) =>
+      _$MoveAilmentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveAilmentToJson(this);
 }
 
 @immutable
@@ -407,6 +448,11 @@ class MoveBattleStyle {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory MoveBattleStyle.fromJson(Map<String, dynamic> json) =>
+      _$MoveBattleStyleFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveBattleStyleToJson(this);
 }
 
 @immutable
@@ -430,6 +476,11 @@ class MoveCategory {
 
   /// The description of this resource listed in different languages.
   final List<Description> descriptions;
+
+  factory MoveCategory.fromJson(Map<String, dynamic> json) =>
+      _$MoveCategoryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveCategoryToJson(this);
 }
 
 @immutable
@@ -461,6 +512,11 @@ class MoveDamageClass {
     this.moves,
     this.names,
   );
+
+  factory MoveDamageClass.fromJson(Map<String, dynamic> json) =>
+      _$MoveDamageClassFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveDamageClassToJson(this);
 }
 
 @immutable
@@ -493,6 +549,11 @@ class MoveLearnMethod {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_groups')
   final List<NamedApiResource> versionGroups;
+
+  factory MoveLearnMethod.fromJson(Map<String, dynamic> json) =>
+      _$MoveLearnMethodFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveLearnMethodToJson(this);
 }
 
 @immutable
@@ -524,4 +585,9 @@ class MoveTarget {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory MoveTarget.fromJson(Map<String, dynamic> json) =>
+      _$MoveTargetFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveTargetToJson(this);
 }

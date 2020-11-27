@@ -6,6 +6,8 @@ import '../games.dart';
 import '../machines.dart';
 import 'language.dart';
 
+part 'common.g.dart';
+
 @immutable
 @JsonSerializable()
 class ApiResource {
@@ -13,6 +15,11 @@ class ApiResource {
 
   /// The URL of the referenced resource.
   final String url;
+
+  factory ApiResource.fromJson(Map<String, dynamic> json) =>
+      _$ApiResourceFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ApiResourceToJson(this);
 }
 
 @immutable
@@ -32,6 +39,11 @@ class Description {
   ///
   ///  * [Language]
   final NamedApiResource language;
+
+  factory Description.fromJson(Map<String, dynamic> json) =>
+      _$DescriptionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DescriptionToJson(this);
 }
 
 @immutable
@@ -51,6 +63,10 @@ class Effect {
   ///
   ///  * [Language]
   final NamedApiResource language;
+
+  factory Effect.fromJson(Map<String, dynamic> json) => _$EffectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EffectToJson(this);
 }
 
 @immutable
@@ -90,6 +106,11 @@ class Encounter {
   ///
   ///  * [EncounterMethod]
   final NamedApiResource method;
+
+  factory Encounter.fromJson(Map<String, dynamic> json) =>
+      _$EncounterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EncounterToJson(this);
 }
 
 @immutable
@@ -118,6 +139,11 @@ class FlavorText {
   ///
   ///  * [Version]
   final NamedApiResource version;
+
+  factory FlavorText.fromJson(Map<String, dynamic> json) =>
+      _$FlavorTextFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FlavorTextToJson(this);
 }
 
 @immutable
@@ -138,6 +164,11 @@ class GenerationGameIndex {
   ///
   ///  * [Generation]
   final NamedApiResource generation;
+
+  factory GenerationGameIndex.fromJson(Map<String, dynamic> json) =>
+      _$GenerationGameIndexFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GenerationGameIndexToJson(this);
 }
 
 @immutable
@@ -162,6 +193,11 @@ class MachineVersionDetail {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory MachineVersionDetail.fromJson(Map<String, dynamic> json) =>
+      _$MachineVersionDetailFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MachineVersionDetailToJson(this);
 }
 
 @immutable
@@ -181,6 +217,10 @@ class Name {
   ///
   ///  * [Language]
   final NamedApiResource language;
+
+  factory Name.fromJson(Map<String, dynamic> json) => _$NameFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NameToJson(this);
 }
 
 @immutable
@@ -196,6 +236,11 @@ class NamedApiResource {
 
   /// The URL of the referenced resource.
   final String url;
+
+  factory NamedApiResource.fromJson(Map<String, dynamic> json) =>
+      _$NamedApiResourceFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NamedApiResourceToJson(this);
 }
 
 @immutable
@@ -220,6 +265,11 @@ class VerboseEffect {
   ///
   ///  * [Language]
   final NamedApiResource language;
+
+  factory VerboseEffect.fromJson(Map<String, dynamic> json) =>
+      _$VerboseEffectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VerboseEffectToJson(this);
 }
 
 @immutable
@@ -245,6 +295,11 @@ class VersionEncounterDetail {
   /// A list of encounters and their specifics.
   @JsonKey(name: 'encounter_details')
   final List<Encounter> encounterDetails;
+
+  factory VersionEncounterDetail.fromJson(Map<String, dynamic> json) =>
+      _$VersionEncounterDetailFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VersionEncounterDetailToJson(this);
 }
 
 @immutable
@@ -262,6 +317,11 @@ class VersionGameIndex {
   ///
   ///  * [Version]
   final NamedApiResource version;
+
+  factory VersionGameIndex.fromJson(Map<String, dynamic> json) =>
+      _$VersionGameIndexFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VersionGameIndexToJson(this);
 }
 
 @immutable
@@ -290,4 +350,9 @@ class VersionGroupFlavorText {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory VersionGroupFlavorText.fromJson(Map<String, dynamic> json) =>
+      _$VersionGroupFlavorTextFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VersionGroupFlavorTextToJson(this);
 }

@@ -6,6 +6,8 @@ import 'games.dart';
 import 'pokemon.dart';
 import 'utility/common.dart';
 
+part 'items.g.dart';
+
 @immutable
 @JsonSerializable()
 class Item {
@@ -94,6 +96,10 @@ class Item {
 
   /// A list of the machines related to this item.
   final List<MachineVersionDetail> machines;
+
+  factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemToJson(this);
 }
 
 @immutable
@@ -104,6 +110,11 @@ class ItemSprites {
   /// The default depiction of this item.
   @JsonKey(name: 'default')
   final String defaults;
+
+  factory ItemSprites.fromJson(Map<String, dynamic> json) =>
+      _$ItemSpritesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemSpritesToJson(this);
 }
 
 @immutable
@@ -124,6 +135,11 @@ class ItemHolderPokemon {
   /// The details for the version that this item is held in by the Pokémon.
   @JsonKey(name: 'version_details')
   final List<ItemHolderPokemonVersionDetail> versionDetails;
+
+  factory ItemHolderPokemon.fromJson(Map<String, dynamic> json) =>
+      _$ItemHolderPokemonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemHolderPokemonToJson(this);
 }
 
 @immutable
@@ -143,6 +159,11 @@ class ItemHolderPokemonVersionDetail {
   ///
   ///  * [Version]
   final NamedApiResource version;
+
+  factory ItemHolderPokemonVersionDetail.fromJson(Map<String, dynamic> json) =>
+      _$ItemHolderPokemonVersionDetailFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemHolderPokemonVersionDetailToJson(this);
 }
 
 @immutable
@@ -174,6 +195,11 @@ class ItemAttribute {
 
   /// The description of this item attribute listed in different languages.
   final List<Description> descriptions;
+
+  factory ItemAttribute.fromJson(Map<String, dynamic> json) =>
+      _$ItemAttributeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemAttributeToJson(this);
 }
 
 @immutable
@@ -205,6 +231,11 @@ class ItemCategory {
 
   /// The pocket items in this category would be put in.
   final NamedApiResource pocket;
+
+  factory ItemCategory.fromJson(Map<String, dynamic> json) =>
+      _$ItemCategoryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemCategoryToJson(this);
 }
 
 @immutable
@@ -233,6 +264,11 @@ class ItemFlingEffect {
   ///
   ///  * [Item]
   final List<NamedApiResource> items;
+
+  factory ItemFlingEffect.fromJson(Map<String, dynamic> json) =>
+      _$ItemFlingEffectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemFlingEffectToJson(this);
 }
 
 @immutable
@@ -260,4 +296,9 @@ class ItemPocket {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory ItemPocket.fromJson(Map<String, dynamic> json) =>
+      _$ItemPocketFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemPocketToJson(this);
 }

@@ -6,6 +6,8 @@ import 'moves.dart';
 import 'utility/common.dart';
 import 'utility/language.dart';
 
+part 'contests.g.dart';
+
 @immutable
 @JsonSerializable()
 class ContestType {
@@ -32,6 +34,11 @@ class ContestType {
 
   /// The name of this contest type listed in different languages.
   final List<ContestName> names;
+
+  factory ContestType.fromJson(Map<String, dynamic> json) =>
+      _$ContestTypeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ContestTypeToJson(this);
 }
 
 @immutable
@@ -55,6 +62,11 @@ class ContestName {
   ///
   ///  * [Language]
   final NamedApiResource language;
+
+  factory ContestName.fromJson(Map<String, dynamic> json) =>
+      _$ContestNameFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ContestNameToJson(this);
 }
 
 @immutable
@@ -84,6 +96,11 @@ class ContestEffect {
   /// The flavor text of this contest effect listed in different languages.
   @JsonKey(name: 'flavor_text_entries')
   final List<FlavorText> flavorTextEntries;
+
+  factory ContestEffect.fromJson(Map<String, dynamic> json) =>
+      _$ContestEffectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ContestEffectToJson(this);
 }
 
 @immutable
@@ -113,4 +130,9 @@ class SuperContestEffect {
   ///
   ///  * [Move]
   final List<NamedApiResource> moves;
+
+  factory SuperContestEffect.fromJson(Map<String, dynamic> json) =>
+      _$SuperContestEffectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SuperContestEffectToJson(this);
 }

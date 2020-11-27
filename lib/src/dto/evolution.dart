@@ -5,6 +5,8 @@ import 'items.dart';
 import 'pokemon.dart';
 import 'utility/common.dart';
 
+part 'evolution.g.dart';
+
 @immutable
 @JsonSerializable()
 class EvolutionChain {
@@ -30,6 +32,11 @@ class EvolutionChain {
   /// Pokémon in the chain. Each link references the next Pokémon in the natural
   /// evolution order.
   final ChainLink chain;
+
+  factory EvolutionChain.fromJson(Map<String, dynamic> json) =>
+      _$EvolutionChainFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EvolutionChainToJson(this);
 }
 
 @immutable
@@ -61,6 +68,11 @@ class ChainLink {
 
   /// A List of chain objects.
   final List<ChainLink> evolvesTo;
+
+  factory ChainLink.fromJson(Map<String, dynamic> json) =>
+      _$ChainLinkFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ChainLinkToJson(this);
 }
 
 @immutable
@@ -205,6 +217,11 @@ class EvolutionDetail {
   /// levels up.
   @JsonKey(name: 'turn_upside_down')
   final bool turnUpsideDown;
+
+  factory EvolutionDetail.fromJson(Map<String, dynamic> json) =>
+      _$EvolutionDetailFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EvolutionDetailToJson(this);
 }
 
 @immutable
@@ -233,4 +250,9 @@ class EvolutionTrigger {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final List<NamedApiResource> pokemonSpecies;
+
+  factory EvolutionTrigger.fromJson(Map<String, dynamic> json) =>
+      _$EvolutionTriggerFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EvolutionTriggerToJson(this);
 }
