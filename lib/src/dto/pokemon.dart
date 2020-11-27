@@ -10,6 +10,8 @@ import 'moves.dart';
 import 'utility/common.dart';
 import 'utility/language.dart';
 
+part 'pokemon.g.dart';
+
 @immutable
 @JsonSerializable()
 class Ability {
@@ -60,6 +62,11 @@ class Ability {
 
   /// A list of Pokémon that could potentially have this ability.
   final List<AbilityPokemon> pokemon;
+
+  factory Ability.fromJson(Map<String, dynamic> json) =>
+      _$AbilityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AbilityToJson(this);
 }
 
 @immutable
@@ -81,6 +88,11 @@ class AbilityEffectChange {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory AbilityEffectChange.fromJson(Map<String, dynamic> json) =>
+      _$AbilityEffectChangeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AbilityEffectChangeToJson(this);
 }
 
 @immutable
@@ -110,6 +122,11 @@ class AbilityFlavorText {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory AbilityFlavorText.fromJson(Map<String, dynamic> json) =>
+      _$AbilityFlavorTextFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AbilityFlavorTextToJson(this);
 }
 
 @immutable
@@ -136,6 +153,11 @@ class AbilityPokemon {
   ///
   ///  * [Pokemon]
   final NamedApiResource pokemon;
+
+  factory AbilityPokemon.fromJson(Map<String, dynamic> json) =>
+      _$AbilityPokemonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AbilityPokemonToJson(this);
 }
 
 @immutable
@@ -158,6 +180,11 @@ class Characteristic {
   /// recieving this characteristic when divided by 5.
   @JsonKey(name: 'possible_values')
   final List<int> possibleValues;
+
+  factory Characteristic.fromJson(Map<String, dynamic> json) =>
+      _$CharacteristicFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CharacteristicToJson(this);
 }
 
 @immutable
@@ -186,6 +213,11 @@ class EggGroup {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final List<NamedApiResource> pokemonSpecies;
+
+  factory EggGroup.fromJson(Map<String, dynamic> json) =>
+      _$EggGroupFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EggGroupToJson(this);
 }
 
 @immutable
@@ -217,6 +249,10 @@ class Gender {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'required_for_evolution')
   final List<NamedApiResource> requiredForEvolution;
+
+  factory Gender.fromJson(Map<String, dynamic> json) => _$GenderFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GenderToJson(this);
 }
 
 @immutable
@@ -237,6 +273,11 @@ class PokemonSpeciesGender {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final NamedApiResource pokemonSpecies;
+
+  factory PokemonSpeciesGender.fromJson(Map<String, dynamic> json) =>
+      _$PokemonSpeciesGenderFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonSpeciesGenderToJson(this);
 }
 
 @immutable
@@ -275,6 +316,11 @@ class GrowthRate {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final List<NamedApiResource> pokemonSpecies;
+
+  factory GrowthRate.fromJson(Map<String, dynamic> json) =>
+      _$GrowthRateFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GrowthRateToJson(this);
 }
 
 @immutable
@@ -290,6 +336,11 @@ class GrowthRateExperienceLevel {
 
   /// The amount of experience required to reach the referenced level.
   final int experience;
+
+  factory GrowthRateExperienceLevel.fromJson(Map<String, dynamic> json) =>
+      _$GrowthRateExperienceLevelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GrowthRateExperienceLevelToJson(this);
 }
 
 @immutable
@@ -357,6 +408,10 @@ class Nature {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory Nature.fromJson(Map<String, dynamic> json) => _$NatureFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NatureToJson(this);
 }
 
 @immutable
@@ -378,6 +433,11 @@ class NatureStatChange {
   ///  * [PokeathlonStat]
   @JsonKey(name: 'pokeathlon_stat')
   final NamedApiResource pokeathlonStat;
+
+  factory NatureStatChange.fromJson(Map<String, dynamic> json) =>
+      _$NatureStatChangeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NatureStatChangeToJson(this);
 }
 
 @immutable
@@ -404,6 +464,11 @@ class MoveBattleStylePreference {
   ///  * [MoveBattleStyle]
   @JsonKey(name: 'move_battle_style')
   final NamedApiResource moveBattleStyle;
+
+  factory MoveBattleStylePreference.fromJson(Map<String, dynamic> json) =>
+      _$MoveBattleStylePreferenceFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveBattleStylePreferenceToJson(this);
 }
 
 @immutable
@@ -429,6 +494,11 @@ class PokeathlonStat {
   /// negatively.
   @JsonKey(name: 'affecting_natures')
   final NaturePokeathlonStatAffectSets affectingNatures;
+
+  factory PokeathlonStat.fromJson(Map<String, dynamic> json) =>
+      _$PokeathlonStatFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokeathlonStatToJson(this);
 }
 
 @immutable
@@ -444,6 +514,11 @@ class NaturePokeathlonStatAffectSets {
 
   /// A list of natures and how they change the referenced Pokéathlon stat.
   final List<NaturePokeathlonStatAffect> decrease;
+
+  factory NaturePokeathlonStatAffectSets.fromJson(Map<String, dynamic> json) =>
+      _$NaturePokeathlonStatAffectSetsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NaturePokeathlonStatAffectSetsToJson(this);
 }
 
 @immutable
@@ -464,6 +539,11 @@ class NaturePokeathlonStatAffect {
   ///
   ///  * [Nature]
   final NamedApiResource nature;
+
+  factory NaturePokeathlonStatAffect.fromJson(Map<String, dynamic> json) =>
+      _$NaturePokeathlonStatAffectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NaturePokeathlonStatAffectToJson(this);
 }
 
 @immutable
@@ -556,6 +636,11 @@ class Pokemon {
 
   /// A list of details showing types this Pokémon has.
   final List<PokemonType> types;
+
+  factory Pokemon.fromJson(Map<String, dynamic> json) =>
+      _$PokemonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonToJson(this);
 }
 
 @immutable
@@ -580,6 +665,11 @@ class PokemonAbility {
   ///
   ///  * [Ability]
   final NamedApiResource ability;
+
+  factory PokemonAbility.fromJson(Map<String, dynamic> json) =>
+      _$PokemonAbilityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonAbilityToJson(this);
 }
 
 @immutable
@@ -599,6 +689,11 @@ class PokemonType {
   ///
   ///  * [Type]
   final NamedApiResource type;
+
+  factory PokemonType.fromJson(Map<String, dynamic> json) =>
+      _$PokemonTypeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonTypeToJson(this);
 }
 
 @immutable
@@ -619,6 +714,11 @@ class PokemonHeldItem {
   /// The details of the different versions in which the item is held.
   @JsonKey(name: 'version_details')
   final List<PokemonHeldItemVersion> versionDetails;
+
+  factory PokemonHeldItem.fromJson(Map<String, dynamic> json) =>
+      _$PokemonHeldItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonHeldItemToJson(this);
 }
 
 @immutable
@@ -638,6 +738,11 @@ class PokemonHeldItemVersion {
 
   /// How often the item is held.
   final int rarity;
+
+  factory PokemonHeldItemVersion.fromJson(Map<String, dynamic> json) =>
+      _$PokemonHeldItemVersionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonHeldItemVersionToJson(this);
 }
 
 @immutable
@@ -658,6 +763,11 @@ class PokemonMove {
   /// The details of the version in which the Pokémon can learn the move.
   @JsonKey(name: 'version_group_details')
   final List<PokemonMoveVersion> versionGroupDetails;
+
+  factory PokemonMove.fromJson(Map<String, dynamic> json) =>
+      _$PokemonMoveFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonMoveToJson(this);
 }
 
 @immutable
@@ -688,6 +798,11 @@ class PokemonMoveVersion {
   /// The minimum level to learn the move.
   @JsonKey(name: 'level_learned_at')
   final int levelLearnedAt;
+
+  factory PokemonMoveVersion.fromJson(Map<String, dynamic> json) =>
+      _$PokemonMoveVersionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonMoveVersionToJson(this);
 }
 
 @immutable
@@ -712,6 +827,11 @@ class PokemonStat {
   /// The base value of the stat.
   @JsonKey(name: 'base_stat')
   final int baseStat;
+
+  factory PokemonStat.fromJson(Map<String, dynamic> json) =>
+      _$PokemonStatFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonStatToJson(this);
 }
 
 @immutable
@@ -759,6 +879,11 @@ class PokemonSprites {
   /// The shiny female depiction of this Pokémon from the back in battle.
   @JsonKey(name: 'back_shiny_female')
   final String backShinyFemale;
+
+  factory PokemonSprites.fromJson(Map<String, dynamic> json) =>
+      _$PokemonSpritesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonSpritesToJson(this);
 }
 
 @immutable
@@ -781,6 +906,11 @@ class LocationAreaEncounter {
   /// happen.
   @JsonKey(name: 'version_details')
   final List<VersionEncounterDetail> versionDetails;
+
+  factory LocationAreaEncounter.fromJson(Map<String, dynamic> json) =>
+      _$LocationAreaEncounterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LocationAreaEncounterToJson(this);
 }
 
 @immutable
@@ -809,6 +939,11 @@ class PokemonColor {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final List<NamedApiResource> pokemonSpecies;
+
+  factory PokemonColor.fromJson(Map<String, dynamic> json) =>
+      _$PokemonColorFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonColorToJson(this);
 }
 
 @immutable
@@ -887,6 +1022,11 @@ class PokemonForm {
   /// does not have a specific name.
   @JsonKey(name: 'form_names')
   final List<Name> formNames;
+
+  factory PokemonForm.fromJson(Map<String, dynamic> json) =>
+      _$PokemonFormFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonFormToJson(this);
 }
 
 @immutable
@@ -914,6 +1054,11 @@ class PokemonFormSprites {
   /// The shiny depiction of this Pokémon form from the back in battle.
   @JsonKey(name: 'back_shiny')
   final String backShiny;
+
+  factory PokemonFormSprites.fromJson(Map<String, dynamic> json) =>
+      _$PokemonFormSpritesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonFormSpritesToJson(this);
 }
 
 @immutable
@@ -942,6 +1087,11 @@ class PokemonHabitat {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final List<NamedApiResource> pokemonSpecies;
+
+  factory PokemonHabitat.fromJson(Map<String, dynamic> json) =>
+      _$PokemonHabitatFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonHabitatToJson(this);
 }
 
 @immutable
@@ -975,6 +1125,11 @@ class PokemonShape {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final List<NamedApiResource> pokemonSpecies;
+
+  factory PokemonShape.fromJson(Map<String, dynamic> json) =>
+      _$PokemonShapeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonShapeToJson(this);
 }
 
 @immutable
@@ -996,6 +1151,11 @@ class AwesomeName {
   ///
   ///  * [Language]
   final NamedApiResource language;
+
+  factory AwesomeName.fromJson(Map<String, dynamic> json) =>
+      _$AwesomeNameFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AwesomeNameToJson(this);
 }
 
 @immutable
@@ -1169,6 +1329,11 @@ class PokemonSpecies {
 
   /// A list of the Pokémon that exist within this Pokémon species.
   final List<PokemonSpeciesVariety> varieties;
+
+  factory PokemonSpecies.fromJson(Map<String, dynamic> json) =>
+      _$PokemonSpeciesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonSpeciesToJson(this);
 }
 
 @immutable
@@ -1188,6 +1353,10 @@ class Genus {
   ///
   ///  * [Language]
   final NamedApiResource language;
+
+  factory Genus.fromJson(Map<String, dynamic> json) => _$GenusFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GenusToJson(this);
 }
 
 @immutable
@@ -1208,6 +1377,11 @@ class PokemonSpeciesDexEntry {
   ///
   ///  * [Pokedex]
   final NamedApiResource pokedex;
+
+  factory PokemonSpeciesDexEntry.fromJson(Map<String, dynamic> json) =>
+      _$PokemonSpeciesDexEntryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonSpeciesDexEntryToJson(this);
 }
 
 @immutable
@@ -1234,6 +1408,11 @@ class PalParkEncounterArea {
   ///
   ///  * [PalParkArea]
   final NamedApiResource area;
+
+  factory PalParkEncounterArea.fromJson(Map<String, dynamic> json) =>
+      _$PalParkEncounterAreaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PalParkEncounterAreaToJson(this);
 }
 
 @immutable
@@ -1254,6 +1433,11 @@ class PokemonSpeciesVariety {
   ///
   ///  * [Pokemon]
   final NamedApiResource pokemon;
+
+  factory PokemonSpeciesVariety.fromJson(Map<String, dynamic> json) =>
+      _$PokemonSpeciesVarietyFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonSpeciesVarietyToJson(this);
 }
 
 @immutable
@@ -1311,6 +1495,10 @@ class Stat {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory Stat.fromJson(Map<String, dynamic> json) => _$StatFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StatToJson(this);
 }
 
 @immutable
@@ -1326,6 +1514,11 @@ class MoveStatAffectSets {
 
   /// A list of moves and how they change the referenced stat.
   final List<MoveStatAffect> decrease;
+
+  factory MoveStatAffectSets.fromJson(Map<String, dynamic> json) =>
+      _$MoveStatAffectSetsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveStatAffectSetsToJson(this);
 }
 
 @immutable
@@ -1345,6 +1538,11 @@ class MoveStatAffect {
   ///
   ///  * [Move]
   final NamedApiResource move;
+
+  factory MoveStatAffect.fromJson(Map<String, dynamic> json) =>
+      _$MoveStatAffectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MoveStatAffectToJson(this);
 }
 
 @immutable
@@ -1368,6 +1566,11 @@ class NatureStatAffectSets {
   ///
   ///  * [Nature]
   final List<NamedApiResource> decrease;
+
+  factory NatureStatAffectSets.fromJson(Map<String, dynamic> json) =>
+      _$NatureStatAffectSetsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NatureStatAffectSetsToJson(this);
 }
 
 @immutable
@@ -1426,6 +1629,10 @@ class Type {
   ///
   ///  * [Move]
   final List<NamedApiResource> moves;
+
+  factory Type.fromJson(Map<String, dynamic> json) => _$TypeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TypeToJson(this);
 }
 
 @immutable
@@ -1445,6 +1652,11 @@ class TypePokemon {
   ///
   ///  * [Pokemon]
   final NamedApiResource pokemon;
+
+  factory TypePokemon.fromJson(Map<String, dynamic> json) =>
+      _$TypePokemonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TypePokemonToJson(this);
 }
 
 @immutable
@@ -1506,4 +1718,9 @@ class TypeRelations {
   ///  * [Type]
   @JsonKey(name: 'double_damage_from')
   final List<NamedApiResource> doubleDamageFrom;
+
+  factory TypeRelations.fromJson(Map<String, dynamic> json) =>
+      _$TypeRelationsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TypeRelationsToJson(this);
 }

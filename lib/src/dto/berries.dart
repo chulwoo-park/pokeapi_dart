@@ -6,6 +6,8 @@ import 'items.dart';
 import 'pokemon.dart';
 import 'utility/common.dart';
 
+part 'berries.g.dart';
+
 @immutable
 @JsonSerializable()
 class Berry {
@@ -81,6 +83,10 @@ class Berry {
   ///  * [Type]
   @JsonKey(name: 'natural_gift_type')
   final NamedApiResource naturalGiftType;
+
+  factory Berry.fromJson(Map<String, dynamic> json) => _$BerryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BerryToJson(this);
 }
 
 @immutable
@@ -100,6 +106,11 @@ class BerryFlavorMap {
   ///
   ///  * [BerryFlavor]
   final NamedApiResource flavor;
+
+  factory BerryFlavorMap.fromJson(Map<String, dynamic> json) =>
+      _$BerryFlavorMapFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BerryFlavorMapToJson(this);
 }
 
 @immutable
@@ -127,6 +138,11 @@ class BerryFirmness {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory BerryFirmness.fromJson(Map<String, dynamic> json) =>
+      _$BerryFirmnessFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BerryFirmnessToJson(this);
 }
 
 @immutable
@@ -159,6 +175,11 @@ class BerryFlavor {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory BerryFlavor.fromJson(Map<String, dynamic> json) =>
+      _$BerryFlavorFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BerryFlavorToJson(this);
 }
 
 @immutable
@@ -178,4 +199,9 @@ class FlavorBerryMap {
   ///
   ///  * [Berry]
   final NamedApiResource berry;
+
+  factory FlavorBerryMap.fromJson(Map<String, dynamic> json) =>
+      _$FlavorBerryMapFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FlavorBerryMapToJson(this);
 }

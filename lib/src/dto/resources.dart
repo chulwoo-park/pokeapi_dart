@@ -3,6 +3,8 @@ import 'package:meta/meta.dart';
 
 import 'utility/common.dart';
 
+part 'resources.g.dart';
+
 @immutable
 @JsonSerializable()
 class ApiResourceList {
@@ -52,4 +54,9 @@ class NamedApiResourceList {
 
   /// A list of named API resources.
   final List<NamedApiResource> results;
+
+  factory NamedApiResourceList.fromJson(Map<String, dynamic> json) =>
+      _$NamedApiResourceListFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NamedApiResourceListToJson(this);
 }

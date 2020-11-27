@@ -5,6 +5,8 @@ import 'games.dart';
 import 'pokemon.dart';
 import 'utility/common.dart';
 
+part 'locations.g.dart';
+
 @immutable
 @JsonSerializable()
 class Location {
@@ -43,6 +45,11 @@ class Location {
   ///
   ///  * [LocationArea]
   final List<NamedApiResource> areas;
+
+  factory Location.fromJson(Map<String, dynamic> json) =>
+      _$LocationFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LocationToJson(this);
 }
 
 @immutable
@@ -87,6 +94,11 @@ class LocationArea {
   /// specific details about the encounter.
   @JsonKey(name: 'pokemon_encounters')
   final List<PokemonEncounter> pokemonEncounters;
+
+  factory LocationArea.fromJson(Map<String, dynamic> json) =>
+      _$LocationAreaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LocationAreaToJson(this);
 }
 
 @immutable
@@ -108,6 +120,11 @@ class EncounterMethodRate {
   /// The chance of the encounter to occur on a version of the game.
   @JsonKey(name: 'version_details')
   final List<EncounterVersionDetails> versionDetails;
+
+  factory EncounterMethodRate.fromJson(Map<String, dynamic> json) =>
+      _$EncounterMethodRateFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EncounterMethodRateToJson(this);
 }
 
 @immutable
@@ -128,6 +145,11 @@ class EncounterVersionDetails {
   ///
   ///  * [Version]
   final NamedApiResource version;
+
+  factory EncounterVersionDetails.fromJson(Map<String, dynamic> json) =>
+      _$EncounterVersionDetailsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EncounterVersionDetailsToJson(this);
 }
 
 @immutable
@@ -149,6 +171,11 @@ class PokemonEncounter {
   /// referenced location area.
   @JsonKey(name: 'version_details')
   final List<VersionEncounterDetail> versionDetails;
+
+  factory PokemonEncounter.fromJson(Map<String, dynamic> json) =>
+      _$PokemonEncounterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonEncounterToJson(this);
 }
 
 @immutable
@@ -173,6 +200,11 @@ class PalParkArea {
   /// A list of Pokémon encountered in thi pal park area along with details.
   @JsonKey(name: 'pokemon_encounters')
   final List<PalParkEncounterSpecies> pokemonEncounters;
+
+  factory PalParkArea.fromJson(Map<String, dynamic> json) =>
+      _$PalParkAreaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PalParkAreaToJson(this);
 }
 
 @immutable
@@ -199,6 +231,11 @@ class PalParkEncounterSpecies {
   ///  * [PokemonSpecies]
   @JsonKey(name: 'pokemon_species')
   final NamedApiResource pokemonSpecies;
+
+  factory PalParkEncounterSpecies.fromJson(Map<String, dynamic> json) =>
+      _$PalParkEncounterSpeciesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PalParkEncounterSpeciesToJson(this);
 }
 
 @immutable
@@ -252,4 +289,8 @@ class Region {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_groups')
   final List<NamedApiResource> versionGroups;
+
+  factory Region.fromJson(Map<String, dynamic> json) => _$RegionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RegionToJson(this);
 }

@@ -3,6 +3,8 @@ import 'package:meta/meta.dart';
 
 import 'utility/common.dart';
 
+part 'encounters.g.dart';
+
 @immutable
 @JsonSerializable()
 class EncounterMethod {
@@ -24,6 +26,11 @@ class EncounterMethod {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory EncounterMethod.fromJson(Map<String, dynamic> json) =>
+      _$EncounterMethodFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EncounterMethodToJson(this);
 }
 
 @immutable
@@ -51,6 +58,11 @@ class EncounterCondition {
   ///
   ///  * [EncounterConditionValue]
   final List<NamedApiResource> values;
+
+  factory EncounterCondition.fromJson(Map<String, dynamic> json) =>
+      _$EncounterConditionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EncounterConditionToJson(this);
 }
 
 @immutable
@@ -78,4 +90,9 @@ class EncounterConditionValue {
 
   /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  factory EncounterConditionValue.fromJson(Map<String, dynamic> json) =>
+      _$EncounterConditionValueFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EncounterConditionValueToJson(this);
 }

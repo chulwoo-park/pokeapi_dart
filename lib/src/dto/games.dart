@@ -6,6 +6,8 @@ import 'moves.dart';
 import 'pokemon.dart';
 import 'utility/common.dart';
 
+part 'games.g.dart';
+
 @immutable
 @JsonSerializable()
 class Generation {
@@ -74,6 +76,11 @@ class Generation {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_groups')
   final List<NamedApiResource> versionGroups;
+
+  factory Generation.fromJson(Map<String, dynamic> json) =>
+      _$GenerationFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GenerationToJson(this);
 }
 
 @immutable
@@ -125,6 +132,11 @@ class Pokedex {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_groups')
   final List<NamedApiResource> versionGroups;
+
+  factory Pokedex.fromJson(Map<String, dynamic> json) =>
+      _$PokedexFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokedexToJson(this);
 }
 
 @immutable
@@ -142,6 +154,11 @@ class PokemonEntry {
   /// The Pokémon species being encountered.
   @JsonKey(name: 'pokemon_species')
   final NamedApiResource pokemonSpecies;
+
+  factory PokemonEntry.fromJson(Map<String, dynamic> json) =>
+      _$PokemonEntryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PokemonEntryToJson(this);
 }
 
 @immutable
@@ -170,6 +187,11 @@ class Version {
   ///  * [VersionGroup]
   @JsonKey(name: 'version_group')
   final NamedApiResource versionGroup;
+
+  factory Version.fromJson(Map<String, dynamic> json) =>
+      _$VersionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VersionToJson(this);
 }
 
 @immutable
@@ -231,4 +253,9 @@ class VersionGroup {
   ///
   ///  * [Version]
   final List<NamedApiResource> versions;
+
+  factory VersionGroup.fromJson(Map<String, dynamic> json) =>
+      _$VersionGroupFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VersionGroupToJson(this);
 }
