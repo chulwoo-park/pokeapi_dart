@@ -16,3 +16,4 @@ dependencies:
 dev_dependencies:
   build_runner: ^1.10.6
   json_serializable: ^3.5.0
+  test: ^1.15.7
