@@ -26,77 +26,56 @@ const _baseUrl = 'https://pokeapi.co/api/v2';
 class BasePokeApiEndpoints extends PokeApiEndpoints {
   BasePokeApiEndpoints(PokeApiClient client)
       : super(
-          berries: BaseNamedEndpoint<Berry>(client, 'berry'),
-          berryFirmness:
-              BaseNamedEndpoint<BerryFirmness>(client, 'berry-firmness'),
-          berryFlavors: BaseNamedEndpoint<BerryFlavor>(client, 'berry-flavor'),
-          contestType: BaseNamedEndpoint<ContestType>(client, 'contest-type'),
-          contestEffect: BaseEndpoint<ContestEffect>(client, 'contest-effect'),
-          superContestEffects:
-              BaseEndpoint<SuperContestEffect>(client, 'super-contest-effect'),
-          encounterMethods:
-              BaseNamedEndpoint<EncounterMethod>(client, 'encounter-method'),
-          encounterConditions: BaseNamedEndpoint<EncounterCondition>(
-              client, 'encounter-condition'),
-          encounterConditionValues: BaseNamedEndpoint<EncounterConditionValue>(
-              client, 'encounter-condition-value'),
-          evolutionChain:
-              BaseEndpoint<EvolutionChain>(client, 'evolution-chain'),
-          evolutionTriggers:
-              BaseNamedEndpoint<EvolutionTrigger>(client, 'evolution-trigger'),
-          generations: BaseNamedEndpoint<Generation>(client, 'generation'),
-          pokedexes: BaseNamedEndpoint<Pokedex>(client, 'pokedex'),
-          version: BaseNamedEndpoint<Version>(client, 'version'),
-          versionGroups:
-              BaseNamedEndpoint<VersionGroup>(client, 'version-group'),
-          item: BaseNamedEndpoint<Item>(client, 'item'),
-          itemAttributes:
-              BaseNamedEndpoint<ItemAttribute>(client, 'item-attribute'),
-          itemCategories:
-              BaseNamedEndpoint<ItemCategory>(client, 'item-category'),
-          itemFlingEffects:
-              BaseNamedEndpoint<ItemFlingEffect>(client, 'item-fling-effect'),
-          itemPockets: BaseNamedEndpoint<ItemPocket>(client, 'item-pocket'),
-          locations: BaseNamedEndpoint<Location>(client, 'location'),
-          locationAreas:
-              BaseNamedEndpoint<LocationArea>(client, 'location-area'),
-          palParkAreas: BaseNamedEndpoint<PalParkArea>(client, 'pal-park-area'),
-          regions: BaseNamedEndpoint<Region>(client, 'region'),
-          machines: BaseNamedEndpoint<Machine>(client, 'machine'),
-          moves: BaseNamedEndpoint<Move>(client, 'move'),
-          moveAilments: BaseNamedEndpoint<MoveAilment>(client, 'move-ailment'),
-          moveBattleStyles:
-              BaseNamedEndpoint<MoveBattleStyle>(client, 'move-battle-style'),
-          moveCategories:
-              BaseNamedEndpoint<MoveCategory>(client, 'move-category'),
-          moveDamageClasses:
-              BaseNamedEndpoint<MoveDamageClass>(client, 'move-damage-class'),
-          moveLearnMethods:
-              BaseNamedEndpoint<MoveLearnMethod>(client, 'move-learn-method'),
-          moveTargets: BaseNamedEndpoint<MoveTarget>(client, 'move-target'),
-          abilities: BaseNamedEndpoint<Ability>(client, 'ability'),
-          characteristics:
-              BaseEndpoint<Characteristic>(client, 'characteristic'),
-          eggGroups: BaseNamedEndpoint<EggGroup>(client, 'egg-group'),
-          genders: BaseNamedEndpoint<Gender>(client, 'gender'),
-          growthRates: BaseNamedEndpoint<GrowthRate>(client, 'growth-rate'),
-          natures: BaseNamedEndpoint<Nature>(client, 'nature'),
-          pokeathlonStats:
-              BaseNamedEndpoint<PokeathlonStat>(client, 'pokeathlon-stat'),
-          pokemon: BaseNamedEndpoint<Pokemon>(client, 'pokemon'),
+          berries: BaseNamedEndpoint<Berry>(client),
+          berryFirmness: BaseNamedEndpoint<BerryFirmness>(client),
+          berryFlavors: BaseNamedEndpoint<BerryFlavor>(client),
+          contestType: BaseNamedEndpoint<ContestType>(client),
+          contestEffect: BaseEndpoint<ContestEffect>(client),
+          superContestEffects: BaseEndpoint<SuperContestEffect>(client),
+          encounterMethods: BaseNamedEndpoint<EncounterMethod>(client),
+          encounterConditions: BaseNamedEndpoint<EncounterCondition>(client),
+          encounterConditionValues:
+              BaseNamedEndpoint<EncounterConditionValue>(client),
+          evolutionChain: BaseEndpoint<EvolutionChain>(client),
+          evolutionTriggers: BaseNamedEndpoint<EvolutionTrigger>(client),
+          generations: BaseNamedEndpoint<Generation>(client),
+          pokedexes: BaseNamedEndpoint<Pokedex>(client),
+          version: BaseNamedEndpoint<Version>(client),
+          versionGroups: BaseNamedEndpoint<VersionGroup>(client),
+          item: BaseNamedEndpoint<Item>(client),
+          itemAttributes: BaseNamedEndpoint<ItemAttribute>(client),
+          itemCategories: BaseNamedEndpoint<ItemCategory>(client),
+          itemFlingEffects: BaseNamedEndpoint<ItemFlingEffect>(client),
+          itemPockets: BaseNamedEndpoint<ItemPocket>(client),
+          locations: BaseNamedEndpoint<Location>(client),
+          locationAreas: BaseNamedEndpoint<LocationArea>(client),
+          palParkAreas: BaseNamedEndpoint<PalParkArea>(client),
+          regions: BaseNamedEndpoint<Region>(client),
+          machines: BaseNamedEndpoint<Machine>(client),
+          moves: BaseNamedEndpoint<Move>(client),
+          moveAilments: BaseNamedEndpoint<MoveAilment>(client),
+          moveBattleStyles: BaseNamedEndpoint<MoveBattleStyle>(client),
+          moveCategories: BaseNamedEndpoint<MoveCategory>(client),
+          moveDamageClasses: BaseNamedEndpoint<MoveDamageClass>(client),
+          moveLearnMethods: BaseNamedEndpoint<MoveLearnMethod>(client),
+          moveTargets: BaseNamedEndpoint<MoveTarget>(client),
+          abilities: BaseNamedEndpoint<Ability>(client),
+          characteristics: BaseEndpoint<Characteristic>(client),
+          eggGroups: BaseNamedEndpoint<EggGroup>(client),
+          genders: BaseNamedEndpoint<Gender>(client),
+          growthRates: BaseNamedEndpoint<GrowthRate>(client),
+          natures: BaseNamedEndpoint<Nature>(client),
+          pokeathlonStats: BaseNamedEndpoint<PokeathlonStat>(client),
+          pokemon: BaseNamedEndpoint<Pokemon>(client),
           // TODO: poke location endpoint
-          pokemonColors:
-              BaseNamedEndpoint<PokemonColor>(client, 'pokemon-color'),
-          pokemonForms: BaseNamedEndpoint<PokemonForm>(client, 'pokemon-form'),
-          pokemonHabitats:
-              BaseNamedEndpoint<PokemonHabitat>(client, 'pokemon-habitat'),
-          pokemonShapes:
-              BaseNamedEndpoint<PokemonShape>(client, 'pokemon-shape'),
-          pokemonSpecies:
-              BaseNamedEndpoint<PokemonSpecies>(client, 'pokemon-species'),
-          stats: BaseNamedEndpoint<Stat>(client, 'stat'),
-          type: BaseNamedEndpoint<Type>(client, 'type'),
-          languages: BaseNamedEndpoint<Language>(client, 'language'),
+          pokemonColors: BaseNamedEndpoint<PokemonColor>(client),
+          pokemonForms: BaseNamedEndpoint<PokemonForm>(client),
+          pokemonHabitats: BaseNamedEndpoint<PokemonHabitat>(client),
+          pokemonShapes: BaseNamedEndpoint<PokemonShape>(client),
+          pokemonSpecies: BaseNamedEndpoint<PokemonSpecies>(client),
+          stats: BaseNamedEndpoint<Stat>(client),
+          type: BaseNamedEndpoint<Type>(client),
+          languages: BaseNamedEndpoint<Language>(client),
         );
 }
 
@@ -125,13 +104,27 @@ class BasePokeApiClient implements PokeApiClient {
   }
 }
 
-class BaseEndpoint<Resource> implements Endpoint<Resource> {
-  BaseEndpoint(this.client, this.resource);
+mixin ResourceEndpointMixin<Resource> {
+  String _resource;
+  String get resource => _resource ?? _createResource();
+
+  String _createResource() {
+    _resource = Resource.toString()
+        .split('<')[0] // drop generic
+        .split(RegExp(r'(?=[A-Z])'))
+        .join('-')
+        .toLowerCase();
+
+    return _resource;
+  }
+}
+
+class BaseEndpoint<Resource>
+    with ResourceEndpointMixin<Resource>
+    implements Endpoint<Resource> {
+  BaseEndpoint(this.client);
 
   final PokeApiClient client;
-
-  // TODO: Pascal case(Resource.runtimeType) to kebab case
-  final String resource;
 
   @override
   Future<ApiResourceList> getPage({
@@ -148,11 +141,12 @@ class BaseEndpoint<Resource> implements Endpoint<Resource> {
   }
 }
 
-class BaseNamedEndpoint<Resource> implements NamedEndpoint<Resource> {
-  const BaseNamedEndpoint(this.client, this.resource);
+class BaseNamedEndpoint<Resource>
+    with ResourceEndpointMixin<Resource>
+    implements NamedEndpoint<Resource> {
+  BaseNamedEndpoint(this.client);
 
   final PokeApiClient client;
-  final String resource;
 
   @override
   Future<NamedApiResourceList> getPage({
