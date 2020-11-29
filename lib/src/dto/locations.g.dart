@@ -6,8 +6,8 @@ part of 'locations.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Location _$LocationFromJson(Map<String, dynamic> json) {
-  return Location(
+_$_Location _$_$_LocationFromJson(Map<String, dynamic> json) {
+  return _$_Location(
     json['id'] as int,
     json['name'] as String,
     json['region'] == null
@@ -30,7 +30,8 @@ Location _$LocationFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_LocationToJson(_$_Location instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'region': instance.region?.toJson(),
@@ -39,8 +40,8 @@ Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
       'areas': instance.areas?.map((e) => e?.toJson())?.toList(),
     };
 
-LocationArea _$LocationAreaFromJson(Map<String, dynamic> json) {
-  return LocationArea(
+_$_LocationArea _$_$_LocationAreaFromJson(Map<String, dynamic> json) {
+  return _$_LocationArea(
     json['id'] as int,
     json['name'] as String,
     json['game_index'] as int,
@@ -64,7 +65,7 @@ LocationArea _$LocationAreaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LocationAreaToJson(LocationArea instance) =>
+Map<String, dynamic> _$_$_LocationAreaToJson(_$_LocationArea instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -77,8 +78,9 @@ Map<String, dynamic> _$LocationAreaToJson(LocationArea instance) =>
           instance.pokemonEncounters?.map((e) => e?.toJson())?.toList(),
     };
 
-EncounterMethodRate _$EncounterMethodRateFromJson(Map<String, dynamic> json) {
-  return EncounterMethodRate(
+_$_EncounterMethodRate _$_$_EncounterMethodRateFromJson(
+    Map<String, dynamic> json) {
+  return _$_EncounterMethodRate(
     json['encounter_method'] == null
         ? null
         : NamedApiResource.fromJson(
@@ -91,17 +93,17 @@ EncounterMethodRate _$EncounterMethodRateFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EncounterMethodRateToJson(
-        EncounterMethodRate instance) =>
+Map<String, dynamic> _$_$_EncounterMethodRateToJson(
+        _$_EncounterMethodRate instance) =>
     <String, dynamic>{
       'encounter_method': instance.encounterMethod?.toJson(),
       'version_details':
           instance.versionDetails?.map((e) => e?.toJson())?.toList(),
     };
 
-EncounterVersionDetails _$EncounterVersionDetailsFromJson(
+_$_EncounterVersionDetails _$_$_EncounterVersionDetailsFromJson(
     Map<String, dynamic> json) {
-  return EncounterVersionDetails(
+  return _$_EncounterVersionDetails(
     json['rate'] as int,
     json['version'] == null
         ? null
@@ -109,15 +111,15 @@ EncounterVersionDetails _$EncounterVersionDetailsFromJson(
   );
 }
 
-Map<String, dynamic> _$EncounterVersionDetailsToJson(
-        EncounterVersionDetails instance) =>
+Map<String, dynamic> _$_$_EncounterVersionDetailsToJson(
+        _$_EncounterVersionDetails instance) =>
     <String, dynamic>{
       'rate': instance.rate,
       'version': instance.version?.toJson(),
     };
 
-PokemonEncounter _$PokemonEncounterFromJson(Map<String, dynamic> json) {
-  return PokemonEncounter(
+_$_PokemonEncounter _$_$_PokemonEncounterFromJson(Map<String, dynamic> json) {
+  return _$_PokemonEncounter(
     json['pokemon'] == null
         ? null
         : NamedApiResource.fromJson(json['pokemon'] as Map<String, dynamic>),
@@ -129,15 +131,16 @@ PokemonEncounter _$PokemonEncounterFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonEncounterToJson(PokemonEncounter instance) =>
+Map<String, dynamic> _$_$_PokemonEncounterToJson(
+        _$_PokemonEncounter instance) =>
     <String, dynamic>{
       'pokemon': instance.pokemon?.toJson(),
       'version_details':
           instance.versionDetails?.map((e) => e?.toJson())?.toList(),
     };
 
-PalParkArea _$PalParkAreaFromJson(Map<String, dynamic> json) {
-  return PalParkArea(
+_$_PalParkArea _$_$_PalParkAreaFromJson(Map<String, dynamic> json) {
+  return _$_PalParkArea(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -152,7 +155,7 @@ PalParkArea _$PalParkAreaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PalParkAreaToJson(PalParkArea instance) =>
+Map<String, dynamic> _$_$_PalParkAreaToJson(_$_PalParkArea instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -161,9 +164,9 @@ Map<String, dynamic> _$PalParkAreaToJson(PalParkArea instance) =>
           instance.pokemonEncounters?.map((e) => e?.toJson())?.toList(),
     };
 
-PalParkEncounterSpecies _$PalParkEncounterSpeciesFromJson(
+_$_PalParkEncounterSpecies _$_$_PalParkEncounterSpeciesFromJson(
     Map<String, dynamic> json) {
-  return PalParkEncounterSpecies(
+  return _$_PalParkEncounterSpecies(
     json['base_score'] as int,
     json['rate'] as int,
     json['pokemon_species'] == null
@@ -173,16 +176,16 @@ PalParkEncounterSpecies _$PalParkEncounterSpeciesFromJson(
   );
 }
 
-Map<String, dynamic> _$PalParkEncounterSpeciesToJson(
-        PalParkEncounterSpecies instance) =>
+Map<String, dynamic> _$_$_PalParkEncounterSpeciesToJson(
+        _$_PalParkEncounterSpecies instance) =>
     <String, dynamic>{
       'base_score': instance.baseScore,
       'rate': instance.rate,
       'pokemon_species': instance.pokemonSpecies?.toJson(),
     };
 
-Region _$RegionFromJson(Map<String, dynamic> json) {
-  return Region(
+_$_Region _$_$_RegionFromJson(Map<String, dynamic> json) {
+  return _$_Region(
     json['id'] as int,
     (json['locations'] as List)
         ?.map((e) => e == null
@@ -211,7 +214,7 @@ Region _$RegionFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$RegionToJson(Region instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_RegionToJson(_$_Region instance) => <String, dynamic>{
       'id': instance.id,
       'locations': instance.locations?.map((e) => e?.toJson())?.toList(),
       'name': instance.name,

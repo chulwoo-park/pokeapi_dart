@@ -6,8 +6,8 @@ part of 'machines.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Machine _$MachineFromJson(Map<String, dynamic> json) {
-  return Machine(
+_$_Machine _$_$_MachineFromJson(Map<String, dynamic> json) {
+  return _$_Machine(
     json['id'] as int,
     json['item'] == null
         ? null
@@ -22,7 +22,8 @@ Machine _$MachineFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MachineToJson(Machine instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_MachineToJson(_$_Machine instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'item': instance.item?.toJson(),
       'move': instance.move?.toJson(),

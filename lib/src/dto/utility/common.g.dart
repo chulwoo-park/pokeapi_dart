@@ -6,19 +6,19 @@ part of 'common.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ApiResource _$ApiResourceFromJson(Map<String, dynamic> json) {
-  return ApiResource(
+_$_ApiResource _$_$_ApiResourceFromJson(Map<String, dynamic> json) {
+  return _$_ApiResource(
     json['url'] as String,
   );
 }
 
-Map<String, dynamic> _$ApiResourceToJson(ApiResource instance) =>
+Map<String, dynamic> _$_$_ApiResourceToJson(_$_ApiResource instance) =>
     <String, dynamic>{
       'url': instance.url,
     };
 
-Description _$DescriptionFromJson(Map<String, dynamic> json) {
-  return Description(
+_$_Description _$_$_DescriptionFromJson(Map<String, dynamic> json) {
+  return _$_Description(
     json['description'] as String,
     json['language'] == null
         ? null
@@ -26,14 +26,14 @@ Description _$DescriptionFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DescriptionToJson(Description instance) =>
+Map<String, dynamic> _$_$_DescriptionToJson(_$_Description instance) =>
     <String, dynamic>{
       'description': instance.description,
       'language': instance.language?.toJson(),
     };
 
-Effect _$EffectFromJson(Map<String, dynamic> json) {
-  return Effect(
+_$_Effect _$_$_EffectFromJson(Map<String, dynamic> json) {
+  return _$_Effect(
     json['effect'] as String,
     json['language'] == null
         ? null
@@ -41,13 +41,13 @@ Effect _$EffectFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EffectToJson(Effect instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_EffectToJson(_$_Effect instance) => <String, dynamic>{
       'effect': instance.effect,
       'language': instance.language?.toJson(),
     };
 
-Encounter _$EncounterFromJson(Map<String, dynamic> json) {
-  return Encounter(
+_$_Encounter _$_$_EncounterFromJson(Map<String, dynamic> json) {
+  return _$_Encounter(
     json['min_level'] as int,
     json['max_level'] as int,
     (json['condition_values'] as List)
@@ -62,7 +62,8 @@ Encounter _$EncounterFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EncounterToJson(Encounter instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_EncounterToJson(_$_Encounter instance) =>
+    <String, dynamic>{
       'min_level': instance.minLevel,
       'max_level': instance.maxLevel,
       'condition_values':
@@ -71,8 +72,8 @@ Map<String, dynamic> _$EncounterToJson(Encounter instance) => <String, dynamic>{
       'method': instance.method?.toJson(),
     };
 
-FlavorText _$FlavorTextFromJson(Map<String, dynamic> json) {
-  return FlavorText(
+_$_FlavorText _$_$_FlavorTextFromJson(Map<String, dynamic> json) {
+  return _$_FlavorText(
     json['flavor_text'] as String,
     json['language'] == null
         ? null
@@ -83,15 +84,16 @@ FlavorText _$FlavorTextFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$FlavorTextToJson(FlavorText instance) =>
+Map<String, dynamic> _$_$_FlavorTextToJson(_$_FlavorText instance) =>
     <String, dynamic>{
       'flavor_text': instance.flavorText,
       'language': instance.language?.toJson(),
       'version': instance.version?.toJson(),
     };
 
-GenerationGameIndex _$GenerationGameIndexFromJson(Map<String, dynamic> json) {
-  return GenerationGameIndex(
+_$_GenerationGameIndex _$_$_GenerationGameIndexFromJson(
+    Map<String, dynamic> json) {
+  return _$_GenerationGameIndex(
     json['game_index'] as int,
     json['generation'] == null
         ? null
@@ -99,15 +101,16 @@ GenerationGameIndex _$GenerationGameIndexFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GenerationGameIndexToJson(
-        GenerationGameIndex instance) =>
+Map<String, dynamic> _$_$_GenerationGameIndexToJson(
+        _$_GenerationGameIndex instance) =>
     <String, dynamic>{
       'game_index': instance.gameIndex,
       'generation': instance.generation?.toJson(),
     };
 
-MachineVersionDetail _$MachineVersionDetailFromJson(Map<String, dynamic> json) {
-  return MachineVersionDetail(
+_$_MachineVersionDetail _$_$_MachineVersionDetailFromJson(
+    Map<String, dynamic> json) {
+  return _$_MachineVersionDetail(
     json['machine'] == null
         ? null
         : ApiResource.fromJson(json['machine'] as Map<String, dynamic>),
@@ -118,15 +121,15 @@ MachineVersionDetail _$MachineVersionDetailFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MachineVersionDetailToJson(
-        MachineVersionDetail instance) =>
+Map<String, dynamic> _$_$_MachineVersionDetailToJson(
+        _$_MachineVersionDetail instance) =>
     <String, dynamic>{
       'machine': instance.machine?.toJson(),
       'version_group': instance.versionGroup?.toJson(),
     };
 
-Name _$NameFromJson(Map<String, dynamic> json) {
-  return Name(
+_$_Name _$_$_NameFromJson(Map<String, dynamic> json) {
+  return _$_Name(
     json['name'] as String,
     json['language'] == null
         ? null
@@ -134,26 +137,27 @@ Name _$NameFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NameToJson(Name instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_NameToJson(_$_Name instance) => <String, dynamic>{
       'name': instance.name,
       'language': instance.language?.toJson(),
     };
 
-NamedApiResource _$NamedApiResourceFromJson(Map<String, dynamic> json) {
-  return NamedApiResource(
+_$_NamedApiResource _$_$_NamedApiResourceFromJson(Map<String, dynamic> json) {
+  return _$_NamedApiResource(
     json['name'] as String,
     json['url'] as String,
   );
 }
 
-Map<String, dynamic> _$NamedApiResourceToJson(NamedApiResource instance) =>
+Map<String, dynamic> _$_$_NamedApiResourceToJson(
+        _$_NamedApiResource instance) =>
     <String, dynamic>{
       'name': instance.name,
       'url': instance.url,
     };
 
-VerboseEffect _$VerboseEffectFromJson(Map<String, dynamic> json) {
-  return VerboseEffect(
+_$_VerboseEffect _$_$_VerboseEffectFromJson(Map<String, dynamic> json) {
+  return _$_VerboseEffect(
     json['effect'] as String,
     json['short_effect'] as String,
     json['language'] == null
@@ -162,16 +166,16 @@ VerboseEffect _$VerboseEffectFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$VerboseEffectToJson(VerboseEffect instance) =>
+Map<String, dynamic> _$_$_VerboseEffectToJson(_$_VerboseEffect instance) =>
     <String, dynamic>{
       'effect': instance.effect,
       'short_effect': instance.shortEffect,
       'language': instance.language?.toJson(),
     };
 
-VersionEncounterDetail _$VersionEncounterDetailFromJson(
+_$_VersionEncounterDetail _$_$_VersionEncounterDetailFromJson(
     Map<String, dynamic> json) {
-  return VersionEncounterDetail(
+  return _$_VersionEncounterDetail(
     json['version'] == null
         ? null
         : NamedApiResource.fromJson(json['version'] as Map<String, dynamic>),
@@ -183,8 +187,8 @@ VersionEncounterDetail _$VersionEncounterDetailFromJson(
   );
 }
 
-Map<String, dynamic> _$VersionEncounterDetailToJson(
-        VersionEncounterDetail instance) =>
+Map<String, dynamic> _$_$_VersionEncounterDetailToJson(
+        _$_VersionEncounterDetail instance) =>
     <String, dynamic>{
       'version': instance.version?.toJson(),
       'max_chance': instance.maxChance,
@@ -192,8 +196,8 @@ Map<String, dynamic> _$VersionEncounterDetailToJson(
           instance.encounterDetails?.map((e) => e?.toJson())?.toList(),
     };
 
-VersionGameIndex _$VersionGameIndexFromJson(Map<String, dynamic> json) {
-  return VersionGameIndex(
+_$_VersionGameIndex _$_$_VersionGameIndexFromJson(Map<String, dynamic> json) {
+  return _$_VersionGameIndex(
     json['game_index'] as int,
     json['version'] == null
         ? null
@@ -201,15 +205,16 @@ VersionGameIndex _$VersionGameIndexFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$VersionGameIndexToJson(VersionGameIndex instance) =>
+Map<String, dynamic> _$_$_VersionGameIndexToJson(
+        _$_VersionGameIndex instance) =>
     <String, dynamic>{
       'game_index': instance.gameIndex,
       'version': instance.version?.toJson(),
     };
 
-VersionGroupFlavorText _$VersionGroupFlavorTextFromJson(
+_$_VersionGroupFlavorText _$_$_VersionGroupFlavorTextFromJson(
     Map<String, dynamic> json) {
-  return VersionGroupFlavorText(
+  return _$_VersionGroupFlavorText(
     json['text'] as String,
     json['language'] == null
         ? null
@@ -221,8 +226,8 @@ VersionGroupFlavorText _$VersionGroupFlavorTextFromJson(
   );
 }
 
-Map<String, dynamic> _$VersionGroupFlavorTextToJson(
-        VersionGroupFlavorText instance) =>
+Map<String, dynamic> _$_$_VersionGroupFlavorTextToJson(
+        _$_VersionGroupFlavorText instance) =>
     <String, dynamic>{
       'text': instance.text,
       'language': instance.language?.toJson(),

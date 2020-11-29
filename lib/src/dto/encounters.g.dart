@@ -6,8 +6,8 @@ part of 'encounters.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EncounterMethod _$EncounterMethodFromJson(Map<String, dynamic> json) {
-  return EncounterMethod(
+_$_EncounterMethod _$_$_EncounterMethodFromJson(Map<String, dynamic> json) {
+  return _$_EncounterMethod(
     json['id'] as int,
     json['name'] as String,
     json['order'] as int,
@@ -18,7 +18,7 @@ EncounterMethod _$EncounterMethodFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EncounterMethodToJson(EncounterMethod instance) =>
+Map<String, dynamic> _$_$_EncounterMethodToJson(_$_EncounterMethod instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -26,8 +26,9 @@ Map<String, dynamic> _$EncounterMethodToJson(EncounterMethod instance) =>
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-EncounterCondition _$EncounterConditionFromJson(Map<String, dynamic> json) {
-  return EncounterCondition(
+_$_EncounterCondition _$_$_EncounterConditionFromJson(
+    Map<String, dynamic> json) {
+  return _$_EncounterCondition(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -42,7 +43,8 @@ EncounterCondition _$EncounterConditionFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EncounterConditionToJson(EncounterCondition instance) =>
+Map<String, dynamic> _$_$_EncounterConditionToJson(
+        _$_EncounterCondition instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -50,9 +52,9 @@ Map<String, dynamic> _$EncounterConditionToJson(EncounterCondition instance) =>
       'values': instance.values?.map((e) => e?.toJson())?.toList(),
     };
 
-EncounterConditionValue _$EncounterConditionValueFromJson(
+_$_EncounterConditionValue _$_$_EncounterConditionValueFromJson(
     Map<String, dynamic> json) {
-  return EncounterConditionValue(
+  return _$_EncounterConditionValue(
     json['id'] as int,
     json['name'] as String,
     json['condition'] == null
@@ -65,8 +67,8 @@ EncounterConditionValue _$EncounterConditionValueFromJson(
   );
 }
 
-Map<String, dynamic> _$EncounterConditionValueToJson(
-        EncounterConditionValue instance) =>
+Map<String, dynamic> _$_$_EncounterConditionValueToJson(
+        _$_EncounterConditionValue instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

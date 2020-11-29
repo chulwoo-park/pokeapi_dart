@@ -6,8 +6,8 @@ part of 'items.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Item _$ItemFromJson(Map<String, dynamic> json) {
-  return Item(
+_$_Item _$_$_ItemFromJson(Map<String, dynamic> json) {
+  return _$_Item(
     json['id'] as int,
     json['name'] as String,
     json['cost'] as int,
@@ -63,7 +63,7 @@ Item _$ItemFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_ItemToJson(_$_Item instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'cost': instance.cost,
@@ -84,19 +84,19 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'machines': instance.machines?.map((e) => e?.toJson())?.toList(),
     };
 
-ItemSprites _$ItemSpritesFromJson(Map<String, dynamic> json) {
-  return ItemSprites(
+_$_ItemSprites _$_$_ItemSpritesFromJson(Map<String, dynamic> json) {
+  return _$_ItemSprites(
     json['default'] as String,
   );
 }
 
-Map<String, dynamic> _$ItemSpritesToJson(ItemSprites instance) =>
+Map<String, dynamic> _$_$_ItemSpritesToJson(_$_ItemSprites instance) =>
     <String, dynamic>{
       'default': instance.defaults,
     };
 
-ItemHolderPokemon _$ItemHolderPokemonFromJson(Map<String, dynamic> json) {
-  return ItemHolderPokemon(
+_$_ItemHolderPokemon _$_$_ItemHolderPokemonFromJson(Map<String, dynamic> json) {
+  return _$_ItemHolderPokemon(
     json['pokemon'] == null
         ? null
         : NamedApiResource.fromJson(json['pokemon'] as Map<String, dynamic>),
@@ -109,16 +109,17 @@ ItemHolderPokemon _$ItemHolderPokemonFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemHolderPokemonToJson(ItemHolderPokemon instance) =>
+Map<String, dynamic> _$_$_ItemHolderPokemonToJson(
+        _$_ItemHolderPokemon instance) =>
     <String, dynamic>{
       'pokemon': instance.pokemon?.toJson(),
       'version_details':
           instance.versionDetails?.map((e) => e?.toJson())?.toList(),
     };
 
-ItemHolderPokemonVersionDetail _$ItemHolderPokemonVersionDetailFromJson(
+_$_ItemHolderPokemonVersionDetail _$_$_ItemHolderPokemonVersionDetailFromJson(
     Map<String, dynamic> json) {
-  return ItemHolderPokemonVersionDetail(
+  return _$_ItemHolderPokemonVersionDetail(
     json['rarity'] as int,
     json['version'] == null
         ? null
@@ -126,15 +127,15 @@ ItemHolderPokemonVersionDetail _$ItemHolderPokemonVersionDetailFromJson(
   );
 }
 
-Map<String, dynamic> _$ItemHolderPokemonVersionDetailToJson(
-        ItemHolderPokemonVersionDetail instance) =>
+Map<String, dynamic> _$_$_ItemHolderPokemonVersionDetailToJson(
+        _$_ItemHolderPokemonVersionDetail instance) =>
     <String, dynamic>{
       'rarity': instance.rarity,
       'version': instance.version?.toJson(),
     };
 
-ItemAttribute _$ItemAttributeFromJson(Map<String, dynamic> json) {
-  return ItemAttribute(
+_$_ItemAttribute _$_$_ItemAttributeFromJson(Map<String, dynamic> json) {
+  return _$_ItemAttribute(
     json['id'] as int,
     json['name'] as String,
     (json['items'] as List)
@@ -153,7 +154,7 @@ ItemAttribute _$ItemAttributeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemAttributeToJson(ItemAttribute instance) =>
+Map<String, dynamic> _$_$_ItemAttributeToJson(_$_ItemAttribute instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -162,8 +163,8 @@ Map<String, dynamic> _$ItemAttributeToJson(ItemAttribute instance) =>
       'descriptions': instance.descriptions?.map((e) => e?.toJson())?.toList(),
     };
 
-ItemCategory _$ItemCategoryFromJson(Map<String, dynamic> json) {
-  return ItemCategory(
+_$_ItemCategory _$_$_ItemCategoryFromJson(Map<String, dynamic> json) {
+  return _$_ItemCategory(
     json['id'] as int,
     json['name'] as String,
     (json['items'] as List)
@@ -181,7 +182,7 @@ ItemCategory _$ItemCategoryFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemCategoryToJson(ItemCategory instance) =>
+Map<String, dynamic> _$_$_ItemCategoryToJson(_$_ItemCategory instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -190,8 +191,8 @@ Map<String, dynamic> _$ItemCategoryToJson(ItemCategory instance) =>
       'pocket': instance.pocket?.toJson(),
     };
 
-ItemFlingEffect _$ItemFlingEffectFromJson(Map<String, dynamic> json) {
-  return ItemFlingEffect(
+_$_ItemFlingEffect _$_$_ItemFlingEffectFromJson(Map<String, dynamic> json) {
+  return _$_ItemFlingEffect(
     json['id'] as int,
     json['name'] as String,
     (json['effect_entries'] as List)
@@ -206,7 +207,7 @@ ItemFlingEffect _$ItemFlingEffectFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemFlingEffectToJson(ItemFlingEffect instance) =>
+Map<String, dynamic> _$_$_ItemFlingEffectToJson(_$_ItemFlingEffect instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -215,8 +216,8 @@ Map<String, dynamic> _$ItemFlingEffectToJson(ItemFlingEffect instance) =>
       'items': instance.items?.map((e) => e?.toJson())?.toList(),
     };
 
-ItemPocket _$ItemPocketFromJson(Map<String, dynamic> json) {
-  return ItemPocket(
+_$_ItemPocket _$_$_ItemPocketFromJson(Map<String, dynamic> json) {
+  return _$_ItemPocket(
     json['id'] as int,
     json['name'] as String,
     (json['categories'] as List)
@@ -231,7 +232,7 @@ ItemPocket _$ItemPocketFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemPocketToJson(ItemPocket instance) =>
+Map<String, dynamic> _$_$_ItemPocketToJson(_$_ItemPocket instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

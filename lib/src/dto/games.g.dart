@@ -6,8 +6,8 @@ part of 'games.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Generation _$GenerationFromJson(Map<String, dynamic> json) {
-  return Generation(
+_$_Generation _$_$_GenerationFromJson(Map<String, dynamic> json) {
+  return _$_Generation(
     json['id'] as int,
     json['name'] as String,
     (json['abilities'] as List)
@@ -46,7 +46,7 @@ Generation _$GenerationFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GenerationToJson(Generation instance) =>
+Map<String, dynamic> _$_$_GenerationToJson(_$_Generation instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -61,8 +61,8 @@ Map<String, dynamic> _$GenerationToJson(Generation instance) =>
           instance.versionGroups?.map((e) => e?.toJson())?.toList(),
     };
 
-Pokedex _$PokedexFromJson(Map<String, dynamic> json) {
-  return Pokedex(
+_$_Pokedex _$_$_PokedexFromJson(Map<String, dynamic> json) {
+  return _$_Pokedex(
     json['id'] as int,
     json['name'] as String,
     json['is_main_series'] as bool,
@@ -89,7 +89,8 @@ Pokedex _$PokedexFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokedexToJson(Pokedex instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_PokedexToJson(_$_Pokedex instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'is_main_series': instance.isMainSeries,
@@ -102,8 +103,8 @@ Map<String, dynamic> _$PokedexToJson(Pokedex instance) => <String, dynamic>{
           instance.versionGroups?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonEntry _$PokemonEntryFromJson(Map<String, dynamic> json) {
-  return PokemonEntry(
+_$_PokemonEntry _$_$_PokemonEntryFromJson(Map<String, dynamic> json) {
+  return _$_PokemonEntry(
     json['entry_number'] as int,
     json['pokemon_species'] == null
         ? null
@@ -112,14 +113,14 @@ PokemonEntry _$PokemonEntryFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonEntryToJson(PokemonEntry instance) =>
+Map<String, dynamic> _$_$_PokemonEntryToJson(_$_PokemonEntry instance) =>
     <String, dynamic>{
       'entry_number': instance.entryNumber,
       'pokemon_species': instance.pokemonSpecies?.toJson(),
     };
 
-Version _$VersionFromJson(Map<String, dynamic> json) {
-  return Version(
+_$_Version _$_$_VersionFromJson(Map<String, dynamic> json) {
+  return _$_Version(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -133,15 +134,16 @@ Version _$VersionFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_VersionToJson(_$_Version instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
       'version_group': instance.versionGroup?.toJson(),
     };
 
-VersionGroup _$VersionGroupFromJson(Map<String, dynamic> json) {
-  return VersionGroup(
+_$_VersionGroup _$_$_VersionGroupFromJson(Map<String, dynamic> json) {
+  return _$_VersionGroup(
     json['id'] as int,
     json['name'] as String,
     json['order'] as int,
@@ -171,7 +173,7 @@ VersionGroup _$VersionGroupFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$VersionGroupToJson(VersionGroup instance) =>
+Map<String, dynamic> _$_$_VersionGroupToJson(_$_VersionGroup instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

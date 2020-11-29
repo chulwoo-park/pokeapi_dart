@@ -6,8 +6,8 @@ part of 'evolution.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EvolutionChain _$EvolutionChainFromJson(Map<String, dynamic> json) {
-  return EvolutionChain(
+_$_EvolutionChain _$_$_EvolutionChainFromJson(Map<String, dynamic> json) {
+  return _$_EvolutionChain(
     json['id'] as int,
     json['baby_trigger_item'] == null
         ? null
@@ -19,15 +19,15 @@ EvolutionChain _$EvolutionChainFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EvolutionChainToJson(EvolutionChain instance) =>
+Map<String, dynamic> _$_$_EvolutionChainToJson(_$_EvolutionChain instance) =>
     <String, dynamic>{
       'id': instance.id,
       'baby_trigger_item': instance.babyTriggerItem?.toJson(),
       'chain': instance.chain?.toJson(),
     };
 
-ChainLink _$ChainLinkFromJson(Map<String, dynamic> json) {
-  return ChainLink(
+_$_ChainLink _$_$_ChainLinkFromJson(Map<String, dynamic> json) {
+  return _$_ChainLink(
     json['is_baby'] as bool,
     json['species'] == null
         ? null
@@ -44,7 +44,8 @@ ChainLink _$ChainLinkFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ChainLinkToJson(ChainLink instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_ChainLinkToJson(_$_ChainLink instance) =>
+    <String, dynamic>{
       'is_baby': instance.isBaby,
       'species': instance.species?.toJson(),
       'evolution_details':
@@ -52,8 +53,8 @@ Map<String, dynamic> _$ChainLinkToJson(ChainLink instance) => <String, dynamic>{
       'evolvesTo': instance.evolvesTo?.map((e) => e?.toJson())?.toList(),
     };
 
-EvolutionDetail _$EvolutionDetailFromJson(Map<String, dynamic> json) {
-  return EvolutionDetail(
+_$_EvolutionDetail _$_$_EvolutionDetailFromJson(Map<String, dynamic> json) {
+  return _$_EvolutionDetail(
     json['item'] == null
         ? null
         : NamedApiResource.fromJson(json['item'] as Map<String, dynamic>),
@@ -96,7 +97,7 @@ EvolutionDetail _$EvolutionDetailFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EvolutionDetailToJson(EvolutionDetail instance) =>
+Map<String, dynamic> _$_$_EvolutionDetailToJson(_$_EvolutionDetail instance) =>
     <String, dynamic>{
       'item': instance.item?.toJson(),
       'trigger': instance.trigger?.toJson(),
@@ -118,8 +119,8 @@ Map<String, dynamic> _$EvolutionDetailToJson(EvolutionDetail instance) =>
       'turn_upside_down': instance.turnUpsideDown,
     };
 
-EvolutionTrigger _$EvolutionTriggerFromJson(Map<String, dynamic> json) {
-  return EvolutionTrigger(
+_$_EvolutionTrigger _$_$_EvolutionTriggerFromJson(Map<String, dynamic> json) {
+  return _$_EvolutionTrigger(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -134,7 +135,8 @@ EvolutionTrigger _$EvolutionTriggerFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EvolutionTriggerToJson(EvolutionTrigger instance) =>
+Map<String, dynamic> _$_$_EvolutionTriggerToJson(
+        _$_EvolutionTrigger instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

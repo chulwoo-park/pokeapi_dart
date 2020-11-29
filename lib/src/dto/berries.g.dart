@@ -6,8 +6,8 @@ part of 'berries.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Berry _$BerryFromJson(Map<String, dynamic> json) {
-  return Berry(
+_$_Berry _$_$_BerryFromJson(Map<String, dynamic> json) {
+  return _$_Berry(
     json['id'] as int,
     json['name'] as String,
     json['growth_time'] as int,
@@ -34,7 +34,7 @@ Berry _$BerryFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BerryToJson(Berry instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_BerryToJson(_$_Berry instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'growth_time': instance.growthTime,
@@ -49,8 +49,8 @@ Map<String, dynamic> _$BerryToJson(Berry instance) => <String, dynamic>{
       'natural_gift_type': instance.naturalGiftType?.toJson(),
     };
 
-BerryFlavorMap _$BerryFlavorMapFromJson(Map<String, dynamic> json) {
-  return BerryFlavorMap(
+_$_BerryFlavorMap _$_$_BerryFlavorMapFromJson(Map<String, dynamic> json) {
+  return _$_BerryFlavorMap(
     json['potency'] as int,
     json['flavor'] == null
         ? null
@@ -58,14 +58,14 @@ BerryFlavorMap _$BerryFlavorMapFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BerryFlavorMapToJson(BerryFlavorMap instance) =>
+Map<String, dynamic> _$_$_BerryFlavorMapToJson(_$_BerryFlavorMap instance) =>
     <String, dynamic>{
       'potency': instance.potency,
       'flavor': instance.flavor?.toJson(),
     };
 
-BerryFirmness _$BerryFirmnessFromJson(Map<String, dynamic> json) {
-  return BerryFirmness(
+_$_BerryFirmness _$_$_BerryFirmnessFromJson(Map<String, dynamic> json) {
+  return _$_BerryFirmness(
     json['id'] as int,
     json['name'] as String,
     (json['berries'] as List)
@@ -80,7 +80,7 @@ BerryFirmness _$BerryFirmnessFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BerryFirmnessToJson(BerryFirmness instance) =>
+Map<String, dynamic> _$_$_BerryFirmnessToJson(_$_BerryFirmness instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -88,8 +88,8 @@ Map<String, dynamic> _$BerryFirmnessToJson(BerryFirmness instance) =>
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-BerryFlavor _$BerryFlavorFromJson(Map<String, dynamic> json) {
-  return BerryFlavor(
+_$_BerryFlavor _$_$_BerryFlavorFromJson(Map<String, dynamic> json) {
+  return _$_BerryFlavor(
     json['id'] as int,
     json['name'] as String,
     (json['berries'] as List)
@@ -108,7 +108,7 @@ BerryFlavor _$BerryFlavorFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BerryFlavorToJson(BerryFlavor instance) =>
+Map<String, dynamic> _$_$_BerryFlavorToJson(_$_BerryFlavor instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -117,8 +117,8 @@ Map<String, dynamic> _$BerryFlavorToJson(BerryFlavor instance) =>
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-FlavorBerryMap _$FlavorBerryMapFromJson(Map<String, dynamic> json) {
-  return FlavorBerryMap(
+_$_FlavorBerryMap _$_$_FlavorBerryMapFromJson(Map<String, dynamic> json) {
+  return _$_FlavorBerryMap(
     json['potency'] as int,
     json['berry'] == null
         ? null
@@ -126,7 +126,7 @@ FlavorBerryMap _$FlavorBerryMapFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$FlavorBerryMapToJson(FlavorBerryMap instance) =>
+Map<String, dynamic> _$_$_FlavorBerryMapToJson(_$_FlavorBerryMap instance) =>
     <String, dynamic>{
       'potency': instance.potency,
       'berry': instance.berry?.toJson(),
