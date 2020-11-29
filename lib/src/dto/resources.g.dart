@@ -6,8 +6,8 @@ part of 'resources.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ApiResourceList _$ApiResourceListFromJson(Map<String, dynamic> json) {
-  return ApiResourceList(
+_$_ApiResourceList _$_$_ApiResourceListFromJson(Map<String, dynamic> json) {
+  return _$_ApiResourceList(
     json['count'] as int,
     json['next'] as String,
     json['previous'] as String,
@@ -18,7 +18,7 @@ ApiResourceList _$ApiResourceListFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ApiResourceListToJson(ApiResourceList instance) =>
+Map<String, dynamic> _$_$_ApiResourceListToJson(_$_ApiResourceList instance) =>
     <String, dynamic>{
       'count': instance.count,
       'next': instance.next,
@@ -26,8 +26,9 @@ Map<String, dynamic> _$ApiResourceListToJson(ApiResourceList instance) =>
       'results': instance.results?.map((e) => e?.toJson())?.toList(),
     };
 
-NamedApiResourceList _$NamedApiResourceListFromJson(Map<String, dynamic> json) {
-  return NamedApiResourceList(
+_$_NamedApiResourceList _$_$_NamedApiResourceListFromJson(
+    Map<String, dynamic> json) {
+  return _$_NamedApiResourceList(
     json['count'] as int,
     json['next'] as String,
     json['previous'] as String,
@@ -39,8 +40,8 @@ NamedApiResourceList _$NamedApiResourceListFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NamedApiResourceListToJson(
-        NamedApiResourceList instance) =>
+Map<String, dynamic> _$_$_NamedApiResourceListToJson(
+        _$_NamedApiResourceList instance) =>
     <String, dynamic>{
       'count': instance.count,
       'next': instance.next,

@@ -1,3 +1,4 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -6,353 +7,290 @@ import '../games.dart';
 import '../machines.dart';
 import 'language.dart';
 
+part 'common.freezed.dart';
 part 'common.g.dart';
 
 @immutable
-@JsonSerializable()
-class ApiResource {
-  const ApiResource(this.url);
-
-  /// The URL of the referenced resource.
-  final String url;
+@freezed
+abstract class ApiResource with _$ApiResource {
+  @JsonSerializable()
+  const factory ApiResource(
+    /// The URL of the referenced resource.
+    String url,
+  ) = _ApiResource;
 
   factory ApiResource.fromJson(Map<String, dynamic> json) =>
       _$ApiResourceFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ApiResourceToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class Description {
-  const Description(
-    this.description,
-    this.language,
-  );
+@freezed
+abstract class Description with _$Description {
+  @JsonSerializable()
+  const factory Description(
+    /// The localized description for an API resource in a specific language.
+    String description,
 
-  /// The localized description for an API resource in a specific language.
-  final String description;
-
-  /// The language this name is in.
-  ///
-  /// See also:
-  ///
-  ///  * [Language]
-  final NamedApiResource language;
+    /// The language this name is in.
+    ///
+    /// See also:
+    ///
+    ///  * [Language]
+    NamedApiResource language,
+  ) = _Description;
 
   factory Description.fromJson(Map<String, dynamic> json) =>
       _$DescriptionFromJson(json);
-
-  Map<String, dynamic> toJson() => _$DescriptionToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class Effect {
-  const Effect(
-    this.effect,
-    this.language,
-  );
+@freezed
+abstract class Effect with _$Effect {
+  @JsonSerializable()
+  const factory Effect(
+    /// The localized effect text for an API resource in a specific language.
+    String effect,
 
-  /// The localized effect text for an API resource in a specific language.
-  final String effect;
-
-  /// The language this effect is in.
-  ///
-  /// See also:
-  ///
-  ///  * [Language]
-  final NamedApiResource language;
+    /// The language this effect is in.
+    ///
+    /// See also:
+    ///
+    ///  * [Language]
+    NamedApiResource language,
+  ) = _Effect;
 
   factory Effect.fromJson(Map<String, dynamic> json) => _$EffectFromJson(json);
-
-  Map<String, dynamic> toJson() => _$EffectToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class Encounter {
-  const Encounter(
-    this.minLevel,
-    this.maxLevel,
-    this.conditionValues,
-    this.chance,
-    this.method,
-  );
+@freezed
+abstract class Encounter with _$Encounter {
+  @JsonSerializable()
+  const factory Encounter(
+    /// The lowest level the Pokémon could be encountered at.
+    @JsonKey(name: 'min_level') int minLevel,
 
-  /// The lowest level the Pokémon could be encountered at.
-  @JsonKey(name: 'min_level')
-  final int minLevel;
+    /// The highest level the Pokémon could be encountered at.
+    @JsonKey(name: 'max_level') int maxLevel,
 
-  /// The highest level the Pokémon could be encountered at.
-  @JsonKey(name: 'max_level')
-  final int maxLevel;
+    /// A list of condition values that must be in effect for this encounter to
+    /// occur.
+    ///
+    /// See also:
+    ///
+    ///  * [EncounterConditionValue]
+    @JsonKey(name: 'condition_values') List<NamedApiResource> conditionValues,
 
-  /// A list of condition values that must be in effect for this encounter to
-  /// occur.
-  ///
-  /// See also:
-  ///
-  ///  * [EncounterConditionValue]
-  @JsonKey(name: 'condition_values')
-  final List<NamedApiResource> conditionValues;
+    /// Percent chance that this encounter will occur.
+    int chance,
 
-  /// Percent chance that this encounter will occur.
-  final int chance;
-
-  /// The method by which this encounter happens.
-  ///
-  /// See also:
-  ///
-  ///  * [EncounterMethod]
-  final NamedApiResource method;
+    /// The method by which this encounter happens.
+    ///
+    /// See also:
+    ///
+    ///  * [EncounterMethod]
+    NamedApiResource method,
+  ) = _Encounter;
 
   factory Encounter.fromJson(Map<String, dynamic> json) =>
       _$EncounterFromJson(json);
-
-  Map<String, dynamic> toJson() => _$EncounterToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class FlavorText {
-  const FlavorText(
-    this.flavorText,
-    this.language,
-    this.version,
-  );
+@freezed
+abstract class FlavorText with _$FlavorText {
+  @JsonSerializable()
+  const factory FlavorText(
+    /// The localized flavor text for an API resource in a specific language.
+    @JsonKey(name: 'flavor_text') String flavorText,
 
-  /// The localized flavor text for an API resource in a specific language.
-  @JsonKey(name: 'flavor_text')
-  final String flavorText;
+    /// The language this name is in.
+    ///
+    /// See also:
+    ///
+    ///  * [Language]
+    NamedApiResource language,
 
-  /// The language this name is in.
-  ///
-  /// See also:
-  ///
-  ///  * [Language]
-  final NamedApiResource language;
-
-  /// The game version this flavor text is extracted from.
-  ///
-  /// See also:
-  ///
-  ///  * [Version]
-  final NamedApiResource version;
+    /// The game version this flavor text is extracted from.
+    ///
+    /// See also:
+    ///
+    ///  * [Version]
+    @nullable NamedApiResource version,
+  ) = _FlavorText;
 
   factory FlavorText.fromJson(Map<String, dynamic> json) =>
       _$FlavorTextFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FlavorTextToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class GenerationGameIndex {
-  const GenerationGameIndex(
-    this.gameIndex,
-    this.generation,
-  );
+@freezed
+abstract class GenerationGameIndex with _$GenerationGameIndex {
+  @JsonSerializable()
+  const factory GenerationGameIndex(
+    /// The internal id of an API resource within game data.
+    @JsonKey(name: 'game_index') int gameIndex,
 
-  /// The internal id of an API resource within game data.
-  @JsonKey(name: 'game_index')
-  final int gameIndex;
-
-  /// The generation relevent to this game index.
-  ///
-  /// See also:
-  ///
-  ///  * [Generation]
-  final NamedApiResource generation;
+    /// The generation relevent to this game index.
+    ///
+    /// See also:
+    ///
+    ///  * [Generation]
+    NamedApiResource generation,
+  ) = _GenerationGameIndex;
 
   factory GenerationGameIndex.fromJson(Map<String, dynamic> json) =>
       _$GenerationGameIndexFromJson(json);
-
-  Map<String, dynamic> toJson() => _$GenerationGameIndexToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class MachineVersionDetail {
-  const MachineVersionDetail(
-    this.machine,
-    this.versionGroup,
-  );
+@freezed
+abstract class MachineVersionDetail with _$MachineVersionDetail {
+  @JsonSerializable()
+  const factory MachineVersionDetail(
+    /// The machine that teaches a move from an item.
+    ///
+    /// See also:
+    ///
+    ///  * [Machine]
+    ApiResource machine,
 
-  /// The machine that teaches a move from an item.
-  ///
-  /// See also:
-  ///
-  ///  * [Machine]
-  final ApiResource machine;
-
-  /// The version group of this specific machine.
-  ///
-  /// See also:
-  ///
-  ///  * [VersionGroup]
-  @JsonKey(name: 'version_group')
-  final NamedApiResource versionGroup;
+    /// The version group of this specific machine.
+    ///
+    /// See also:
+    ///
+    ///  * [VersionGroup]
+    @JsonKey(name: 'version_group') NamedApiResource versionGroup,
+  ) = _MachineVersionDetail;
 
   factory MachineVersionDetail.fromJson(Map<String, dynamic> json) =>
       _$MachineVersionDetailFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MachineVersionDetailToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class Name {
-  const Name(
-    this.name,
-    this.language,
-  );
+@freezed
+abstract class Name with _$Name {
+  @JsonSerializable()
+  const factory Name(
+    /// The localized name for an API resource in a specific language.
+    String name,
 
-  /// The localized name for an API resource in a specific language.
-  final String name;
-
-  /// The language this name is in.
-  ///
-  /// See also:
-  ///
-  ///  * [Language]
-  final NamedApiResource language;
+    /// The language this name is in.
+    ///
+    /// See also:
+    ///
+    ///  * [Language]
+    NamedApiResource language,
+  ) = _Name;
 
   factory Name.fromJson(Map<String, dynamic> json) => _$NameFromJson(json);
-
-  Map<String, dynamic> toJson() => _$NameToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class NamedApiResource {
-  const NamedApiResource(
-    this.name,
-    this.url,
-  );
+@freezed
+abstract class NamedApiResource with _$NamedApiResource {
+  @JsonSerializable()
+  const factory NamedApiResource(
+    /// The name of the referenced resource.
+    String name,
 
-  /// The name of the referenced resource.
-  final String name;
-
-  /// The URL of the referenced resource.
-  final String url;
+    /// The URL of the referenced resource.
+    String url,
+  ) = _NamedApiResource;
 
   factory NamedApiResource.fromJson(Map<String, dynamic> json) =>
       _$NamedApiResourceFromJson(json);
-
-  Map<String, dynamic> toJson() => _$NamedApiResourceToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class VerboseEffect {
-  const VerboseEffect(
-    this.effect,
-    this.shortEffect,
-    this.language,
-  );
+@freezed
+abstract class VerboseEffect with _$VerboseEffect {
+  @JsonSerializable()
+  const factory VerboseEffect(
+    /// The localized effect text for an API resource in a specific language.
+    String effect,
 
-  /// The localized effect text for an API resource in a specific language.
-  final String effect;
+    /// The localized effect text in brief.
+    @JsonKey(name: 'short_effect') String shortEffect,
 
-  /// The localized effect text in brief.
-  @JsonKey(name: 'short_effect')
-  final String shortEffect;
-
-  /// The language this effect is in.
-  ///
-  /// See also:
-  ///
-  ///  * [Language]
-  final NamedApiResource language;
+    /// The language this effect is in.
+    ///
+    /// See also:
+    ///
+    ///  * [Language]
+    NamedApiResource language,
+  ) = _VerboseEffect;
 
   factory VerboseEffect.fromJson(Map<String, dynamic> json) =>
       _$VerboseEffectFromJson(json);
-
-  Map<String, dynamic> toJson() => _$VerboseEffectToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class VersionEncounterDetail {
-  const VersionEncounterDetail(
-    this.version,
-    this.maxChance,
-    this.encounterDetails,
-  );
+@freezed
+abstract class VersionEncounterDetail with _$VersionEncounterDetail {
+  @JsonSerializable()
+  const factory VersionEncounterDetail(
+    /// The game version this encounter happens in.
+    ///
+    /// See also:
+    ///
+    ///  * [Version]
+    NamedApiResource version,
 
-  /// The game version this encounter happens in.
-  ///
-  /// See also:
-  ///
-  ///  * [Version]
-  final NamedApiResource version;
+    /// The total percentage of all encounter potential.
+    @JsonKey(name: 'max_chance') int maxChance,
 
-  /// The total percentage of all encounter potential.
-  @JsonKey(name: 'max_chance')
-  final int maxChance;
-
-  /// A list of encounters and their specifics.
-  @JsonKey(name: 'encounter_details')
-  final List<Encounter> encounterDetails;
+    /// A list of encounters and their specifics.
+    @JsonKey(name: 'encounter_details') List<Encounter> encounterDetails,
+  ) = _VersionEncounterDetail;
 
   factory VersionEncounterDetail.fromJson(Map<String, dynamic> json) =>
       _$VersionEncounterDetailFromJson(json);
-
-  Map<String, dynamic> toJson() => _$VersionEncounterDetailToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class VersionGameIndex {
-  const VersionGameIndex(this.gameIndex, this.version);
+@freezed
+abstract class VersionGameIndex with _$VersionGameIndex {
+  @JsonSerializable()
+  const factory VersionGameIndex(
+    /// The internal id of an API resource within game data.
+    @JsonKey(name: 'game_index') int gameIndex,
 
-  /// The internal id of an API resource within game data.
-  @JsonKey(name: 'game_index')
-  final int gameIndex;
-
-  /// The version relevent to this game index.
-  ///
-  /// See also:
-  ///
-  ///  * [Version]
-  final NamedApiResource version;
+    /// The version relevent to this game index.
+    ///
+    /// See also:
+    ///
+    ///  * [Version]
+    NamedApiResource version,
+  ) = _VersionGameIndex;
 
   factory VersionGameIndex.fromJson(Map<String, dynamic> json) =>
       _$VersionGameIndexFromJson(json);
-
-  Map<String, dynamic> toJson() => _$VersionGameIndexToJson(this);
 }
 
 @immutable
-@JsonSerializable()
-class VersionGroupFlavorText {
-  const VersionGroupFlavorText(
-    this.text,
-    this.language,
-    this.versionGroup,
-  );
+@freezed
+abstract class VersionGroupFlavorText with _$VersionGroupFlavorText {
+  @JsonSerializable()
+  const factory VersionGroupFlavorText(
+    /// The localized name for an API resource in a specific language.
+    String text,
 
-  /// The localized name for an API resource in a specific language.
-  final String text;
+    /// The language this name is in.
+    ///
+    /// See also:
+    ///
+    ///  * [Language]
+    NamedApiResource language,
 
-  /// The language this name is in.
-  ///
-  /// See also:
-  ///
-  ///  * [Language]
-  final NamedApiResource language;
-
-  /// The version group which uses this flavor text.
-  ///
-  /// See also:
-  ///
-  ///  * [VersionGroup]
-  @JsonKey(name: 'version_group')
-  final NamedApiResource versionGroup;
+    /// The version group which uses this flavor text.
+    ///
+    /// See also:
+    ///
+    ///  * [VersionGroup]
+    @JsonKey(name: 'version_group') NamedApiResource versionGroup,
+  ) = _VersionGroupFlavorText;
 
   factory VersionGroupFlavorText.fromJson(Map<String, dynamic> json) =>
       _$VersionGroupFlavorTextFromJson(json);
-
-  Map<String, dynamic> toJson() => _$VersionGroupFlavorTextToJson(this);
 }

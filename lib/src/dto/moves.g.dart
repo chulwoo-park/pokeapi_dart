@@ -6,8 +6,8 @@ part of 'moves.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Move _$MoveFromJson(Map<String, dynamic> json) {
-  return Move(
+_$_Move _$_$_MoveFromJson(Map<String, dynamic> json) {
+  return _$_Move(
     json['id'] as int,
     json['name'] as String,
     json['accuracy'] as int,
@@ -83,7 +83,7 @@ Move _$MoveFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveToJson(Move instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_MoveToJson(_$_Move instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'accuracy': instance.accuracy,
@@ -112,8 +112,8 @@ Map<String, dynamic> _$MoveToJson(Move instance) => <String, dynamic>{
       'type': instance.type?.toJson(),
     };
 
-ContestComboSets _$ContestComboSetsFromJson(Map<String, dynamic> json) {
-  return ContestComboSets(
+_$_ContestComboSets _$_$_ContestComboSetsFromJson(Map<String, dynamic> json) {
+  return _$_ContestComboSets(
     json['normal'] == null
         ? null
         : ContestComboDetail.fromJson(json['normal'] as Map<String, dynamic>),
@@ -123,14 +123,16 @@ ContestComboSets _$ContestComboSetsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContestComboSetsToJson(ContestComboSets instance) =>
+Map<String, dynamic> _$_$_ContestComboSetsToJson(
+        _$_ContestComboSets instance) =>
     <String, dynamic>{
       'normal': instance.normal?.toJson(),
       'super': instance.supers?.toJson(),
     };
 
-ContestComboDetail _$ContestComboDetailFromJson(Map<String, dynamic> json) {
-  return ContestComboDetail(
+_$_ContestComboDetail _$_$_ContestComboDetailFromJson(
+    Map<String, dynamic> json) {
+  return _$_ContestComboDetail(
     (json['use_before'] as List)
         ?.map((e) => e == null
             ? null
@@ -144,14 +146,15 @@ ContestComboDetail _$ContestComboDetailFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContestComboDetailToJson(ContestComboDetail instance) =>
+Map<String, dynamic> _$_$_ContestComboDetailToJson(
+        _$_ContestComboDetail instance) =>
     <String, dynamic>{
       'use_before': instance.useBefore?.map((e) => e?.toJson())?.toList(),
       'use_after': instance.useAfter?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveFlavorText _$MoveFlavorTextFromJson(Map<String, dynamic> json) {
-  return MoveFlavorText(
+_$_MoveFlavorText _$_$_MoveFlavorTextFromJson(Map<String, dynamic> json) {
+  return _$_MoveFlavorText(
     json['flavor_text'] as String,
     json['language'] == null
         ? null
@@ -163,15 +166,15 @@ MoveFlavorText _$MoveFlavorTextFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveFlavorTextToJson(MoveFlavorText instance) =>
+Map<String, dynamic> _$_$_MoveFlavorTextToJson(_$_MoveFlavorText instance) =>
     <String, dynamic>{
       'flavor_text': instance.flavorText,
       'language': instance.language?.toJson(),
       'version_group': instance.versionGroup?.toJson(),
     };
 
-MoveMetaData _$MoveMetaDataFromJson(Map<String, dynamic> json) {
-  return MoveMetaData(
+_$_MoveMetaData _$_$_MoveMetaDataFromJson(Map<String, dynamic> json) {
+  return _$_MoveMetaData(
     json['ailment'] == null
         ? null
         : NamedApiResource.fromJson(json['ailment'] as Map<String, dynamic>),
@@ -191,7 +194,7 @@ MoveMetaData _$MoveMetaDataFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveMetaDataToJson(MoveMetaData instance) =>
+Map<String, dynamic> _$_$_MoveMetaDataToJson(_$_MoveMetaData instance) =>
     <String, dynamic>{
       'ailment': instance.ailment?.toJson(),
       'category': instance.category?.toJson(),
@@ -207,8 +210,8 @@ Map<String, dynamic> _$MoveMetaDataToJson(MoveMetaData instance) =>
       'stat_chance': instance.statChance,
     };
 
-MoveStatChange _$MoveStatChangeFromJson(Map<String, dynamic> json) {
-  return MoveStatChange(
+_$_MoveStatChange _$_$_MoveStatChangeFromJson(Map<String, dynamic> json) {
+  return _$_MoveStatChange(
     json['change'] as int,
     json['stat'] == null
         ? null
@@ -216,14 +219,15 @@ MoveStatChange _$MoveStatChangeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveStatChangeToJson(MoveStatChange instance) =>
+Map<String, dynamic> _$_$_MoveStatChangeToJson(_$_MoveStatChange instance) =>
     <String, dynamic>{
       'change': instance.change,
       'stat': instance.stat?.toJson(),
     };
 
-PastMoveStatValues _$PastMoveStatValuesFromJson(Map<String, dynamic> json) {
-  return PastMoveStatValues(
+_$_PastMoveStatValues _$_$_PastMoveStatValuesFromJson(
+    Map<String, dynamic> json) {
+  return _$_PastMoveStatValues(
     json['accuracy'] as int,
     json['effect_chance'] as int,
     json['power'] as int,
@@ -243,7 +247,8 @@ PastMoveStatValues _$PastMoveStatValuesFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PastMoveStatValuesToJson(PastMoveStatValues instance) =>
+Map<String, dynamic> _$_$_PastMoveStatValuesToJson(
+        _$_PastMoveStatValues instance) =>
     <String, dynamic>{
       'accuracy': instance.accuracy,
       'effect_chance': instance.effectChance,
@@ -255,8 +260,8 @@ Map<String, dynamic> _$PastMoveStatValuesToJson(PastMoveStatValues instance) =>
       'version_group': instance.versionGroup?.toJson(),
     };
 
-MoveAilment _$MoveAilmentFromJson(Map<String, dynamic> json) {
-  return MoveAilment(
+_$_MoveAilment _$_$_MoveAilmentFromJson(Map<String, dynamic> json) {
+  return _$_MoveAilment(
     json['id'] as int,
     json['name'] as String,
     (json['moves'] as List)
@@ -271,7 +276,7 @@ MoveAilment _$MoveAilmentFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveAilmentToJson(MoveAilment instance) =>
+Map<String, dynamic> _$_$_MoveAilmentToJson(_$_MoveAilment instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -279,8 +284,8 @@ Map<String, dynamic> _$MoveAilmentToJson(MoveAilment instance) =>
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveBattleStyle _$MoveBattleStyleFromJson(Map<String, dynamic> json) {
-  return MoveBattleStyle(
+_$_MoveBattleStyle _$_$_MoveBattleStyleFromJson(Map<String, dynamic> json) {
+  return _$_MoveBattleStyle(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -290,15 +295,15 @@ MoveBattleStyle _$MoveBattleStyleFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveBattleStyleToJson(MoveBattleStyle instance) =>
+Map<String, dynamic> _$_$_MoveBattleStyleToJson(_$_MoveBattleStyle instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveCategory _$MoveCategoryFromJson(Map<String, dynamic> json) {
-  return MoveCategory(
+_$_MoveCategory _$_$_MoveCategoryFromJson(Map<String, dynamic> json) {
+  return _$_MoveCategory(
     json['id'] as int,
     json['name'] as String,
     (json['moves'] as List)
@@ -313,7 +318,7 @@ MoveCategory _$MoveCategoryFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveCategoryToJson(MoveCategory instance) =>
+Map<String, dynamic> _$_$_MoveCategoryToJson(_$_MoveCategory instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -321,8 +326,8 @@ Map<String, dynamic> _$MoveCategoryToJson(MoveCategory instance) =>
       'descriptions': instance.descriptions?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveDamageClass _$MoveDamageClassFromJson(Map<String, dynamic> json) {
-  return MoveDamageClass(
+_$_MoveDamageClass _$_$_MoveDamageClassFromJson(Map<String, dynamic> json) {
+  return _$_MoveDamageClass(
     json['id'] as int,
     json['name'] as String,
     (json['descriptions'] as List)
@@ -341,7 +346,7 @@ MoveDamageClass _$MoveDamageClassFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveDamageClassToJson(MoveDamageClass instance) =>
+Map<String, dynamic> _$_$_MoveDamageClassToJson(_$_MoveDamageClass instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -350,8 +355,8 @@ Map<String, dynamic> _$MoveDamageClassToJson(MoveDamageClass instance) =>
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveLearnMethod _$MoveLearnMethodFromJson(Map<String, dynamic> json) {
-  return MoveLearnMethod(
+_$_MoveLearnMethod _$_$_MoveLearnMethodFromJson(Map<String, dynamic> json) {
+  return _$_MoveLearnMethod(
     json['id'] as int,
     json['name'] as String,
     (json['descriptions'] as List)
@@ -370,7 +375,7 @@ MoveLearnMethod _$MoveLearnMethodFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveLearnMethodToJson(MoveLearnMethod instance) =>
+Map<String, dynamic> _$_$_MoveLearnMethodToJson(_$_MoveLearnMethod instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -380,8 +385,8 @@ Map<String, dynamic> _$MoveLearnMethodToJson(MoveLearnMethod instance) =>
           instance.versionGroups?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveTarget _$MoveTargetFromJson(Map<String, dynamic> json) {
-  return MoveTarget(
+_$_MoveTarget _$_$_MoveTargetFromJson(Map<String, dynamic> json) {
+  return _$_MoveTarget(
     json['id'] as int,
     json['name'] as String,
     (json['descriptions'] as List)
@@ -400,7 +405,7 @@ MoveTarget _$MoveTargetFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveTargetToJson(MoveTarget instance) =>
+Map<String, dynamic> _$_$_MoveTargetToJson(_$_MoveTarget instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

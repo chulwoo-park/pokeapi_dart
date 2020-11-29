@@ -6,8 +6,8 @@ part of 'pokemon.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Ability _$AbilityFromJson(Map<String, dynamic> json) {
-  return Ability(
+_$_Ability _$_$_AbilityFromJson(Map<String, dynamic> json) {
+  return _$_Ability(
     json['id'] as int,
     json['name'] as String,
     json['is_main_series'] as bool,
@@ -41,7 +41,8 @@ Ability _$AbilityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AbilityToJson(Ability instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_AbilityToJson(_$_Ability instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'is_main_series': instance.isMainSeries,
@@ -56,8 +57,9 @@ Map<String, dynamic> _$AbilityToJson(Ability instance) => <String, dynamic>{
       'pokemon': instance.pokemon?.map((e) => e?.toJson())?.toList(),
     };
 
-AbilityEffectChange _$AbilityEffectChangeFromJson(Map<String, dynamic> json) {
-  return AbilityEffectChange(
+_$_AbilityEffectChange _$_$_AbilityEffectChangeFromJson(
+    Map<String, dynamic> json) {
+  return _$_AbilityEffectChange(
     (json['effect_entries'] as List)
         ?.map((e) =>
             e == null ? null : Effect.fromJson(e as Map<String, dynamic>))
@@ -69,16 +71,16 @@ AbilityEffectChange _$AbilityEffectChangeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AbilityEffectChangeToJson(
-        AbilityEffectChange instance) =>
+Map<String, dynamic> _$_$_AbilityEffectChangeToJson(
+        _$_AbilityEffectChange instance) =>
     <String, dynamic>{
       'effect_entries':
           instance.effectEntries?.map((e) => e?.toJson())?.toList(),
       'version_group': instance.versionGroup?.toJson(),
     };
 
-AbilityFlavorText _$AbilityFlavorTextFromJson(Map<String, dynamic> json) {
-  return AbilityFlavorText(
+_$_AbilityFlavorText _$_$_AbilityFlavorTextFromJson(Map<String, dynamic> json) {
+  return _$_AbilityFlavorText(
     json['flavor_text'] as String,
     json['language'] == null
         ? null
@@ -90,15 +92,16 @@ AbilityFlavorText _$AbilityFlavorTextFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AbilityFlavorTextToJson(AbilityFlavorText instance) =>
+Map<String, dynamic> _$_$_AbilityFlavorTextToJson(
+        _$_AbilityFlavorText instance) =>
     <String, dynamic>{
       'flavor_text': instance.flavorText,
       'language': instance.language?.toJson(),
       'version_group': instance.versionGroup?.toJson(),
     };
 
-AbilityPokemon _$AbilityPokemonFromJson(Map<String, dynamic> json) {
-  return AbilityPokemon(
+_$_AbilityPokemon _$_$_AbilityPokemonFromJson(Map<String, dynamic> json) {
+  return _$_AbilityPokemon(
     json['is_hidden'] as bool,
     json['slot'] as int,
     json['pokemon'] == null
@@ -107,30 +110,30 @@ AbilityPokemon _$AbilityPokemonFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AbilityPokemonToJson(AbilityPokemon instance) =>
+Map<String, dynamic> _$_$_AbilityPokemonToJson(_$_AbilityPokemon instance) =>
     <String, dynamic>{
       'is_hidden': instance.isHidden,
       'slot': instance.slot,
       'pokemon': instance.pokemon?.toJson(),
     };
 
-Characteristic _$CharacteristicFromJson(Map<String, dynamic> json) {
-  return Characteristic(
+_$_Characteristic _$_$_CharacteristicFromJson(Map<String, dynamic> json) {
+  return _$_Characteristic(
     json['id'] as int,
     json['gene_modulo'] as int,
     (json['possible_values'] as List)?.map((e) => e as int)?.toList(),
   );
 }
 
-Map<String, dynamic> _$CharacteristicToJson(Characteristic instance) =>
+Map<String, dynamic> _$_$_CharacteristicToJson(_$_Characteristic instance) =>
     <String, dynamic>{
       'id': instance.id,
       'gene_modulo': instance.geneModulo,
       'possible_values': instance.possibleValues,
     };
 
-EggGroup _$EggGroupFromJson(Map<String, dynamic> json) {
-  return EggGroup(
+_$_EggGroup _$_$_EggGroupFromJson(Map<String, dynamic> json) {
+  return _$_EggGroup(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -145,7 +148,8 @@ EggGroup _$EggGroupFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EggGroupToJson(EggGroup instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_EggGroupToJson(_$_EggGroup instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
@@ -153,8 +157,8 @@ Map<String, dynamic> _$EggGroupToJson(EggGroup instance) => <String, dynamic>{
           instance.pokemonSpecies?.map((e) => e?.toJson())?.toList(),
     };
 
-Gender _$GenderFromJson(Map<String, dynamic> json) {
-  return Gender(
+_$_Gender _$_$_GenderFromJson(Map<String, dynamic> json) {
+  return _$_Gender(
     json['id'] as int,
     json['name'] as String,
     (json['pokemon_species_details'] as List)
@@ -170,7 +174,7 @@ Gender _$GenderFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GenderToJson(Gender instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_GenderToJson(_$_Gender instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'pokemon_species_details':
@@ -179,8 +183,9 @@ Map<String, dynamic> _$GenderToJson(Gender instance) => <String, dynamic>{
           instance.requiredForEvolution?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonSpeciesGender _$PokemonSpeciesGenderFromJson(Map<String, dynamic> json) {
-  return PokemonSpeciesGender(
+_$_PokemonSpeciesGender _$_$_PokemonSpeciesGenderFromJson(
+    Map<String, dynamic> json) {
+  return _$_PokemonSpeciesGender(
     json['rate'] as int,
     json['pokemon_species'] == null
         ? null
@@ -189,15 +194,15 @@ PokemonSpeciesGender _$PokemonSpeciesGenderFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonSpeciesGenderToJson(
-        PokemonSpeciesGender instance) =>
+Map<String, dynamic> _$_$_PokemonSpeciesGenderToJson(
+        _$_PokemonSpeciesGender instance) =>
     <String, dynamic>{
       'rate': instance.rate,
       'pokemon_species': instance.pokemonSpecies?.toJson(),
     };
 
-GrowthRate _$GrowthRateFromJson(Map<String, dynamic> json) {
-  return GrowthRate(
+_$_GrowthRate _$_$_GrowthRateFromJson(Map<String, dynamic> json) {
+  return _$_GrowthRate(
     json['id'] as int,
     json['name'] as String,
     json['formula'] as String,
@@ -218,7 +223,7 @@ GrowthRate _$GrowthRateFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GrowthRateToJson(GrowthRate instance) =>
+Map<String, dynamic> _$_$_GrowthRateToJson(_$_GrowthRate instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -229,23 +234,23 @@ Map<String, dynamic> _$GrowthRateToJson(GrowthRate instance) =>
           instance.pokemonSpecies?.map((e) => e?.toJson())?.toList(),
     };
 
-GrowthRateExperienceLevel _$GrowthRateExperienceLevelFromJson(
+_$_GrowthRateExperienceLevel _$_$_GrowthRateExperienceLevelFromJson(
     Map<String, dynamic> json) {
-  return GrowthRateExperienceLevel(
+  return _$_GrowthRateExperienceLevel(
     json['level'] as int,
     json['experience'] as int,
   );
 }
 
-Map<String, dynamic> _$GrowthRateExperienceLevelToJson(
-        GrowthRateExperienceLevel instance) =>
+Map<String, dynamic> _$_$_GrowthRateExperienceLevelToJson(
+        _$_GrowthRateExperienceLevel instance) =>
     <String, dynamic>{
       'level': instance.level,
       'experience': instance.experience,
     };
 
-Nature _$NatureFromJson(Map<String, dynamic> json) {
-  return Nature(
+_$_Nature _$_$_NatureFromJson(Map<String, dynamic> json) {
+  return _$_Nature(
     json['id'] as int,
     json['name'] as String,
     json['decreased_stat'] == null
@@ -281,7 +286,7 @@ Nature _$NatureFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NatureToJson(Nature instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_NatureToJson(_$_Nature instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'decreased_stat': instance.decreasedStat?.toJson(),
@@ -296,8 +301,8 @@ Map<String, dynamic> _$NatureToJson(Nature instance) => <String, dynamic>{
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-NatureStatChange _$NatureStatChangeFromJson(Map<String, dynamic> json) {
-  return NatureStatChange(
+_$_NatureStatChange _$_$_NatureStatChangeFromJson(Map<String, dynamic> json) {
+  return _$_NatureStatChange(
     json['max_change'] as int,
     json['pokeathlon_stat'] == null
         ? null
@@ -306,15 +311,16 @@ NatureStatChange _$NatureStatChangeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NatureStatChangeToJson(NatureStatChange instance) =>
+Map<String, dynamic> _$_$_NatureStatChangeToJson(
+        _$_NatureStatChange instance) =>
     <String, dynamic>{
       'max_change': instance.maxChange,
       'pokeathlon_stat': instance.pokeathlonStat?.toJson(),
     };
 
-MoveBattleStylePreference _$MoveBattleStylePreferenceFromJson(
+_$_MoveBattleStylePreference _$_$_MoveBattleStylePreferenceFromJson(
     Map<String, dynamic> json) {
-  return MoveBattleStylePreference(
+  return _$_MoveBattleStylePreference(
     json['low_hp_preference'] as int,
     json['high_hp_preference'] as int,
     json['move_battle_style'] == null
@@ -324,16 +330,16 @@ MoveBattleStylePreference _$MoveBattleStylePreferenceFromJson(
   );
 }
 
-Map<String, dynamic> _$MoveBattleStylePreferenceToJson(
-        MoveBattleStylePreference instance) =>
+Map<String, dynamic> _$_$_MoveBattleStylePreferenceToJson(
+        _$_MoveBattleStylePreference instance) =>
     <String, dynamic>{
       'low_hp_preference': instance.lowHpPreference,
       'high_hp_preference': instance.highHpPreference,
       'move_battle_style': instance.moveBattleStyle?.toJson(),
     };
 
-PokeathlonStat _$PokeathlonStatFromJson(Map<String, dynamic> json) {
-  return PokeathlonStat(
+_$_PokeathlonStat _$_$_PokeathlonStatFromJson(Map<String, dynamic> json) {
+  return _$_PokeathlonStat(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -347,7 +353,7 @@ PokeathlonStat _$PokeathlonStatFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokeathlonStatToJson(PokeathlonStat instance) =>
+Map<String, dynamic> _$_$_PokeathlonStatToJson(_$_PokeathlonStat instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -355,9 +361,9 @@ Map<String, dynamic> _$PokeathlonStatToJson(PokeathlonStat instance) =>
       'affecting_natures': instance.affectingNatures?.toJson(),
     };
 
-NaturePokeathlonStatAffectSets _$NaturePokeathlonStatAffectSetsFromJson(
+_$_NaturePokeathlonStatAffectSets _$_$_NaturePokeathlonStatAffectSetsFromJson(
     Map<String, dynamic> json) {
-  return NaturePokeathlonStatAffectSets(
+  return _$_NaturePokeathlonStatAffectSets(
     (json['increase'] as List)
         ?.map((e) => e == null
             ? null
@@ -371,16 +377,16 @@ NaturePokeathlonStatAffectSets _$NaturePokeathlonStatAffectSetsFromJson(
   );
 }
 
-Map<String, dynamic> _$NaturePokeathlonStatAffectSetsToJson(
-        NaturePokeathlonStatAffectSets instance) =>
+Map<String, dynamic> _$_$_NaturePokeathlonStatAffectSetsToJson(
+        _$_NaturePokeathlonStatAffectSets instance) =>
     <String, dynamic>{
       'increase': instance.increase?.map((e) => e?.toJson())?.toList(),
       'decrease': instance.decrease?.map((e) => e?.toJson())?.toList(),
     };
 
-NaturePokeathlonStatAffect _$NaturePokeathlonStatAffectFromJson(
+_$_NaturePokeathlonStatAffect _$_$_NaturePokeathlonStatAffectFromJson(
     Map<String, dynamic> json) {
-  return NaturePokeathlonStatAffect(
+  return _$_NaturePokeathlonStatAffect(
     json['max_change'] as int,
     json['nature'] == null
         ? null
@@ -388,15 +394,15 @@ NaturePokeathlonStatAffect _$NaturePokeathlonStatAffectFromJson(
   );
 }
 
-Map<String, dynamic> _$NaturePokeathlonStatAffectToJson(
-        NaturePokeathlonStatAffect instance) =>
+Map<String, dynamic> _$_$_NaturePokeathlonStatAffectToJson(
+        _$_NaturePokeathlonStatAffect instance) =>
     <String, dynamic>{
       'max_change': instance.maxChange,
       'nature': instance.nature?.toJson(),
     };
 
-Pokemon _$PokemonFromJson(Map<String, dynamic> json) {
-  return Pokemon(
+_$_Pokemon _$_$_PokemonFromJson(Map<String, dynamic> json) {
+  return _$_Pokemon(
     json['id'] as int,
     json['name'] as String,
     json['base_experience'] as int,
@@ -446,7 +452,8 @@ Pokemon _$PokemonFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonToJson(Pokemon instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_PokemonToJson(_$_Pokemon instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'base_experience': instance.baseExperience,
@@ -466,8 +473,8 @@ Map<String, dynamic> _$PokemonToJson(Pokemon instance) => <String, dynamic>{
       'types': instance.types?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonAbility _$PokemonAbilityFromJson(Map<String, dynamic> json) {
-  return PokemonAbility(
+_$_PokemonAbility _$_$_PokemonAbilityFromJson(Map<String, dynamic> json) {
+  return _$_PokemonAbility(
     json['is_hidden'] as bool,
     json['slot'] as int,
     json['ability'] == null
@@ -476,15 +483,15 @@ PokemonAbility _$PokemonAbilityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonAbilityToJson(PokemonAbility instance) =>
+Map<String, dynamic> _$_$_PokemonAbilityToJson(_$_PokemonAbility instance) =>
     <String, dynamic>{
       'is_hidden': instance.isHidden,
       'slot': instance.slot,
       'ability': instance.ability?.toJson(),
     };
 
-PokemonType _$PokemonTypeFromJson(Map<String, dynamic> json) {
-  return PokemonType(
+_$_PokemonType _$_$_PokemonTypeFromJson(Map<String, dynamic> json) {
+  return _$_PokemonType(
     json['slot'] as int,
     json['type'] == null
         ? null
@@ -492,14 +499,14 @@ PokemonType _$PokemonTypeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonTypeToJson(PokemonType instance) =>
+Map<String, dynamic> _$_$_PokemonTypeToJson(_$_PokemonType instance) =>
     <String, dynamic>{
       'slot': instance.slot,
       'type': instance.type?.toJson(),
     };
 
-PokemonHeldItem _$PokemonHeldItemFromJson(Map<String, dynamic> json) {
-  return PokemonHeldItem(
+_$_PokemonHeldItem _$_$_PokemonHeldItemFromJson(Map<String, dynamic> json) {
+  return _$_PokemonHeldItem(
     json['item'] == null
         ? null
         : NamedApiResource.fromJson(json['item'] as Map<String, dynamic>),
@@ -511,16 +518,16 @@ PokemonHeldItem _$PokemonHeldItemFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonHeldItemToJson(PokemonHeldItem instance) =>
+Map<String, dynamic> _$_$_PokemonHeldItemToJson(_$_PokemonHeldItem instance) =>
     <String, dynamic>{
       'item': instance.item?.toJson(),
       'version_details':
           instance.versionDetails?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonHeldItemVersion _$PokemonHeldItemVersionFromJson(
+_$_PokemonHeldItemVersion _$_$_PokemonHeldItemVersionFromJson(
     Map<String, dynamic> json) {
-  return PokemonHeldItemVersion(
+  return _$_PokemonHeldItemVersion(
     json['version'] == null
         ? null
         : NamedApiResource.fromJson(json['version'] as Map<String, dynamic>),
@@ -528,15 +535,15 @@ PokemonHeldItemVersion _$PokemonHeldItemVersionFromJson(
   );
 }
 
-Map<String, dynamic> _$PokemonHeldItemVersionToJson(
-        PokemonHeldItemVersion instance) =>
+Map<String, dynamic> _$_$_PokemonHeldItemVersionToJson(
+        _$_PokemonHeldItemVersion instance) =>
     <String, dynamic>{
       'version': instance.version?.toJson(),
       'rarity': instance.rarity,
     };
 
-PokemonMove _$PokemonMoveFromJson(Map<String, dynamic> json) {
-  return PokemonMove(
+_$_PokemonMove _$_$_PokemonMoveFromJson(Map<String, dynamic> json) {
+  return _$_PokemonMove(
     json['move'] == null
         ? null
         : NamedApiResource.fromJson(json['move'] as Map<String, dynamic>),
@@ -548,15 +555,16 @@ PokemonMove _$PokemonMoveFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonMoveToJson(PokemonMove instance) =>
+Map<String, dynamic> _$_$_PokemonMoveToJson(_$_PokemonMove instance) =>
     <String, dynamic>{
       'move': instance.move?.toJson(),
       'version_group_details':
           instance.versionGroupDetails?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonMoveVersion _$PokemonMoveVersionFromJson(Map<String, dynamic> json) {
-  return PokemonMoveVersion(
+_$_PokemonMoveVersion _$_$_PokemonMoveVersionFromJson(
+    Map<String, dynamic> json) {
+  return _$_PokemonMoveVersion(
     json['move_learn_method'] == null
         ? null
         : NamedApiResource.fromJson(
@@ -569,15 +577,16 @@ PokemonMoveVersion _$PokemonMoveVersionFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonMoveVersionToJson(PokemonMoveVersion instance) =>
+Map<String, dynamic> _$_$_PokemonMoveVersionToJson(
+        _$_PokemonMoveVersion instance) =>
     <String, dynamic>{
       'move_learn_method': instance.moveLearnMethod?.toJson(),
       'version_group': instance.versionGroup?.toJson(),
       'level_learned_at': instance.levelLearnedAt,
     };
 
-PokemonStat _$PokemonStatFromJson(Map<String, dynamic> json) {
-  return PokemonStat(
+_$_PokemonStat _$_$_PokemonStatFromJson(Map<String, dynamic> json) {
+  return _$_PokemonStat(
     json['stat'] == null
         ? null
         : NamedApiResource.fromJson(json['stat'] as Map<String, dynamic>),
@@ -586,15 +595,15 @@ PokemonStat _$PokemonStatFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonStatToJson(PokemonStat instance) =>
+Map<String, dynamic> _$_$_PokemonStatToJson(_$_PokemonStat instance) =>
     <String, dynamic>{
       'stat': instance.stat?.toJson(),
       'effort': instance.effort,
       'base_stat': instance.baseStat,
     };
 
-PokemonSprites _$PokemonSpritesFromJson(Map<String, dynamic> json) {
-  return PokemonSprites(
+_$_PokemonSprites _$_$_PokemonSpritesFromJson(Map<String, dynamic> json) {
+  return _$_PokemonSprites(
     json['front_default'] as String,
     json['front_shiny'] as String,
     json['front_female'] as String,
@@ -606,7 +615,7 @@ PokemonSprites _$PokemonSpritesFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonSpritesToJson(PokemonSprites instance) =>
+Map<String, dynamic> _$_$_PokemonSpritesToJson(_$_PokemonSprites instance) =>
     <String, dynamic>{
       'front_default': instance.frontDefault,
       'front_shiny': instance.frontShiny,
@@ -618,9 +627,9 @@ Map<String, dynamic> _$PokemonSpritesToJson(PokemonSprites instance) =>
       'back_shiny_female': instance.backShinyFemale,
     };
 
-LocationAreaEncounter _$LocationAreaEncounterFromJson(
+_$_LocationAreaEncounter _$_$_LocationAreaEncounterFromJson(
     Map<String, dynamic> json) {
-  return LocationAreaEncounter(
+  return _$_LocationAreaEncounter(
     json['location_area'] == null
         ? null
         : NamedApiResource.fromJson(
@@ -633,16 +642,16 @@ LocationAreaEncounter _$LocationAreaEncounterFromJson(
   );
 }
 
-Map<String, dynamic> _$LocationAreaEncounterToJson(
-        LocationAreaEncounter instance) =>
+Map<String, dynamic> _$_$_LocationAreaEncounterToJson(
+        _$_LocationAreaEncounter instance) =>
     <String, dynamic>{
       'location_area': instance.locationArea?.toJson(),
       'version_details':
           instance.versionDetails?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonColor _$PokemonColorFromJson(Map<String, dynamic> json) {
-  return PokemonColor(
+_$_PokemonColor _$_$_PokemonColorFromJson(Map<String, dynamic> json) {
+  return _$_PokemonColor(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -657,7 +666,7 @@ PokemonColor _$PokemonColorFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonColorToJson(PokemonColor instance) =>
+Map<String, dynamic> _$_$_PokemonColorToJson(_$_PokemonColor instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -666,8 +675,8 @@ Map<String, dynamic> _$PokemonColorToJson(PokemonColor instance) =>
           instance.pokemonSpecies?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonForm _$PokemonFormFromJson(Map<String, dynamic> json) {
-  return PokemonForm(
+_$_PokemonForm _$_$_PokemonFormFromJson(Map<String, dynamic> json) {
+  return _$_PokemonForm(
     json['id'] as int,
     json['name'] as String,
     json['order'] as int,
@@ -697,7 +706,7 @@ PokemonForm _$PokemonFormFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonFormToJson(PokemonForm instance) =>
+Map<String, dynamic> _$_$_PokemonFormToJson(_$_PokemonForm instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -714,8 +723,9 @@ Map<String, dynamic> _$PokemonFormToJson(PokemonForm instance) =>
       'form_names': instance.formNames?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonFormSprites _$PokemonFormSpritesFromJson(Map<String, dynamic> json) {
-  return PokemonFormSprites(
+_$_PokemonFormSprites _$_$_PokemonFormSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _$_PokemonFormSprites(
     json['front_default'] as String,
     json['front_shiny'] as String,
     json['back_default'] as String,
@@ -723,7 +733,8 @@ PokemonFormSprites _$PokemonFormSpritesFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonFormSpritesToJson(PokemonFormSprites instance) =>
+Map<String, dynamic> _$_$_PokemonFormSpritesToJson(
+        _$_PokemonFormSprites instance) =>
     <String, dynamic>{
       'front_default': instance.frontDefault,
       'front_shiny': instance.frontShiny,
@@ -731,8 +742,8 @@ Map<String, dynamic> _$PokemonFormSpritesToJson(PokemonFormSprites instance) =>
       'back_shiny': instance.backShiny,
     };
 
-PokemonHabitat _$PokemonHabitatFromJson(Map<String, dynamic> json) {
-  return PokemonHabitat(
+_$_PokemonHabitat _$_$_PokemonHabitatFromJson(Map<String, dynamic> json) {
+  return _$_PokemonHabitat(
     json['id'] as int,
     json['name'] as String,
     (json['names'] as List)
@@ -747,7 +758,7 @@ PokemonHabitat _$PokemonHabitatFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonHabitatToJson(PokemonHabitat instance) =>
+Map<String, dynamic> _$_$_PokemonHabitatToJson(_$_PokemonHabitat instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -756,8 +767,8 @@ Map<String, dynamic> _$PokemonHabitatToJson(PokemonHabitat instance) =>
           instance.pokemonSpecies?.map((e) => e?.toJson())?.toList(),
     };
 
-PokemonShape _$PokemonShapeFromJson(Map<String, dynamic> json) {
-  return PokemonShape(
+_$_PokemonShape _$_$_PokemonShapeFromJson(Map<String, dynamic> json) {
+  return _$_PokemonShape(
     json['id'] as int,
     json['name'] as String,
     (json['awesome_names'] as List)
@@ -776,7 +787,7 @@ PokemonShape _$PokemonShapeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonShapeToJson(PokemonShape instance) =>
+Map<String, dynamic> _$_$_PokemonShapeToJson(_$_PokemonShape instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -786,8 +797,8 @@ Map<String, dynamic> _$PokemonShapeToJson(PokemonShape instance) =>
           instance.pokemonSpecies?.map((e) => e?.toJson())?.toList(),
     };
 
-AwesomeName _$AwesomeNameFromJson(Map<String, dynamic> json) {
-  return AwesomeName(
+_$_AwesomeName _$_$_AwesomeNameFromJson(Map<String, dynamic> json) {
+  return _$_AwesomeName(
     json['awesome_name'] as String,
     json['language'] == null
         ? null
@@ -795,14 +806,14 @@ AwesomeName _$AwesomeNameFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AwesomeNameToJson(AwesomeName instance) =>
+Map<String, dynamic> _$_$_AwesomeNameToJson(_$_AwesomeName instance) =>
     <String, dynamic>{
       'awesome_name': instance.awesomeName,
       'language': instance.language?.toJson(),
     };
 
-PokemonSpecies _$PokemonSpeciesFromJson(Map<String, dynamic> json) {
-  return PokemonSpecies(
+_$_PokemonSpecies _$_$_PokemonSpeciesFromJson(Map<String, dynamic> json) {
+  return _$_PokemonSpecies(
     json['id'] as int,
     json['name'] as String,
     json['order'] as int,
@@ -877,7 +888,7 @@ PokemonSpecies _$PokemonSpeciesFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PokemonSpeciesToJson(PokemonSpecies instance) =>
+Map<String, dynamic> _$_$_PokemonSpeciesToJson(_$_PokemonSpecies instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -912,8 +923,8 @@ Map<String, dynamic> _$PokemonSpeciesToJson(PokemonSpecies instance) =>
       'varieties': instance.varieties?.map((e) => e?.toJson())?.toList(),
     };
 
-Genus _$GenusFromJson(Map<String, dynamic> json) {
-  return Genus(
+_$_Genus _$_$_GenusFromJson(Map<String, dynamic> json) {
+  return _$_Genus(
     json['genus'] as String,
     json['language'] == null
         ? null
@@ -921,14 +932,14 @@ Genus _$GenusFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GenusToJson(Genus instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_GenusToJson(_$_Genus instance) => <String, dynamic>{
       'genus': instance.genus,
       'language': instance.language?.toJson(),
     };
 
-PokemonSpeciesDexEntry _$PokemonSpeciesDexEntryFromJson(
+_$_PokemonSpeciesDexEntry _$_$_PokemonSpeciesDexEntryFromJson(
     Map<String, dynamic> json) {
-  return PokemonSpeciesDexEntry(
+  return _$_PokemonSpeciesDexEntry(
     json['entry_number'] as int,
     json['pokedex'] == null
         ? null
@@ -936,15 +947,16 @@ PokemonSpeciesDexEntry _$PokemonSpeciesDexEntryFromJson(
   );
 }
 
-Map<String, dynamic> _$PokemonSpeciesDexEntryToJson(
-        PokemonSpeciesDexEntry instance) =>
+Map<String, dynamic> _$_$_PokemonSpeciesDexEntryToJson(
+        _$_PokemonSpeciesDexEntry instance) =>
     <String, dynamic>{
       'entry_number': instance.entryNumber,
       'pokedex': instance.pokedex?.toJson(),
     };
 
-PalParkEncounterArea _$PalParkEncounterAreaFromJson(Map<String, dynamic> json) {
-  return PalParkEncounterArea(
+_$_PalParkEncounterArea _$_$_PalParkEncounterAreaFromJson(
+    Map<String, dynamic> json) {
+  return _$_PalParkEncounterArea(
     json['base_score'] as int,
     json['rate'] as int,
     json['area'] == null
@@ -953,17 +965,17 @@ PalParkEncounterArea _$PalParkEncounterAreaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PalParkEncounterAreaToJson(
-        PalParkEncounterArea instance) =>
+Map<String, dynamic> _$_$_PalParkEncounterAreaToJson(
+        _$_PalParkEncounterArea instance) =>
     <String, dynamic>{
       'base_score': instance.baseScore,
       'rate': instance.rate,
       'area': instance.area?.toJson(),
     };
 
-PokemonSpeciesVariety _$PokemonSpeciesVarietyFromJson(
+_$_PokemonSpeciesVariety _$_$_PokemonSpeciesVarietyFromJson(
     Map<String, dynamic> json) {
-  return PokemonSpeciesVariety(
+  return _$_PokemonSpeciesVariety(
     json['is_default'] as bool,
     json['pokemon'] == null
         ? null
@@ -971,15 +983,15 @@ PokemonSpeciesVariety _$PokemonSpeciesVarietyFromJson(
   );
 }
 
-Map<String, dynamic> _$PokemonSpeciesVarietyToJson(
-        PokemonSpeciesVariety instance) =>
+Map<String, dynamic> _$_$_PokemonSpeciesVarietyToJson(
+        _$_PokemonSpeciesVariety instance) =>
     <String, dynamic>{
       'is_default': instance.isDefault,
       'pokemon': instance.pokemon?.toJson(),
     };
 
-Stat _$StatFromJson(Map<String, dynamic> json) {
-  return Stat(
+_$_Stat _$_$_StatFromJson(Map<String, dynamic> json) {
+  return _$_Stat(
     json['id'] as int,
     json['name'] as String,
     json['game_index'] as int,
@@ -1007,7 +1019,7 @@ Stat _$StatFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$StatToJson(Stat instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_StatToJson(_$_Stat instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'game_index': instance.gameIndex,
@@ -1020,8 +1032,9 @@ Map<String, dynamic> _$StatToJson(Stat instance) => <String, dynamic>{
       'names': instance.names?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveStatAffectSets _$MoveStatAffectSetsFromJson(Map<String, dynamic> json) {
-  return MoveStatAffectSets(
+_$_MoveStatAffectSets _$_$_MoveStatAffectSetsFromJson(
+    Map<String, dynamic> json) {
+  return _$_MoveStatAffectSets(
     (json['increase'] as List)
         ?.map((e) => e == null
             ? null
@@ -1035,14 +1048,15 @@ MoveStatAffectSets _$MoveStatAffectSetsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveStatAffectSetsToJson(MoveStatAffectSets instance) =>
+Map<String, dynamic> _$_$_MoveStatAffectSetsToJson(
+        _$_MoveStatAffectSets instance) =>
     <String, dynamic>{
       'increase': instance.increase?.map((e) => e?.toJson())?.toList(),
       'decrease': instance.decrease?.map((e) => e?.toJson())?.toList(),
     };
 
-MoveStatAffect _$MoveStatAffectFromJson(Map<String, dynamic> json) {
-  return MoveStatAffect(
+_$_MoveStatAffect _$_$_MoveStatAffectFromJson(Map<String, dynamic> json) {
+  return _$_MoveStatAffect(
     json['change'] as int,
     json['move'] == null
         ? null
@@ -1050,14 +1064,15 @@ MoveStatAffect _$MoveStatAffectFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveStatAffectToJson(MoveStatAffect instance) =>
+Map<String, dynamic> _$_$_MoveStatAffectToJson(_$_MoveStatAffect instance) =>
     <String, dynamic>{
       'change': instance.change,
       'move': instance.move?.toJson(),
     };
 
-NatureStatAffectSets _$NatureStatAffectSetsFromJson(Map<String, dynamic> json) {
-  return NatureStatAffectSets(
+_$_NatureStatAffectSets _$_$_NatureStatAffectSetsFromJson(
+    Map<String, dynamic> json) {
+  return _$_NatureStatAffectSets(
     (json['increase'] as List)
         ?.map((e) => e == null
             ? null
@@ -1071,15 +1086,15 @@ NatureStatAffectSets _$NatureStatAffectSetsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NatureStatAffectSetsToJson(
-        NatureStatAffectSets instance) =>
+Map<String, dynamic> _$_$_NatureStatAffectSetsToJson(
+        _$_NatureStatAffectSets instance) =>
     <String, dynamic>{
       'increase': instance.increase?.map((e) => e?.toJson())?.toList(),
       'decrease': instance.decrease?.map((e) => e?.toJson())?.toList(),
     };
 
-Type _$TypeFromJson(Map<String, dynamic> json) {
-  return Type(
+_$_Type _$_$_TypeFromJson(Map<String, dynamic> json) {
+  return _$_Type(
     json['id'] as int,
     json['name'] as String,
     json['damage_relations'] == null
@@ -1114,7 +1129,7 @@ Type _$TypeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TypeToJson(Type instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_TypeToJson(_$_Type instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'damage_relations': instance.damageRelations?.toJson(),
@@ -1126,8 +1141,8 @@ Map<String, dynamic> _$TypeToJson(Type instance) => <String, dynamic>{
       'moves': instance.moves?.map((e) => e?.toJson())?.toList(),
     };
 
-TypePokemon _$TypePokemonFromJson(Map<String, dynamic> json) {
-  return TypePokemon(
+_$_TypePokemon _$_$_TypePokemonFromJson(Map<String, dynamic> json) {
+  return _$_TypePokemon(
     json['slot'] as int,
     json['pokemon'] == null
         ? null
@@ -1135,14 +1150,14 @@ TypePokemon _$TypePokemonFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TypePokemonToJson(TypePokemon instance) =>
+Map<String, dynamic> _$_$_TypePokemonToJson(_$_TypePokemon instance) =>
     <String, dynamic>{
       'slot': instance.slot,
       'pokemon': instance.pokemon?.toJson(),
     };
 
-TypeRelations _$TypeRelationsFromJson(Map<String, dynamic> json) {
-  return TypeRelations(
+_$_TypeRelations _$_$_TypeRelationsFromJson(Map<String, dynamic> json) {
+  return _$_TypeRelations(
     (json['no_damage_to'] as List)
         ?.map((e) => e == null
             ? null
@@ -1176,7 +1191,7 @@ TypeRelations _$TypeRelationsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TypeRelationsToJson(TypeRelations instance) =>
+Map<String, dynamic> _$_$_TypeRelationsToJson(_$_TypeRelations instance) =>
     <String, dynamic>{
       'no_damage_to': instance.noDamageTo?.map((e) => e?.toJson())?.toList(),
       'half_damage_to':
