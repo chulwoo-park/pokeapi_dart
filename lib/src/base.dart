@@ -51,7 +51,7 @@ class BasePokeApiEndpoints extends PokeApiEndpoints {
           locationAreas: BaseNamedEndpoint<LocationArea>(client),
           palParkAreas: BaseNamedEndpoint<PalParkArea>(client),
           regions: BaseNamedEndpoint<Region>(client),
-          machines: BaseNamedEndpoint<Machine>(client),
+          machines: BaseEndpoint<Machine>(client),
           moves: BaseNamedEndpoint<Move>(client),
           moveAilments: BaseNamedEndpoint<MoveAilment>(client),
           moveBattleStyles: BaseNamedEndpoint<MoveBattleStyle>(client),
@@ -98,8 +98,6 @@ class BasePokeApiClient implements PokeApiClient {
   @override
   Future<T> get<T>(String url) async {
     final response = await _client.get(url);
-    print(url);
-    print(response.body);
     return _converterFactory.get<T>().fromJson(jsonDecode(response.body)) as T;
   }
 }

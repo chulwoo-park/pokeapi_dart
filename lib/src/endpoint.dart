@@ -105,7 +105,7 @@ class PokeApiEndpoints {
   final NamedEndpoint<LocationArea> locationAreas;
   final NamedEndpoint<PalParkArea> palParkAreas;
   final NamedEndpoint<Region> regions;
-  final NamedEndpoint<Machine> machines;
+  final Endpoint<Machine> machines;
   final NamedEndpoint<Move> moves;
   final NamedEndpoint<MoveAilment> moveAilments;
   final NamedEndpoint<MoveBattleStyle> moveBattleStyles;
