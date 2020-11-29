@@ -20,7 +20,7 @@ import 'dto/resources.dart';
 import 'dto/utility/language.dart';
 import 'endpoint.dart';
 
-const _baseUrl = 'https://pokeapi.co/api/v2';
+const _baseUrl = 'https://pokeapi.co';
 
 // TODO: generate from v2 root api
 class BasePokeApiEndpoints extends PokeApiEndpoints {
@@ -107,6 +107,7 @@ class BasePokeApiClient implements PokeApiClient {
 mixin ResourceEndpointMixin<Resource> {
   String _resource;
   String get resource => _resource ?? _createResource();
+  String get path => '/api/v2/$resource';
 
   String _createResource() {
     _resource = Resource.toString()
@@ -131,13 +132,13 @@ class BaseEndpoint<Resource>
     int limit = 20,
     int offset = 20,
   }) {
-    return client.get<ApiResourceList>(
-        '$_baseUrl/$resource?limit=$limit&?offset=$offset');
+    return client
+        .get<ApiResourceList>('$_baseUrl$path?limit=$limit&?offset=$offset');
   }
 
   @override
   Future<Resource> get(int id) {
-    return client.get<Resource>('$_baseUrl/$resource/$id');
+    return client.get<Resource>('$_baseUrl$path/$id');
   }
 }
 
@@ -154,19 +155,27 @@ class BaseNamedEndpoint<Resource>
     int offset = 20,
   }) {
     return client.get<NamedApiResourceList>(
-        '$_baseUrl/$resource?limit=$limit&offset=$offset');
+        '$_baseUrl$path?limit=$limit&offset=$offset');
   }
 
   @override
   Future<Resource> get({int id, String name}) {
     assert(id != null || name != null);
-    return client.get<Resource>('$_baseUrl/$resource/${id ?? name}');
+    return client.get<Resource>('$_baseUrl$path/${id ?? name}');
   }
 }
 
 // TODO: generate
 class BaseConverterFactory implements ConverterFactory {
   final Map<core.Type, Converter> _converters = Map.unmodifiable({
+    ApiResourceList: Converter(
+      fromJson: (json) => ApiResourceList.fromJson(json),
+      toJson: (data) => data.toJson(),
+    ),
+    NamedApiResourceList: Converter(
+      fromJson: (json) => NamedApiResourceList.fromJson(json),
+      toJson: (data) => data.toJson(),
+    ),
     Berry: Converter(
         fromJson: (json) => Berry.fromJson(json),
         toJson: (data) => data.toJson()),
