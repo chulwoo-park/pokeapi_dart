@@ -1,14 +1,5 @@
 # pokeapi_dart
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern RESTful API.
+[![codecov](https://codecov.io/gh/chulwoo-park/pokeapi_dart/branch/feature/test/graph/badge.svg?token=CR0KXZ1VLP)](https://codecov.io/gh/chulwoo-park/pokeapi_dart)
 
-## Getting Started
-
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+This is a Dart (and Flutter) client for [PokeApi](https://github.com/PokeAPI/pokeapi). It's written in Dart.
