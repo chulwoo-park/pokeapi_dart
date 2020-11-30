@@ -122,6 +122,14 @@ _$_Characteristic _$_$_CharacteristicFromJson(Map<String, dynamic> json) {
     json['id'] as int,
     json['gene_modulo'] as int,
     (json['possible_values'] as List)?.map((e) => e as int)?.toList(),
+    json['highest_stat'] == null
+        ? null
+        : NamedApiResource.fromJson(
+            json['highest_stat'] as Map<String, dynamic>),
+    (json['descriptions'] as List)
+        ?.map((e) =>
+            e == null ? null : Description.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -130,6 +138,8 @@ Map<String, dynamic> _$_$_CharacteristicToJson(_$_Characteristic instance) =>
       'id': instance.id,
       'gene_modulo': instance.geneModulo,
       'possible_values': instance.possibleValues,
+      'highest_stat': instance.highestStat?.toJson(),
+      'descriptions': instance.descriptions?.map((e) => e?.toJson())?.toList(),
     };
 
 _$_EggGroup _$_$_EggGroupFromJson(Map<String, dynamic> json) {
@@ -612,10 +622,57 @@ _$_PokemonSprites _$_$_PokemonSpritesFromJson(Map<String, dynamic> json) {
     json['back_shiny'] as String,
     json['back_female'] as String,
     json['back_shiny_female'] as String,
+    json['versions'] == null
+        ? null
+        : GenerationSprites.fromJson(json['versions'] as Map<String, dynamic>),
+    json['other'] == null
+        ? null
+        : PokemonOtherSprites.fromJson(json['other'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$_$_PokemonSpritesToJson(_$_PokemonSprites instance) =>
+Map<String, dynamic> _$_$_PokemonSpritesToJson(_$_PokemonSprites instance) {
+  final val = <String, dynamic>{
+    'front_default': instance.frontDefault,
+    'front_shiny': instance.frontShiny,
+    'front_female': instance.frontFemale,
+    'front_shiny_female': instance.frontShinyFemale,
+    'back_default': instance.backDefault,
+    'back_shiny': instance.backShiny,
+    'back_female': instance.backFemale,
+    'back_shiny_female': instance.backShinyFemale,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('versions', instance.versions?.toJson());
+  writeNotNull('other', instance.other?.toJson());
+  return val;
+}
+
+_$_AnimatedPokemonSprites _$_$_AnimatedPokemonSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _$_AnimatedPokemonSprites(
+    json['front_default'] as String,
+    json['front_shiny'] as String,
+    json['front_female'] as String,
+    json['front_shiny_female'] as String,
+    json['back_default'] as String,
+    json['back_shiny'] as String,
+    json['back_female'] as String,
+    json['back_shiny_female'] as String,
+    json['animated'] == null
+        ? null
+        : PokemonSprites.fromJson(json['animated'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_AnimatedPokemonSpritesToJson(
+        _$_AnimatedPokemonSprites instance) =>
     <String, dynamic>{
       'front_default': instance.frontDefault,
       'front_shiny': instance.frontShiny,
@@ -625,6 +682,289 @@ Map<String, dynamic> _$_$_PokemonSpritesToJson(_$_PokemonSprites instance) =>
       'back_shiny': instance.backShiny,
       'back_female': instance.backFemale,
       'back_shiny_female': instance.backShinyFemale,
+      'animated': instance.animated?.toJson(),
+    };
+
+_$_PokemonOtherSprites _$_$_PokemonOtherSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _$_PokemonOtherSprites(
+    json['dream_world'] == null
+        ? null
+        : DreamWorldSprites.fromJson(
+            json['dream_world'] as Map<String, dynamic>),
+    json['official-artwork'] == null
+        ? null
+        : OfficialArtworkSprites.fromJson(
+            json['official-artwork'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_PokemonOtherSpritesToJson(
+        _$_PokemonOtherSprites instance) =>
+    <String, dynamic>{
+      'dream_world': instance.dreamWorld?.toJson(),
+      'official-artwork': instance.officialArtwork?.toJson(),
+    };
+
+_$_DreamWorldSprites _$_$_DreamWorldSpritesFromJson(Map<String, dynamic> json) {
+  return _$_DreamWorldSprites(
+    json['front_default'] as String,
+    json['front_female'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_DreamWorldSpritesToJson(
+        _$_DreamWorldSprites instance) =>
+    <String, dynamic>{
+      'front_default': instance.frontDefault,
+      'front_female': instance.frontFemale,
+    };
+
+_$_OfficialArtworkSprites _$_$_OfficialArtworkSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _$_OfficialArtworkSprites(
+    json['front_default'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_OfficialArtworkSpritesToJson(
+        _$_OfficialArtworkSprites instance) =>
+    <String, dynamic>{
+      'front_default': instance.frontDefault,
+    };
+
+_$_GenerationSprites _$_$_GenerationSpritesFromJson(Map<String, dynamic> json) {
+  return _$_GenerationSprites(
+    json['generation-i'] == null
+        ? null
+        : Generation1SpritesList.fromJson(
+            json['generation-i'] as Map<String, dynamic>),
+    json['generation-ii'] == null
+        ? null
+        : Generation2SpritesList.fromJson(
+            json['generation-ii'] as Map<String, dynamic>),
+    json['generation-iii'] == null
+        ? null
+        : Generation3SpritesList.fromJson(
+            json['generation-iii'] as Map<String, dynamic>),
+    json['generation-iv'] == null
+        ? null
+        : Generation4SpritesList.fromJson(
+            json['generation-iv'] as Map<String, dynamic>),
+    json['generation-v'] == null
+        ? null
+        : Generation5SpritesList.fromJson(
+            json['generation-v'] as Map<String, dynamic>),
+    json['generation-vi'] == null
+        ? null
+        : Generation6SpritesList.fromJson(
+            json['generation-vi'] as Map<String, dynamic>),
+    json['generation-vii'] == null
+        ? null
+        : Generation7SpritesList.fromJson(
+            json['generation-vii'] as Map<String, dynamic>),
+    json['generation-viii'] == null
+        ? null
+        : Generation8SpritesList.fromJson(
+            json['generation-viii'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_GenerationSpritesToJson(
+        _$_GenerationSprites instance) =>
+    <String, dynamic>{
+      'generation-i': instance.gen1?.toJson(),
+      'generation-ii': instance.gen2?.toJson(),
+      'generation-iii': instance.gen3?.toJson(),
+      'generation-iv': instance.gen4?.toJson(),
+      'generation-v': instance.gen5?.toJson(),
+      'generation-vi': instance.gen6?.toJson(),
+      'generation-vii': instance.gen7?.toJson(),
+      'generation-viii': instance.gen8?.toJson(),
+    };
+
+_$_Generation1SpritesList _$_$_Generation1SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation1SpritesList(
+    json['red-blue'] == null
+        ? null
+        : Generation1PokemonFormSprites.fromJson(
+            json['red-blue'] as Map<String, dynamic>),
+    json['yellow'] == null
+        ? null
+        : Generation1PokemonFormSprites.fromJson(
+            json['yellow'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation1SpritesListToJson(
+        _$_Generation1SpritesList instance) =>
+    <String, dynamic>{
+      'red-blue': instance.redBlue?.toJson(),
+      'yellow': instance.yellow?.toJson(),
+    };
+
+_$_Generation1PokemonFormSprites _$_$_Generation1PokemonFormSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation1PokemonFormSprites(
+    json['front_default'] as String,
+    json['front_gray'] as String,
+    json['back_default'] as String,
+    json['back_gray'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_Generation1PokemonFormSpritesToJson(
+        _$_Generation1PokemonFormSprites instance) =>
+    <String, dynamic>{
+      'front_default': instance.frontDefault,
+      'front_gray': instance.frontGray,
+      'back_default': instance.backDefault,
+      'back_gray': instance.backGray,
+    };
+
+_$_Generation2SpritesList _$_$_Generation2SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation2SpritesList(
+    json['crystal'] == null
+        ? null
+        : PokemonFormSprites.fromJson(json['crystal'] as Map<String, dynamic>),
+    json['gold'] == null
+        ? null
+        : PokemonFormSprites.fromJson(json['gold'] as Map<String, dynamic>),
+    json['silver'] == null
+        ? null
+        : PokemonFormSprites.fromJson(json['silver'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation2SpritesListToJson(
+        _$_Generation2SpritesList instance) =>
+    <String, dynamic>{
+      'crystal': instance.crystal?.toJson(),
+      'gold': instance.gold?.toJson(),
+      'silver': instance.silver?.toJson(),
+    };
+
+_$_Generation3SpritesList _$_$_Generation3SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation3SpritesList(
+    json['emerald'] == null
+        ? null
+        : PokemonFormSprites.fromJson(json['emerald'] as Map<String, dynamic>),
+    json['firered-leafgreen'] == null
+        ? null
+        : PokemonFormSprites.fromJson(
+            json['firered-leafgreen'] as Map<String, dynamic>),
+    json['ruby-sapphire'] == null
+        ? null
+        : PokemonFormSprites.fromJson(
+            json['ruby-sapphire'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation3SpritesListToJson(
+        _$_Generation3SpritesList instance) =>
+    <String, dynamic>{
+      'emerald': instance.emerald?.toJson(),
+      'firered-leafgreen': instance.frlg?.toJson(),
+      'ruby-sapphire': instance.rs?.toJson(),
+    };
+
+_$_Generation4SpritesList _$_$_Generation4SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation4SpritesList(
+    json['diamond-pearl'] == null
+        ? null
+        : PokemonSprites.fromJson(
+            json['diamond-pearl'] as Map<String, dynamic>),
+    json['heartgold-soulsilver'] == null
+        ? null
+        : PokemonSprites.fromJson(
+            json['heartgold-soulsilver'] as Map<String, dynamic>),
+    json['platinum'] == null
+        ? null
+        : PokemonSprites.fromJson(json['platinum'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation4SpritesListToJson(
+        _$_Generation4SpritesList instance) =>
+    <String, dynamic>{
+      'diamond-pearl': instance.dp?.toJson(),
+      'heartgold-soulsilver': instance.hgss?.toJson(),
+      'platinum': instance.platinum?.toJson(),
+    };
+
+_$_Generation5SpritesList _$_$_Generation5SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation5SpritesList(
+    json['black-white'] == null
+        ? null
+        : AnimatedPokemonSprites.fromJson(
+            json['black-white'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation5SpritesListToJson(
+        _$_Generation5SpritesList instance) =>
+    <String, dynamic>{
+      'black-white': instance.bw?.toJson(),
+    };
+
+_$_Generation6SpritesList _$_$_Generation6SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation6SpritesList(
+    json['omegaruby-alphasapphire'] == null
+        ? null
+        : PokemonSprites.fromJson(
+            json['omegaruby-alphasapphire'] as Map<String, dynamic>),
+    json['x-y'] == null
+        ? null
+        : PokemonSprites.fromJson(json['x-y'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation6SpritesListToJson(
+        _$_Generation6SpritesList instance) =>
+    <String, dynamic>{
+      'omegaruby-alphasapphire': instance.oras?.toJson(),
+      'x-y': instance.xy?.toJson(),
+    };
+
+_$_Generation7SpritesList _$_$_Generation7SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation7SpritesList(
+    json['ultra-sun-ultra-moon'] == null
+        ? null
+        : PokemonSprites.fromJson(
+            json['ultra-sun-ultra-moon'] as Map<String, dynamic>),
+    json['icons'] == null
+        ? null
+        : PokemonSprites.fromJson(json['icons'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation7SpritesListToJson(
+        _$_Generation7SpritesList instance) =>
+    <String, dynamic>{
+      'ultra-sun-ultra-moon': instance.usum?.toJson(),
+      'icons': instance.icons?.toJson(),
+    };
+
+_$_Generation8SpritesList _$_$_Generation8SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _$_Generation8SpritesList(
+    json['icons'] == null
+        ? null
+        : PokemonSprites.fromJson(json['icons'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_Generation8SpritesListToJson(
+        _$_Generation8SpritesList instance) =>
+    <String, dynamic>{
+      'icons': instance.icons?.toJson(),
     };
 
 _$_LocationAreaEncounter _$_$_LocationAreaEncounterFromJson(

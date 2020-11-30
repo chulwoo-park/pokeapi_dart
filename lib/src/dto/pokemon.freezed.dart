@@ -1178,12 +1178,18 @@ class _$CharacteristicTearOff {
   const _$CharacteristicTearOff();
 
 // ignore: unused_element
-  _Characteristic call(int id, @JsonKey(name: 'gene_modulo') int geneModulo,
-      @JsonKey(name: 'possible_values') List<int> possibleValues) {
+  _Characteristic call(
+      int id,
+      @JsonKey(name: 'gene_modulo') int geneModulo,
+      @JsonKey(name: 'possible_values') List<int> possibleValues,
+      @JsonKey(name: 'highest_stat') NamedApiResource highestStat,
+      List<Description> descriptions) {
     return _Characteristic(
       id,
       geneModulo,
       possibleValues,
+      highestStat,
+      descriptions,
     );
   }
 
@@ -1211,6 +1217,13 @@ mixin _$Characteristic {
   @JsonKey(name: 'possible_values')
   List<int> get possibleValues;
 
+  /// The stat which results in this characteristic
+  @JsonKey(name: 'highest_stat')
+  NamedApiResource get highestStat;
+
+  /// The descriptions of this characteristic in different languages.
+  List<Description> get descriptions;
+
   Map<String, dynamic> toJson();
   $CharacteristicCopyWith<Characteristic> get copyWith;
 }
@@ -1223,7 +1236,11 @@ abstract class $CharacteristicCopyWith<$Res> {
   $Res call(
       {int id,
       @JsonKey(name: 'gene_modulo') int geneModulo,
-      @JsonKey(name: 'possible_values') List<int> possibleValues});
+      @JsonKey(name: 'possible_values') List<int> possibleValues,
+      @JsonKey(name: 'highest_stat') NamedApiResource highestStat,
+      List<Description> descriptions});
+
+  $NamedApiResourceCopyWith<$Res> get highestStat;
 }
 
 /// @nodoc
@@ -1240,6 +1257,8 @@ class _$CharacteristicCopyWithImpl<$Res>
     Object id = freezed,
     Object geneModulo = freezed,
     Object possibleValues = freezed,
+    Object highestStat = freezed,
+    Object descriptions = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as int,
@@ -1247,7 +1266,23 @@ class _$CharacteristicCopyWithImpl<$Res>
       possibleValues: possibleValues == freezed
           ? _value.possibleValues
           : possibleValues as List<int>,
+      highestStat: highestStat == freezed
+          ? _value.highestStat
+          : highestStat as NamedApiResource,
+      descriptions: descriptions == freezed
+          ? _value.descriptions
+          : descriptions as List<Description>,
     ));
+  }
+
+  @override
+  $NamedApiResourceCopyWith<$Res> get highestStat {
+    if (_value.highestStat == null) {
+      return null;
+    }
+    return $NamedApiResourceCopyWith<$Res>(_value.highestStat, (value) {
+      return _then(_value.copyWith(highestStat: value));
+    });
   }
 }
 
@@ -1261,7 +1296,12 @@ abstract class _$CharacteristicCopyWith<$Res>
   $Res call(
       {int id,
       @JsonKey(name: 'gene_modulo') int geneModulo,
-      @JsonKey(name: 'possible_values') List<int> possibleValues});
+      @JsonKey(name: 'possible_values') List<int> possibleValues,
+      @JsonKey(name: 'highest_stat') NamedApiResource highestStat,
+      List<Description> descriptions});
+
+  @override
+  $NamedApiResourceCopyWith<$Res> get highestStat;
 }
 
 /// @nodoc
@@ -1280,6 +1320,8 @@ class __$CharacteristicCopyWithImpl<$Res>
     Object id = freezed,
     Object geneModulo = freezed,
     Object possibleValues = freezed,
+    Object highestStat = freezed,
+    Object descriptions = freezed,
   }) {
     return _then(_Characteristic(
       id == freezed ? _value.id : id as int,
@@ -1287,6 +1329,12 @@ class __$CharacteristicCopyWithImpl<$Res>
       possibleValues == freezed
           ? _value.possibleValues
           : possibleValues as List<int>,
+      highestStat == freezed
+          ? _value.highestStat
+          : highestStat as NamedApiResource,
+      descriptions == freezed
+          ? _value.descriptions
+          : descriptions as List<Description>,
     ));
   }
 }
@@ -1298,10 +1346,14 @@ class _$_Characteristic implements _Characteristic {
   const _$_Characteristic(
       this.id,
       @JsonKey(name: 'gene_modulo') this.geneModulo,
-      @JsonKey(name: 'possible_values') this.possibleValues)
+      @JsonKey(name: 'possible_values') this.possibleValues,
+      @JsonKey(name: 'highest_stat') this.highestStat,
+      this.descriptions)
       : assert(id != null),
         assert(geneModulo != null),
-        assert(possibleValues != null);
+        assert(possibleValues != null),
+        assert(highestStat != null),
+        assert(descriptions != null);
 
   factory _$_Characteristic.fromJson(Map<String, dynamic> json) =>
       _$_$_CharacteristicFromJson(json);
@@ -1321,10 +1373,19 @@ class _$_Characteristic implements _Characteristic {
   /// recieving this characteristic when divided by 5.
   @JsonKey(name: 'possible_values')
   final List<int> possibleValues;
+  @override
+
+  /// The stat which results in this characteristic
+  @JsonKey(name: 'highest_stat')
+  final NamedApiResource highestStat;
+  @override
+
+  /// The descriptions of this characteristic in different languages.
+  final List<Description> descriptions;
 
   @override
   String toString() {
-    return 'Characteristic(id: $id, geneModulo: $geneModulo, possibleValues: $possibleValues)';
+    return 'Characteristic(id: $id, geneModulo: $geneModulo, possibleValues: $possibleValues, highestStat: $highestStat, descriptions: $descriptions)';
   }
 
   @override
@@ -1338,7 +1399,13 @@ class _$_Characteristic implements _Characteristic {
                     .equals(other.geneModulo, geneModulo)) &&
             (identical(other.possibleValues, possibleValues) ||
                 const DeepCollectionEquality()
-                    .equals(other.possibleValues, possibleValues)));
+                    .equals(other.possibleValues, possibleValues)) &&
+            (identical(other.highestStat, highestStat) ||
+                const DeepCollectionEquality()
+                    .equals(other.highestStat, highestStat)) &&
+            (identical(other.descriptions, descriptions) ||
+                const DeepCollectionEquality()
+                    .equals(other.descriptions, descriptions)));
   }
 
   @override
@@ -1346,7 +1413,9 @@ class _$_Characteristic implements _Characteristic {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(geneModulo) ^
-      const DeepCollectionEquality().hash(possibleValues);
+      const DeepCollectionEquality().hash(possibleValues) ^
+      const DeepCollectionEquality().hash(highestStat) ^
+      const DeepCollectionEquality().hash(descriptions);
 
   @override
   _$CharacteristicCopyWith<_Characteristic> get copyWith =>
@@ -1360,10 +1429,11 @@ class _$_Characteristic implements _Characteristic {
 
 abstract class _Characteristic implements Characteristic {
   const factory _Characteristic(
-          int id,
-          @JsonKey(name: 'gene_modulo') int geneModulo,
-          @JsonKey(name: 'possible_values') List<int> possibleValues) =
-      _$_Characteristic;
+      int id,
+      @JsonKey(name: 'gene_modulo') int geneModulo,
+      @JsonKey(name: 'possible_values') List<int> possibleValues,
+      @JsonKey(name: 'highest_stat') NamedApiResource highestStat,
+      List<Description> descriptions) = _$_Characteristic;
 
   factory _Characteristic.fromJson(Map<String, dynamic> json) =
       _$_Characteristic.fromJson;
@@ -1383,6 +1453,15 @@ abstract class _Characteristic implements Characteristic {
   /// recieving this characteristic when divided by 5.
   @JsonKey(name: 'possible_values')
   List<int> get possibleValues;
+  @override
+
+  /// The stat which results in this characteristic
+  @JsonKey(name: 'highest_stat')
+  NamedApiResource get highestStat;
+  @override
+
+  /// The descriptions of this characteristic in different languages.
+  List<Description> get descriptions;
   @override
   _$CharacteristicCopyWith<_Characteristic> get copyWith;
 }
@@ -6532,7 +6611,9 @@ class _$PokemonSpritesTearOff {
       @nullable @JsonKey(name: 'back_default') String backDefault,
       @nullable @JsonKey(name: 'back_shiny') String backShiny,
       @nullable @JsonKey(name: 'back_female') String backFemale,
-      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale) {
+      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+      @nullable @JsonKey(includeIfNull: false) GenerationSprites versions,
+      @nullable @JsonKey(includeIfNull: false) PokemonOtherSprites other) {
     return _PokemonSprites(
       frontDefault,
       frontShiny,
@@ -6542,6 +6623,8 @@ class _$PokemonSpritesTearOff {
       backShiny,
       backFemale,
       backShinyFemale,
+      versions,
+      other,
     );
   }
 
@@ -6596,6 +6679,12 @@ mixin _$PokemonSprites {
   @nullable
   @JsonKey(name: 'back_shiny_female')
   String get backShinyFemale;
+  @nullable
+  @JsonKey(includeIfNull: false)
+  GenerationSprites get versions;
+  @nullable
+  @JsonKey(includeIfNull: false)
+  PokemonOtherSprites get other;
 
   Map<String, dynamic> toJson();
   $PokemonSpritesCopyWith<PokemonSprites> get copyWith;
@@ -6614,7 +6703,12 @@ abstract class $PokemonSpritesCopyWith<$Res> {
       @nullable @JsonKey(name: 'back_default') String backDefault,
       @nullable @JsonKey(name: 'back_shiny') String backShiny,
       @nullable @JsonKey(name: 'back_female') String backFemale,
-      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale});
+      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+      @nullable @JsonKey(includeIfNull: false) GenerationSprites versions,
+      @nullable @JsonKey(includeIfNull: false) PokemonOtherSprites other});
+
+  $GenerationSpritesCopyWith<$Res> get versions;
+  $PokemonOtherSpritesCopyWith<$Res> get other;
 }
 
 /// @nodoc
@@ -6636,6 +6730,8 @@ class _$PokemonSpritesCopyWithImpl<$Res>
     Object backShiny = freezed,
     Object backFemale = freezed,
     Object backShinyFemale = freezed,
+    Object versions = freezed,
+    Object other = freezed,
   }) {
     return _then(_value.copyWith(
       frontDefault: frontDefault == freezed
@@ -6656,7 +6752,30 @@ class _$PokemonSpritesCopyWithImpl<$Res>
       backShinyFemale: backShinyFemale == freezed
           ? _value.backShinyFemale
           : backShinyFemale as String,
+      versions:
+          versions == freezed ? _value.versions : versions as GenerationSprites,
+      other: other == freezed ? _value.other : other as PokemonOtherSprites,
     ));
+  }
+
+  @override
+  $GenerationSpritesCopyWith<$Res> get versions {
+    if (_value.versions == null) {
+      return null;
+    }
+    return $GenerationSpritesCopyWith<$Res>(_value.versions, (value) {
+      return _then(_value.copyWith(versions: value));
+    });
+  }
+
+  @override
+  $PokemonOtherSpritesCopyWith<$Res> get other {
+    if (_value.other == null) {
+      return null;
+    }
+    return $PokemonOtherSpritesCopyWith<$Res>(_value.other, (value) {
+      return _then(_value.copyWith(other: value));
+    });
   }
 }
 
@@ -6675,7 +6794,14 @@ abstract class _$PokemonSpritesCopyWith<$Res>
       @nullable @JsonKey(name: 'back_default') String backDefault,
       @nullable @JsonKey(name: 'back_shiny') String backShiny,
       @nullable @JsonKey(name: 'back_female') String backFemale,
-      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale});
+      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+      @nullable @JsonKey(includeIfNull: false) GenerationSprites versions,
+      @nullable @JsonKey(includeIfNull: false) PokemonOtherSprites other});
+
+  @override
+  $GenerationSpritesCopyWith<$Res> get versions;
+  @override
+  $PokemonOtherSpritesCopyWith<$Res> get other;
 }
 
 /// @nodoc
@@ -6699,6 +6825,8 @@ class __$PokemonSpritesCopyWithImpl<$Res>
     Object backShiny = freezed,
     Object backFemale = freezed,
     Object backShinyFemale = freezed,
+    Object versions = freezed,
+    Object other = freezed,
   }) {
     return _then(_PokemonSprites(
       frontDefault == freezed ? _value.frontDefault : frontDefault as String,
@@ -6713,6 +6841,8 @@ class __$PokemonSpritesCopyWithImpl<$Res>
       backShinyFemale == freezed
           ? _value.backShinyFemale
           : backShinyFemale as String,
+      versions == freezed ? _value.versions : versions as GenerationSprites,
+      other == freezed ? _value.other : other as PokemonOtherSprites,
     ));
   }
 }
@@ -6729,7 +6859,9 @@ class _$_PokemonSprites implements _PokemonSprites {
       @nullable @JsonKey(name: 'back_default') this.backDefault,
       @nullable @JsonKey(name: 'back_shiny') this.backShiny,
       @nullable @JsonKey(name: 'back_female') this.backFemale,
-      @nullable @JsonKey(name: 'back_shiny_female') this.backShinyFemale);
+      @nullable @JsonKey(name: 'back_shiny_female') this.backShinyFemale,
+      @nullable @JsonKey(includeIfNull: false) this.versions,
+      @nullable @JsonKey(includeIfNull: false) this.other);
 
   factory _$_PokemonSprites.fromJson(Map<String, dynamic> json) =>
       _$_$_PokemonSpritesFromJson(json);
@@ -6782,10 +6914,18 @@ class _$_PokemonSprites implements _PokemonSprites {
   @nullable
   @JsonKey(name: 'back_shiny_female')
   final String backShinyFemale;
+  @override
+  @nullable
+  @JsonKey(includeIfNull: false)
+  final GenerationSprites versions;
+  @override
+  @nullable
+  @JsonKey(includeIfNull: false)
+  final PokemonOtherSprites other;
 
   @override
   String toString() {
-    return 'PokemonSprites(frontDefault: $frontDefault, frontShiny: $frontShiny, frontFemale: $frontFemale, frontShinyFemale: $frontShinyFemale, backDefault: $backDefault, backShiny: $backShiny, backFemale: $backFemale, backShinyFemale: $backShinyFemale)';
+    return 'PokemonSprites(frontDefault: $frontDefault, frontShiny: $frontShiny, frontFemale: $frontFemale, frontShinyFemale: $frontShinyFemale, backDefault: $backDefault, backShiny: $backShiny, backFemale: $backFemale, backShinyFemale: $backShinyFemale, versions: $versions, other: $other)';
   }
 
   @override
@@ -6815,7 +6955,13 @@ class _$_PokemonSprites implements _PokemonSprites {
                     .equals(other.backFemale, backFemale)) &&
             (identical(other.backShinyFemale, backShinyFemale) ||
                 const DeepCollectionEquality()
-                    .equals(other.backShinyFemale, backShinyFemale)));
+                    .equals(other.backShinyFemale, backShinyFemale)) &&
+            (identical(other.versions, versions) ||
+                const DeepCollectionEquality()
+                    .equals(other.versions, versions)) &&
+            (identical(other.other, this.other) ||
+                const DeepCollectionEquality()
+                    .equals(other.other, this.other)));
   }
 
   @override
@@ -6828,7 +6974,9 @@ class _$_PokemonSprites implements _PokemonSprites {
       const DeepCollectionEquality().hash(backDefault) ^
       const DeepCollectionEquality().hash(backShiny) ^
       const DeepCollectionEquality().hash(backFemale) ^
-      const DeepCollectionEquality().hash(backShinyFemale);
+      const DeepCollectionEquality().hash(backShinyFemale) ^
+      const DeepCollectionEquality().hash(versions) ^
+      const DeepCollectionEquality().hash(other);
 
   @override
   _$PokemonSpritesCopyWith<_PokemonSprites> get copyWith =>
@@ -6865,7 +7013,13 @@ abstract class _PokemonSprites implements PokemonSprites {
           String backFemale,
       @nullable
       @JsonKey(name: 'back_shiny_female')
-          String backShinyFemale) = _$_PokemonSprites;
+          String backShinyFemale,
+      @nullable
+      @JsonKey(includeIfNull: false)
+          GenerationSprites versions,
+      @nullable
+      @JsonKey(includeIfNull: false)
+          PokemonOtherSprites other) = _$_PokemonSprites;
 
   factory _PokemonSprites.fromJson(Map<String, dynamic> json) =
       _$_PokemonSprites.fromJson;
@@ -6919,7 +7073,3308 @@ abstract class _PokemonSprites implements PokemonSprites {
   @JsonKey(name: 'back_shiny_female')
   String get backShinyFemale;
   @override
+  @nullable
+  @JsonKey(includeIfNull: false)
+  GenerationSprites get versions;
+  @override
+  @nullable
+  @JsonKey(includeIfNull: false)
+  PokemonOtherSprites get other;
+  @override
   _$PokemonSpritesCopyWith<_PokemonSprites> get copyWith;
+}
+
+AnimatedPokemonSprites _$AnimatedPokemonSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _AnimatedPokemonSprites.fromJson(json);
+}
+
+/// @nodoc
+class _$AnimatedPokemonSpritesTearOff {
+  const _$AnimatedPokemonSpritesTearOff();
+
+// ignore: unused_element
+  _AnimatedPokemonSprites call(
+      @nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_shiny') String frontShiny,
+      @nullable @JsonKey(name: 'front_female') String frontFemale,
+      @nullable @JsonKey(name: 'front_shiny_female') String frontShinyFemale,
+      @nullable @JsonKey(name: 'back_default') String backDefault,
+      @nullable @JsonKey(name: 'back_shiny') String backShiny,
+      @nullable @JsonKey(name: 'back_female') String backFemale,
+      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+      @nullable PokemonSprites animated) {
+    return _AnimatedPokemonSprites(
+      frontDefault,
+      frontShiny,
+      frontFemale,
+      frontShinyFemale,
+      backDefault,
+      backShiny,
+      backFemale,
+      backShinyFemale,
+      animated,
+    );
+  }
+
+// ignore: unused_element
+  AnimatedPokemonSprites fromJson(Map<String, Object> json) {
+    return AnimatedPokemonSprites.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $AnimatedPokemonSprites = _$AnimatedPokemonSpritesTearOff();
+
+/// @nodoc
+mixin _$AnimatedPokemonSprites {
+  /// The default depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+
+  /// The shiny depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_shiny')
+  String get frontShiny;
+
+  /// The felmale depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_female')
+  String get frontFemale;
+
+  /// The shiny female depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_shiny_female')
+  String get frontShinyFemale;
+
+  /// The default depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_default')
+  String get backDefault;
+
+  /// The shiny depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_shiny')
+  String get backShiny;
+
+  /// The felmale depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_female')
+  String get backFemale;
+
+  /// The shiny female depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_shiny_female')
+  String get backShinyFemale;
+  @nullable
+  PokemonSprites get animated;
+
+  Map<String, dynamic> toJson();
+  $AnimatedPokemonSpritesCopyWith<AnimatedPokemonSprites> get copyWith;
+}
+
+/// @nodoc
+abstract class $AnimatedPokemonSpritesCopyWith<$Res> {
+  factory $AnimatedPokemonSpritesCopyWith(AnimatedPokemonSprites value,
+          $Res Function(AnimatedPokemonSprites) then) =
+      _$AnimatedPokemonSpritesCopyWithImpl<$Res>;
+  $Res call(
+      {@nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_shiny') String frontShiny,
+      @nullable @JsonKey(name: 'front_female') String frontFemale,
+      @nullable @JsonKey(name: 'front_shiny_female') String frontShinyFemale,
+      @nullable @JsonKey(name: 'back_default') String backDefault,
+      @nullable @JsonKey(name: 'back_shiny') String backShiny,
+      @nullable @JsonKey(name: 'back_female') String backFemale,
+      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+      @nullable PokemonSprites animated});
+
+  $PokemonSpritesCopyWith<$Res> get animated;
+}
+
+/// @nodoc
+class _$AnimatedPokemonSpritesCopyWithImpl<$Res>
+    implements $AnimatedPokemonSpritesCopyWith<$Res> {
+  _$AnimatedPokemonSpritesCopyWithImpl(this._value, this._then);
+
+  final AnimatedPokemonSprites _value;
+  // ignore: unused_field
+  final $Res Function(AnimatedPokemonSprites) _then;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+    Object frontShiny = freezed,
+    Object frontFemale = freezed,
+    Object frontShinyFemale = freezed,
+    Object backDefault = freezed,
+    Object backShiny = freezed,
+    Object backFemale = freezed,
+    Object backShinyFemale = freezed,
+    Object animated = freezed,
+  }) {
+    return _then(_value.copyWith(
+      frontDefault: frontDefault == freezed
+          ? _value.frontDefault
+          : frontDefault as String,
+      frontShiny:
+          frontShiny == freezed ? _value.frontShiny : frontShiny as String,
+      frontFemale:
+          frontFemale == freezed ? _value.frontFemale : frontFemale as String,
+      frontShinyFemale: frontShinyFemale == freezed
+          ? _value.frontShinyFemale
+          : frontShinyFemale as String,
+      backDefault:
+          backDefault == freezed ? _value.backDefault : backDefault as String,
+      backShiny: backShiny == freezed ? _value.backShiny : backShiny as String,
+      backFemale:
+          backFemale == freezed ? _value.backFemale : backFemale as String,
+      backShinyFemale: backShinyFemale == freezed
+          ? _value.backShinyFemale
+          : backShinyFemale as String,
+      animated:
+          animated == freezed ? _value.animated : animated as PokemonSprites,
+    ));
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get animated {
+    if (_value.animated == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.animated, (value) {
+      return _then(_value.copyWith(animated: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$AnimatedPokemonSpritesCopyWith<$Res>
+    implements $AnimatedPokemonSpritesCopyWith<$Res> {
+  factory _$AnimatedPokemonSpritesCopyWith(_AnimatedPokemonSprites value,
+          $Res Function(_AnimatedPokemonSprites) then) =
+      __$AnimatedPokemonSpritesCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_shiny') String frontShiny,
+      @nullable @JsonKey(name: 'front_female') String frontFemale,
+      @nullable @JsonKey(name: 'front_shiny_female') String frontShinyFemale,
+      @nullable @JsonKey(name: 'back_default') String backDefault,
+      @nullable @JsonKey(name: 'back_shiny') String backShiny,
+      @nullable @JsonKey(name: 'back_female') String backFemale,
+      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+      @nullable PokemonSprites animated});
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get animated;
+}
+
+/// @nodoc
+class __$AnimatedPokemonSpritesCopyWithImpl<$Res>
+    extends _$AnimatedPokemonSpritesCopyWithImpl<$Res>
+    implements _$AnimatedPokemonSpritesCopyWith<$Res> {
+  __$AnimatedPokemonSpritesCopyWithImpl(_AnimatedPokemonSprites _value,
+      $Res Function(_AnimatedPokemonSprites) _then)
+      : super(_value, (v) => _then(v as _AnimatedPokemonSprites));
+
+  @override
+  _AnimatedPokemonSprites get _value => super._value as _AnimatedPokemonSprites;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+    Object frontShiny = freezed,
+    Object frontFemale = freezed,
+    Object frontShinyFemale = freezed,
+    Object backDefault = freezed,
+    Object backShiny = freezed,
+    Object backFemale = freezed,
+    Object backShinyFemale = freezed,
+    Object animated = freezed,
+  }) {
+    return _then(_AnimatedPokemonSprites(
+      frontDefault == freezed ? _value.frontDefault : frontDefault as String,
+      frontShiny == freezed ? _value.frontShiny : frontShiny as String,
+      frontFemale == freezed ? _value.frontFemale : frontFemale as String,
+      frontShinyFemale == freezed
+          ? _value.frontShinyFemale
+          : frontShinyFemale as String,
+      backDefault == freezed ? _value.backDefault : backDefault as String,
+      backShiny == freezed ? _value.backShiny : backShiny as String,
+      backFemale == freezed ? _value.backFemale : backFemale as String,
+      backShinyFemale == freezed
+          ? _value.backShinyFemale
+          : backShinyFemale as String,
+      animated == freezed ? _value.animated : animated as PokemonSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_AnimatedPokemonSprites implements _AnimatedPokemonSprites {
+  const _$_AnimatedPokemonSprites(
+      @nullable @JsonKey(name: 'front_default') this.frontDefault,
+      @nullable @JsonKey(name: 'front_shiny') this.frontShiny,
+      @nullable @JsonKey(name: 'front_female') this.frontFemale,
+      @nullable @JsonKey(name: 'front_shiny_female') this.frontShinyFemale,
+      @nullable @JsonKey(name: 'back_default') this.backDefault,
+      @nullable @JsonKey(name: 'back_shiny') this.backShiny,
+      @nullable @JsonKey(name: 'back_female') this.backFemale,
+      @nullable @JsonKey(name: 'back_shiny_female') this.backShinyFemale,
+      @nullable this.animated);
+
+  factory _$_AnimatedPokemonSprites.fromJson(Map<String, dynamic> json) =>
+      _$_$_AnimatedPokemonSpritesFromJson(json);
+
+  @override
+
+  /// The default depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_default')
+  final String frontDefault;
+  @override
+
+  /// The shiny depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_shiny')
+  final String frontShiny;
+  @override
+
+  /// The felmale depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_female')
+  final String frontFemale;
+  @override
+
+  /// The shiny female depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_shiny_female')
+  final String frontShinyFemale;
+  @override
+
+  /// The default depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_default')
+  final String backDefault;
+  @override
+
+  /// The shiny depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_shiny')
+  final String backShiny;
+  @override
+
+  /// The felmale depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_female')
+  final String backFemale;
+  @override
+
+  /// The shiny female depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_shiny_female')
+  final String backShinyFemale;
+  @override
+  @nullable
+  final PokemonSprites animated;
+
+  @override
+  String toString() {
+    return 'AnimatedPokemonSprites(frontDefault: $frontDefault, frontShiny: $frontShiny, frontFemale: $frontFemale, frontShinyFemale: $frontShinyFemale, backDefault: $backDefault, backShiny: $backShiny, backFemale: $backFemale, backShinyFemale: $backShinyFemale, animated: $animated)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AnimatedPokemonSprites &&
+            (identical(other.frontDefault, frontDefault) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontDefault, frontDefault)) &&
+            (identical(other.frontShiny, frontShiny) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontShiny, frontShiny)) &&
+            (identical(other.frontFemale, frontFemale) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontFemale, frontFemale)) &&
+            (identical(other.frontShinyFemale, frontShinyFemale) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontShinyFemale, frontShinyFemale)) &&
+            (identical(other.backDefault, backDefault) ||
+                const DeepCollectionEquality()
+                    .equals(other.backDefault, backDefault)) &&
+            (identical(other.backShiny, backShiny) ||
+                const DeepCollectionEquality()
+                    .equals(other.backShiny, backShiny)) &&
+            (identical(other.backFemale, backFemale) ||
+                const DeepCollectionEquality()
+                    .equals(other.backFemale, backFemale)) &&
+            (identical(other.backShinyFemale, backShinyFemale) ||
+                const DeepCollectionEquality()
+                    .equals(other.backShinyFemale, backShinyFemale)) &&
+            (identical(other.animated, animated) ||
+                const DeepCollectionEquality()
+                    .equals(other.animated, animated)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(frontDefault) ^
+      const DeepCollectionEquality().hash(frontShiny) ^
+      const DeepCollectionEquality().hash(frontFemale) ^
+      const DeepCollectionEquality().hash(frontShinyFemale) ^
+      const DeepCollectionEquality().hash(backDefault) ^
+      const DeepCollectionEquality().hash(backShiny) ^
+      const DeepCollectionEquality().hash(backFemale) ^
+      const DeepCollectionEquality().hash(backShinyFemale) ^
+      const DeepCollectionEquality().hash(animated);
+
+  @override
+  _$AnimatedPokemonSpritesCopyWith<_AnimatedPokemonSprites> get copyWith =>
+      __$AnimatedPokemonSpritesCopyWithImpl<_AnimatedPokemonSprites>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_AnimatedPokemonSpritesToJson(this);
+  }
+}
+
+abstract class _AnimatedPokemonSprites implements AnimatedPokemonSprites {
+  const factory _AnimatedPokemonSprites(
+      @nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_shiny') String frontShiny,
+      @nullable @JsonKey(name: 'front_female') String frontFemale,
+      @nullable @JsonKey(name: 'front_shiny_female') String frontShinyFemale,
+      @nullable @JsonKey(name: 'back_default') String backDefault,
+      @nullable @JsonKey(name: 'back_shiny') String backShiny,
+      @nullable @JsonKey(name: 'back_female') String backFemale,
+      @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+      @nullable PokemonSprites animated) = _$_AnimatedPokemonSprites;
+
+  factory _AnimatedPokemonSprites.fromJson(Map<String, dynamic> json) =
+      _$_AnimatedPokemonSprites.fromJson;
+
+  @override
+
+  /// The default depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+  @override
+
+  /// The shiny depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_shiny')
+  String get frontShiny;
+  @override
+
+  /// The felmale depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_female')
+  String get frontFemale;
+  @override
+
+  /// The shiny female depiction of this Pokémon from the front in battle.
+  @nullable
+  @JsonKey(name: 'front_shiny_female')
+  String get frontShinyFemale;
+  @override
+
+  /// The default depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_default')
+  String get backDefault;
+  @override
+
+  /// The shiny depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_shiny')
+  String get backShiny;
+  @override
+
+  /// The felmale depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_female')
+  String get backFemale;
+  @override
+
+  /// The shiny female depiction of this Pokémon from the back in battle.
+  @nullable
+  @JsonKey(name: 'back_shiny_female')
+  String get backShinyFemale;
+  @override
+  @nullable
+  PokemonSprites get animated;
+  @override
+  _$AnimatedPokemonSpritesCopyWith<_AnimatedPokemonSprites> get copyWith;
+}
+
+PokemonOtherSprites _$PokemonOtherSpritesFromJson(Map<String, dynamic> json) {
+  return _PokemonOtherSprites.fromJson(json);
+}
+
+/// @nodoc
+class _$PokemonOtherSpritesTearOff {
+  const _$PokemonOtherSpritesTearOff();
+
+// ignore: unused_element
+  _PokemonOtherSprites call(
+      @JsonKey(name: 'dream_world')
+          DreamWorldSprites dreamWorld,
+      @JsonKey(name: 'official-artwork')
+          OfficialArtworkSprites officialArtwork) {
+    return _PokemonOtherSprites(
+      dreamWorld,
+      officialArtwork,
+    );
+  }
+
+// ignore: unused_element
+  PokemonOtherSprites fromJson(Map<String, Object> json) {
+    return PokemonOtherSprites.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $PokemonOtherSprites = _$PokemonOtherSpritesTearOff();
+
+/// @nodoc
+mixin _$PokemonOtherSprites {
+  @JsonKey(name: 'dream_world')
+  DreamWorldSprites get dreamWorld;
+  @JsonKey(name: 'official-artwork')
+  OfficialArtworkSprites get officialArtwork;
+
+  Map<String, dynamic> toJson();
+  $PokemonOtherSpritesCopyWith<PokemonOtherSprites> get copyWith;
+}
+
+/// @nodoc
+abstract class $PokemonOtherSpritesCopyWith<$Res> {
+  factory $PokemonOtherSpritesCopyWith(
+          PokemonOtherSprites value, $Res Function(PokemonOtherSprites) then) =
+      _$PokemonOtherSpritesCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'dream_world')
+          DreamWorldSprites dreamWorld,
+      @JsonKey(name: 'official-artwork')
+          OfficialArtworkSprites officialArtwork});
+
+  $DreamWorldSpritesCopyWith<$Res> get dreamWorld;
+  $OfficialArtworkSpritesCopyWith<$Res> get officialArtwork;
+}
+
+/// @nodoc
+class _$PokemonOtherSpritesCopyWithImpl<$Res>
+    implements $PokemonOtherSpritesCopyWith<$Res> {
+  _$PokemonOtherSpritesCopyWithImpl(this._value, this._then);
+
+  final PokemonOtherSprites _value;
+  // ignore: unused_field
+  final $Res Function(PokemonOtherSprites) _then;
+
+  @override
+  $Res call({
+    Object dreamWorld = freezed,
+    Object officialArtwork = freezed,
+  }) {
+    return _then(_value.copyWith(
+      dreamWorld: dreamWorld == freezed
+          ? _value.dreamWorld
+          : dreamWorld as DreamWorldSprites,
+      officialArtwork: officialArtwork == freezed
+          ? _value.officialArtwork
+          : officialArtwork as OfficialArtworkSprites,
+    ));
+  }
+
+  @override
+  $DreamWorldSpritesCopyWith<$Res> get dreamWorld {
+    if (_value.dreamWorld == null) {
+      return null;
+    }
+    return $DreamWorldSpritesCopyWith<$Res>(_value.dreamWorld, (value) {
+      return _then(_value.copyWith(dreamWorld: value));
+    });
+  }
+
+  @override
+  $OfficialArtworkSpritesCopyWith<$Res> get officialArtwork {
+    if (_value.officialArtwork == null) {
+      return null;
+    }
+    return $OfficialArtworkSpritesCopyWith<$Res>(_value.officialArtwork,
+        (value) {
+      return _then(_value.copyWith(officialArtwork: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$PokemonOtherSpritesCopyWith<$Res>
+    implements $PokemonOtherSpritesCopyWith<$Res> {
+  factory _$PokemonOtherSpritesCopyWith(_PokemonOtherSprites value,
+          $Res Function(_PokemonOtherSprites) then) =
+      __$PokemonOtherSpritesCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'dream_world')
+          DreamWorldSprites dreamWorld,
+      @JsonKey(name: 'official-artwork')
+          OfficialArtworkSprites officialArtwork});
+
+  @override
+  $DreamWorldSpritesCopyWith<$Res> get dreamWorld;
+  @override
+  $OfficialArtworkSpritesCopyWith<$Res> get officialArtwork;
+}
+
+/// @nodoc
+class __$PokemonOtherSpritesCopyWithImpl<$Res>
+    extends _$PokemonOtherSpritesCopyWithImpl<$Res>
+    implements _$PokemonOtherSpritesCopyWith<$Res> {
+  __$PokemonOtherSpritesCopyWithImpl(
+      _PokemonOtherSprites _value, $Res Function(_PokemonOtherSprites) _then)
+      : super(_value, (v) => _then(v as _PokemonOtherSprites));
+
+  @override
+  _PokemonOtherSprites get _value => super._value as _PokemonOtherSprites;
+
+  @override
+  $Res call({
+    Object dreamWorld = freezed,
+    Object officialArtwork = freezed,
+  }) {
+    return _then(_PokemonOtherSprites(
+      dreamWorld == freezed
+          ? _value.dreamWorld
+          : dreamWorld as DreamWorldSprites,
+      officialArtwork == freezed
+          ? _value.officialArtwork
+          : officialArtwork as OfficialArtworkSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_PokemonOtherSprites implements _PokemonOtherSprites {
+  const _$_PokemonOtherSprites(@JsonKey(name: 'dream_world') this.dreamWorld,
+      @JsonKey(name: 'official-artwork') this.officialArtwork)
+      : assert(dreamWorld != null),
+        assert(officialArtwork != null);
+
+  factory _$_PokemonOtherSprites.fromJson(Map<String, dynamic> json) =>
+      _$_$_PokemonOtherSpritesFromJson(json);
+
+  @override
+  @JsonKey(name: 'dream_world')
+  final DreamWorldSprites dreamWorld;
+  @override
+  @JsonKey(name: 'official-artwork')
+  final OfficialArtworkSprites officialArtwork;
+
+  @override
+  String toString() {
+    return 'PokemonOtherSprites(dreamWorld: $dreamWorld, officialArtwork: $officialArtwork)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PokemonOtherSprites &&
+            (identical(other.dreamWorld, dreamWorld) ||
+                const DeepCollectionEquality()
+                    .equals(other.dreamWorld, dreamWorld)) &&
+            (identical(other.officialArtwork, officialArtwork) ||
+                const DeepCollectionEquality()
+                    .equals(other.officialArtwork, officialArtwork)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dreamWorld) ^
+      const DeepCollectionEquality().hash(officialArtwork);
+
+  @override
+  _$PokemonOtherSpritesCopyWith<_PokemonOtherSprites> get copyWith =>
+      __$PokemonOtherSpritesCopyWithImpl<_PokemonOtherSprites>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_PokemonOtherSpritesToJson(this);
+  }
+}
+
+abstract class _PokemonOtherSprites implements PokemonOtherSprites {
+  const factory _PokemonOtherSprites(
+      @JsonKey(name: 'dream_world')
+          DreamWorldSprites dreamWorld,
+      @JsonKey(name: 'official-artwork')
+          OfficialArtworkSprites officialArtwork) = _$_PokemonOtherSprites;
+
+  factory _PokemonOtherSprites.fromJson(Map<String, dynamic> json) =
+      _$_PokemonOtherSprites.fromJson;
+
+  @override
+  @JsonKey(name: 'dream_world')
+  DreamWorldSprites get dreamWorld;
+  @override
+  @JsonKey(name: 'official-artwork')
+  OfficialArtworkSprites get officialArtwork;
+  @override
+  _$PokemonOtherSpritesCopyWith<_PokemonOtherSprites> get copyWith;
+}
+
+DreamWorldSprites _$DreamWorldSpritesFromJson(Map<String, dynamic> json) {
+  return _DreamWorldSprites.fromJson(json);
+}
+
+/// @nodoc
+class _$DreamWorldSpritesTearOff {
+  const _$DreamWorldSpritesTearOff();
+
+// ignore: unused_element
+  _DreamWorldSprites call(
+      @nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_female') String frontFemale) {
+    return _DreamWorldSprites(
+      frontDefault,
+      frontFemale,
+    );
+  }
+
+// ignore: unused_element
+  DreamWorldSprites fromJson(Map<String, Object> json) {
+    return DreamWorldSprites.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $DreamWorldSprites = _$DreamWorldSpritesTearOff();
+
+/// @nodoc
+mixin _$DreamWorldSprites {
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+  @nullable
+  @JsonKey(name: 'front_female')
+  String get frontFemale;
+
+  Map<String, dynamic> toJson();
+  $DreamWorldSpritesCopyWith<DreamWorldSprites> get copyWith;
+}
+
+/// @nodoc
+abstract class $DreamWorldSpritesCopyWith<$Res> {
+  factory $DreamWorldSpritesCopyWith(
+          DreamWorldSprites value, $Res Function(DreamWorldSprites) then) =
+      _$DreamWorldSpritesCopyWithImpl<$Res>;
+  $Res call(
+      {@nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_female') String frontFemale});
+}
+
+/// @nodoc
+class _$DreamWorldSpritesCopyWithImpl<$Res>
+    implements $DreamWorldSpritesCopyWith<$Res> {
+  _$DreamWorldSpritesCopyWithImpl(this._value, this._then);
+
+  final DreamWorldSprites _value;
+  // ignore: unused_field
+  final $Res Function(DreamWorldSprites) _then;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+    Object frontFemale = freezed,
+  }) {
+    return _then(_value.copyWith(
+      frontDefault: frontDefault == freezed
+          ? _value.frontDefault
+          : frontDefault as String,
+      frontFemale:
+          frontFemale == freezed ? _value.frontFemale : frontFemale as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$DreamWorldSpritesCopyWith<$Res>
+    implements $DreamWorldSpritesCopyWith<$Res> {
+  factory _$DreamWorldSpritesCopyWith(
+          _DreamWorldSprites value, $Res Function(_DreamWorldSprites) then) =
+      __$DreamWorldSpritesCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_female') String frontFemale});
+}
+
+/// @nodoc
+class __$DreamWorldSpritesCopyWithImpl<$Res>
+    extends _$DreamWorldSpritesCopyWithImpl<$Res>
+    implements _$DreamWorldSpritesCopyWith<$Res> {
+  __$DreamWorldSpritesCopyWithImpl(
+      _DreamWorldSprites _value, $Res Function(_DreamWorldSprites) _then)
+      : super(_value, (v) => _then(v as _DreamWorldSprites));
+
+  @override
+  _DreamWorldSprites get _value => super._value as _DreamWorldSprites;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+    Object frontFemale = freezed,
+  }) {
+    return _then(_DreamWorldSprites(
+      frontDefault == freezed ? _value.frontDefault : frontDefault as String,
+      frontFemale == freezed ? _value.frontFemale : frontFemale as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_DreamWorldSprites implements _DreamWorldSprites {
+  const _$_DreamWorldSprites(
+      @nullable @JsonKey(name: 'front_default') this.frontDefault,
+      @nullable @JsonKey(name: 'front_female') this.frontFemale);
+
+  factory _$_DreamWorldSprites.fromJson(Map<String, dynamic> json) =>
+      _$_$_DreamWorldSpritesFromJson(json);
+
+  @override
+  @nullable
+  @JsonKey(name: 'front_default')
+  final String frontDefault;
+  @override
+  @nullable
+  @JsonKey(name: 'front_female')
+  final String frontFemale;
+
+  @override
+  String toString() {
+    return 'DreamWorldSprites(frontDefault: $frontDefault, frontFemale: $frontFemale)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DreamWorldSprites &&
+            (identical(other.frontDefault, frontDefault) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontDefault, frontDefault)) &&
+            (identical(other.frontFemale, frontFemale) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontFemale, frontFemale)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(frontDefault) ^
+      const DeepCollectionEquality().hash(frontFemale);
+
+  @override
+  _$DreamWorldSpritesCopyWith<_DreamWorldSprites> get copyWith =>
+      __$DreamWorldSpritesCopyWithImpl<_DreamWorldSprites>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_DreamWorldSpritesToJson(this);
+  }
+}
+
+abstract class _DreamWorldSprites implements DreamWorldSprites {
+  const factory _DreamWorldSprites(
+          @nullable @JsonKey(name: 'front_default') String frontDefault,
+          @nullable @JsonKey(name: 'front_female') String frontFemale) =
+      _$_DreamWorldSprites;
+
+  factory _DreamWorldSprites.fromJson(Map<String, dynamic> json) =
+      _$_DreamWorldSprites.fromJson;
+
+  @override
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+  @override
+  @nullable
+  @JsonKey(name: 'front_female')
+  String get frontFemale;
+  @override
+  _$DreamWorldSpritesCopyWith<_DreamWorldSprites> get copyWith;
+}
+
+OfficialArtworkSprites _$OfficialArtworkSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _OfficialArtworkSprites.fromJson(json);
+}
+
+/// @nodoc
+class _$OfficialArtworkSpritesTearOff {
+  const _$OfficialArtworkSpritesTearOff();
+
+// ignore: unused_element
+  _OfficialArtworkSprites call(
+      @nullable @JsonKey(name: 'front_default') String frontDefault) {
+    return _OfficialArtworkSprites(
+      frontDefault,
+    );
+  }
+
+// ignore: unused_element
+  OfficialArtworkSprites fromJson(Map<String, Object> json) {
+    return OfficialArtworkSprites.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $OfficialArtworkSprites = _$OfficialArtworkSpritesTearOff();
+
+/// @nodoc
+mixin _$OfficialArtworkSprites {
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+
+  Map<String, dynamic> toJson();
+  $OfficialArtworkSpritesCopyWith<OfficialArtworkSprites> get copyWith;
+}
+
+/// @nodoc
+abstract class $OfficialArtworkSpritesCopyWith<$Res> {
+  factory $OfficialArtworkSpritesCopyWith(OfficialArtworkSprites value,
+          $Res Function(OfficialArtworkSprites) then) =
+      _$OfficialArtworkSpritesCopyWithImpl<$Res>;
+  $Res call({@nullable @JsonKey(name: 'front_default') String frontDefault});
+}
+
+/// @nodoc
+class _$OfficialArtworkSpritesCopyWithImpl<$Res>
+    implements $OfficialArtworkSpritesCopyWith<$Res> {
+  _$OfficialArtworkSpritesCopyWithImpl(this._value, this._then);
+
+  final OfficialArtworkSprites _value;
+  // ignore: unused_field
+  final $Res Function(OfficialArtworkSprites) _then;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+  }) {
+    return _then(_value.copyWith(
+      frontDefault: frontDefault == freezed
+          ? _value.frontDefault
+          : frontDefault as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$OfficialArtworkSpritesCopyWith<$Res>
+    implements $OfficialArtworkSpritesCopyWith<$Res> {
+  factory _$OfficialArtworkSpritesCopyWith(_OfficialArtworkSprites value,
+          $Res Function(_OfficialArtworkSprites) then) =
+      __$OfficialArtworkSpritesCopyWithImpl<$Res>;
+  @override
+  $Res call({@nullable @JsonKey(name: 'front_default') String frontDefault});
+}
+
+/// @nodoc
+class __$OfficialArtworkSpritesCopyWithImpl<$Res>
+    extends _$OfficialArtworkSpritesCopyWithImpl<$Res>
+    implements _$OfficialArtworkSpritesCopyWith<$Res> {
+  __$OfficialArtworkSpritesCopyWithImpl(_OfficialArtworkSprites _value,
+      $Res Function(_OfficialArtworkSprites) _then)
+      : super(_value, (v) => _then(v as _OfficialArtworkSprites));
+
+  @override
+  _OfficialArtworkSprites get _value => super._value as _OfficialArtworkSprites;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+  }) {
+    return _then(_OfficialArtworkSprites(
+      frontDefault == freezed ? _value.frontDefault : frontDefault as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_OfficialArtworkSprites implements _OfficialArtworkSprites {
+  const _$_OfficialArtworkSprites(
+      @nullable @JsonKey(name: 'front_default') this.frontDefault);
+
+  factory _$_OfficialArtworkSprites.fromJson(Map<String, dynamic> json) =>
+      _$_$_OfficialArtworkSpritesFromJson(json);
+
+  @override
+  @nullable
+  @JsonKey(name: 'front_default')
+  final String frontDefault;
+
+  @override
+  String toString() {
+    return 'OfficialArtworkSprites(frontDefault: $frontDefault)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _OfficialArtworkSprites &&
+            (identical(other.frontDefault, frontDefault) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontDefault, frontDefault)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(frontDefault);
+
+  @override
+  _$OfficialArtworkSpritesCopyWith<_OfficialArtworkSprites> get copyWith =>
+      __$OfficialArtworkSpritesCopyWithImpl<_OfficialArtworkSprites>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_OfficialArtworkSpritesToJson(this);
+  }
+}
+
+abstract class _OfficialArtworkSprites implements OfficialArtworkSprites {
+  const factory _OfficialArtworkSprites(
+          @nullable @JsonKey(name: 'front_default') String frontDefault) =
+      _$_OfficialArtworkSprites;
+
+  factory _OfficialArtworkSprites.fromJson(Map<String, dynamic> json) =
+      _$_OfficialArtworkSprites.fromJson;
+
+  @override
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+  @override
+  _$OfficialArtworkSpritesCopyWith<_OfficialArtworkSprites> get copyWith;
+}
+
+GenerationSprites _$GenerationSpritesFromJson(Map<String, dynamic> json) {
+  return _GenerationSprites.fromJson(json);
+}
+
+/// @nodoc
+class _$GenerationSpritesTearOff {
+  const _$GenerationSpritesTearOff();
+
+// ignore: unused_element
+  _GenerationSprites call(
+      @JsonKey(name: 'generation-i') Generation1SpritesList gen1,
+      @JsonKey(name: 'generation-ii') Generation2SpritesList gen2,
+      @JsonKey(name: 'generation-iii') Generation3SpritesList gen3,
+      @JsonKey(name: 'generation-iv') Generation4SpritesList gen4,
+      @JsonKey(name: 'generation-v') Generation5SpritesList gen5,
+      @JsonKey(name: 'generation-vi') Generation6SpritesList gen6,
+      @JsonKey(name: 'generation-vii') Generation7SpritesList gen7,
+      @JsonKey(name: 'generation-viii') Generation8SpritesList gen8) {
+    return _GenerationSprites(
+      gen1,
+      gen2,
+      gen3,
+      gen4,
+      gen5,
+      gen6,
+      gen7,
+      gen8,
+    );
+  }
+
+// ignore: unused_element
+  GenerationSprites fromJson(Map<String, Object> json) {
+    return GenerationSprites.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $GenerationSprites = _$GenerationSpritesTearOff();
+
+/// @nodoc
+mixin _$GenerationSprites {
+  @JsonKey(name: 'generation-i')
+  Generation1SpritesList get gen1;
+  @JsonKey(name: 'generation-ii')
+  Generation2SpritesList get gen2;
+  @JsonKey(name: 'generation-iii')
+  Generation3SpritesList get gen3;
+  @JsonKey(name: 'generation-iv')
+  Generation4SpritesList get gen4;
+  @JsonKey(name: 'generation-v')
+  Generation5SpritesList get gen5;
+  @JsonKey(name: 'generation-vi')
+  Generation6SpritesList get gen6;
+  @JsonKey(name: 'generation-vii')
+  Generation7SpritesList get gen7;
+  @JsonKey(name: 'generation-viii')
+  Generation8SpritesList get gen8;
+
+  Map<String, dynamic> toJson();
+  $GenerationSpritesCopyWith<GenerationSprites> get copyWith;
+}
+
+/// @nodoc
+abstract class $GenerationSpritesCopyWith<$Res> {
+  factory $GenerationSpritesCopyWith(
+          GenerationSprites value, $Res Function(GenerationSprites) then) =
+      _$GenerationSpritesCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'generation-i') Generation1SpritesList gen1,
+      @JsonKey(name: 'generation-ii') Generation2SpritesList gen2,
+      @JsonKey(name: 'generation-iii') Generation3SpritesList gen3,
+      @JsonKey(name: 'generation-iv') Generation4SpritesList gen4,
+      @JsonKey(name: 'generation-v') Generation5SpritesList gen5,
+      @JsonKey(name: 'generation-vi') Generation6SpritesList gen6,
+      @JsonKey(name: 'generation-vii') Generation7SpritesList gen7,
+      @JsonKey(name: 'generation-viii') Generation8SpritesList gen8});
+
+  $Generation1SpritesListCopyWith<$Res> get gen1;
+  $Generation2SpritesListCopyWith<$Res> get gen2;
+  $Generation3SpritesListCopyWith<$Res> get gen3;
+  $Generation4SpritesListCopyWith<$Res> get gen4;
+  $Generation5SpritesListCopyWith<$Res> get gen5;
+  $Generation6SpritesListCopyWith<$Res> get gen6;
+  $Generation7SpritesListCopyWith<$Res> get gen7;
+  $Generation8SpritesListCopyWith<$Res> get gen8;
+}
+
+/// @nodoc
+class _$GenerationSpritesCopyWithImpl<$Res>
+    implements $GenerationSpritesCopyWith<$Res> {
+  _$GenerationSpritesCopyWithImpl(this._value, this._then);
+
+  final GenerationSprites _value;
+  // ignore: unused_field
+  final $Res Function(GenerationSprites) _then;
+
+  @override
+  $Res call({
+    Object gen1 = freezed,
+    Object gen2 = freezed,
+    Object gen3 = freezed,
+    Object gen4 = freezed,
+    Object gen5 = freezed,
+    Object gen6 = freezed,
+    Object gen7 = freezed,
+    Object gen8 = freezed,
+  }) {
+    return _then(_value.copyWith(
+      gen1: gen1 == freezed ? _value.gen1 : gen1 as Generation1SpritesList,
+      gen2: gen2 == freezed ? _value.gen2 : gen2 as Generation2SpritesList,
+      gen3: gen3 == freezed ? _value.gen3 : gen3 as Generation3SpritesList,
+      gen4: gen4 == freezed ? _value.gen4 : gen4 as Generation4SpritesList,
+      gen5: gen5 == freezed ? _value.gen5 : gen5 as Generation5SpritesList,
+      gen6: gen6 == freezed ? _value.gen6 : gen6 as Generation6SpritesList,
+      gen7: gen7 == freezed ? _value.gen7 : gen7 as Generation7SpritesList,
+      gen8: gen8 == freezed ? _value.gen8 : gen8 as Generation8SpritesList,
+    ));
+  }
+
+  @override
+  $Generation1SpritesListCopyWith<$Res> get gen1 {
+    if (_value.gen1 == null) {
+      return null;
+    }
+    return $Generation1SpritesListCopyWith<$Res>(_value.gen1, (value) {
+      return _then(_value.copyWith(gen1: value));
+    });
+  }
+
+  @override
+  $Generation2SpritesListCopyWith<$Res> get gen2 {
+    if (_value.gen2 == null) {
+      return null;
+    }
+    return $Generation2SpritesListCopyWith<$Res>(_value.gen2, (value) {
+      return _then(_value.copyWith(gen2: value));
+    });
+  }
+
+  @override
+  $Generation3SpritesListCopyWith<$Res> get gen3 {
+    if (_value.gen3 == null) {
+      return null;
+    }
+    return $Generation3SpritesListCopyWith<$Res>(_value.gen3, (value) {
+      return _then(_value.copyWith(gen3: value));
+    });
+  }
+
+  @override
+  $Generation4SpritesListCopyWith<$Res> get gen4 {
+    if (_value.gen4 == null) {
+      return null;
+    }
+    return $Generation4SpritesListCopyWith<$Res>(_value.gen4, (value) {
+      return _then(_value.copyWith(gen4: value));
+    });
+  }
+
+  @override
+  $Generation5SpritesListCopyWith<$Res> get gen5 {
+    if (_value.gen5 == null) {
+      return null;
+    }
+    return $Generation5SpritesListCopyWith<$Res>(_value.gen5, (value) {
+      return _then(_value.copyWith(gen5: value));
+    });
+  }
+
+  @override
+  $Generation6SpritesListCopyWith<$Res> get gen6 {
+    if (_value.gen6 == null) {
+      return null;
+    }
+    return $Generation6SpritesListCopyWith<$Res>(_value.gen6, (value) {
+      return _then(_value.copyWith(gen6: value));
+    });
+  }
+
+  @override
+  $Generation7SpritesListCopyWith<$Res> get gen7 {
+    if (_value.gen7 == null) {
+      return null;
+    }
+    return $Generation7SpritesListCopyWith<$Res>(_value.gen7, (value) {
+      return _then(_value.copyWith(gen7: value));
+    });
+  }
+
+  @override
+  $Generation8SpritesListCopyWith<$Res> get gen8 {
+    if (_value.gen8 == null) {
+      return null;
+    }
+    return $Generation8SpritesListCopyWith<$Res>(_value.gen8, (value) {
+      return _then(_value.copyWith(gen8: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$GenerationSpritesCopyWith<$Res>
+    implements $GenerationSpritesCopyWith<$Res> {
+  factory _$GenerationSpritesCopyWith(
+          _GenerationSprites value, $Res Function(_GenerationSprites) then) =
+      __$GenerationSpritesCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'generation-i') Generation1SpritesList gen1,
+      @JsonKey(name: 'generation-ii') Generation2SpritesList gen2,
+      @JsonKey(name: 'generation-iii') Generation3SpritesList gen3,
+      @JsonKey(name: 'generation-iv') Generation4SpritesList gen4,
+      @JsonKey(name: 'generation-v') Generation5SpritesList gen5,
+      @JsonKey(name: 'generation-vi') Generation6SpritesList gen6,
+      @JsonKey(name: 'generation-vii') Generation7SpritesList gen7,
+      @JsonKey(name: 'generation-viii') Generation8SpritesList gen8});
+
+  @override
+  $Generation1SpritesListCopyWith<$Res> get gen1;
+  @override
+  $Generation2SpritesListCopyWith<$Res> get gen2;
+  @override
+  $Generation3SpritesListCopyWith<$Res> get gen3;
+  @override
+  $Generation4SpritesListCopyWith<$Res> get gen4;
+  @override
+  $Generation5SpritesListCopyWith<$Res> get gen5;
+  @override
+  $Generation6SpritesListCopyWith<$Res> get gen6;
+  @override
+  $Generation7SpritesListCopyWith<$Res> get gen7;
+  @override
+  $Generation8SpritesListCopyWith<$Res> get gen8;
+}
+
+/// @nodoc
+class __$GenerationSpritesCopyWithImpl<$Res>
+    extends _$GenerationSpritesCopyWithImpl<$Res>
+    implements _$GenerationSpritesCopyWith<$Res> {
+  __$GenerationSpritesCopyWithImpl(
+      _GenerationSprites _value, $Res Function(_GenerationSprites) _then)
+      : super(_value, (v) => _then(v as _GenerationSprites));
+
+  @override
+  _GenerationSprites get _value => super._value as _GenerationSprites;
+
+  @override
+  $Res call({
+    Object gen1 = freezed,
+    Object gen2 = freezed,
+    Object gen3 = freezed,
+    Object gen4 = freezed,
+    Object gen5 = freezed,
+    Object gen6 = freezed,
+    Object gen7 = freezed,
+    Object gen8 = freezed,
+  }) {
+    return _then(_GenerationSprites(
+      gen1 == freezed ? _value.gen1 : gen1 as Generation1SpritesList,
+      gen2 == freezed ? _value.gen2 : gen2 as Generation2SpritesList,
+      gen3 == freezed ? _value.gen3 : gen3 as Generation3SpritesList,
+      gen4 == freezed ? _value.gen4 : gen4 as Generation4SpritesList,
+      gen5 == freezed ? _value.gen5 : gen5 as Generation5SpritesList,
+      gen6 == freezed ? _value.gen6 : gen6 as Generation6SpritesList,
+      gen7 == freezed ? _value.gen7 : gen7 as Generation7SpritesList,
+      gen8 == freezed ? _value.gen8 : gen8 as Generation8SpritesList,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_GenerationSprites implements _GenerationSprites {
+  const _$_GenerationSprites(
+      @JsonKey(name: 'generation-i') this.gen1,
+      @JsonKey(name: 'generation-ii') this.gen2,
+      @JsonKey(name: 'generation-iii') this.gen3,
+      @JsonKey(name: 'generation-iv') this.gen4,
+      @JsonKey(name: 'generation-v') this.gen5,
+      @JsonKey(name: 'generation-vi') this.gen6,
+      @JsonKey(name: 'generation-vii') this.gen7,
+      @JsonKey(name: 'generation-viii') this.gen8)
+      : assert(gen1 != null),
+        assert(gen2 != null),
+        assert(gen3 != null),
+        assert(gen4 != null),
+        assert(gen5 != null),
+        assert(gen6 != null),
+        assert(gen7 != null),
+        assert(gen8 != null);
+
+  factory _$_GenerationSprites.fromJson(Map<String, dynamic> json) =>
+      _$_$_GenerationSpritesFromJson(json);
+
+  @override
+  @JsonKey(name: 'generation-i')
+  final Generation1SpritesList gen1;
+  @override
+  @JsonKey(name: 'generation-ii')
+  final Generation2SpritesList gen2;
+  @override
+  @JsonKey(name: 'generation-iii')
+  final Generation3SpritesList gen3;
+  @override
+  @JsonKey(name: 'generation-iv')
+  final Generation4SpritesList gen4;
+  @override
+  @JsonKey(name: 'generation-v')
+  final Generation5SpritesList gen5;
+  @override
+  @JsonKey(name: 'generation-vi')
+  final Generation6SpritesList gen6;
+  @override
+  @JsonKey(name: 'generation-vii')
+  final Generation7SpritesList gen7;
+  @override
+  @JsonKey(name: 'generation-viii')
+  final Generation8SpritesList gen8;
+
+  @override
+  String toString() {
+    return 'GenerationSprites(gen1: $gen1, gen2: $gen2, gen3: $gen3, gen4: $gen4, gen5: $gen5, gen6: $gen6, gen7: $gen7, gen8: $gen8)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _GenerationSprites &&
+            (identical(other.gen1, gen1) ||
+                const DeepCollectionEquality().equals(other.gen1, gen1)) &&
+            (identical(other.gen2, gen2) ||
+                const DeepCollectionEquality().equals(other.gen2, gen2)) &&
+            (identical(other.gen3, gen3) ||
+                const DeepCollectionEquality().equals(other.gen3, gen3)) &&
+            (identical(other.gen4, gen4) ||
+                const DeepCollectionEquality().equals(other.gen4, gen4)) &&
+            (identical(other.gen5, gen5) ||
+                const DeepCollectionEquality().equals(other.gen5, gen5)) &&
+            (identical(other.gen6, gen6) ||
+                const DeepCollectionEquality().equals(other.gen6, gen6)) &&
+            (identical(other.gen7, gen7) ||
+                const DeepCollectionEquality().equals(other.gen7, gen7)) &&
+            (identical(other.gen8, gen8) ||
+                const DeepCollectionEquality().equals(other.gen8, gen8)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(gen1) ^
+      const DeepCollectionEquality().hash(gen2) ^
+      const DeepCollectionEquality().hash(gen3) ^
+      const DeepCollectionEquality().hash(gen4) ^
+      const DeepCollectionEquality().hash(gen5) ^
+      const DeepCollectionEquality().hash(gen6) ^
+      const DeepCollectionEquality().hash(gen7) ^
+      const DeepCollectionEquality().hash(gen8);
+
+  @override
+  _$GenerationSpritesCopyWith<_GenerationSprites> get copyWith =>
+      __$GenerationSpritesCopyWithImpl<_GenerationSprites>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_GenerationSpritesToJson(this);
+  }
+}
+
+abstract class _GenerationSprites implements GenerationSprites {
+  const factory _GenerationSprites(
+          @JsonKey(name: 'generation-i') Generation1SpritesList gen1,
+          @JsonKey(name: 'generation-ii') Generation2SpritesList gen2,
+          @JsonKey(name: 'generation-iii') Generation3SpritesList gen3,
+          @JsonKey(name: 'generation-iv') Generation4SpritesList gen4,
+          @JsonKey(name: 'generation-v') Generation5SpritesList gen5,
+          @JsonKey(name: 'generation-vi') Generation6SpritesList gen6,
+          @JsonKey(name: 'generation-vii') Generation7SpritesList gen7,
+          @JsonKey(name: 'generation-viii') Generation8SpritesList gen8) =
+      _$_GenerationSprites;
+
+  factory _GenerationSprites.fromJson(Map<String, dynamic> json) =
+      _$_GenerationSprites.fromJson;
+
+  @override
+  @JsonKey(name: 'generation-i')
+  Generation1SpritesList get gen1;
+  @override
+  @JsonKey(name: 'generation-ii')
+  Generation2SpritesList get gen2;
+  @override
+  @JsonKey(name: 'generation-iii')
+  Generation3SpritesList get gen3;
+  @override
+  @JsonKey(name: 'generation-iv')
+  Generation4SpritesList get gen4;
+  @override
+  @JsonKey(name: 'generation-v')
+  Generation5SpritesList get gen5;
+  @override
+  @JsonKey(name: 'generation-vi')
+  Generation6SpritesList get gen6;
+  @override
+  @JsonKey(name: 'generation-vii')
+  Generation7SpritesList get gen7;
+  @override
+  @JsonKey(name: 'generation-viii')
+  Generation8SpritesList get gen8;
+  @override
+  _$GenerationSpritesCopyWith<_GenerationSprites> get copyWith;
+}
+
+Generation1SpritesList _$Generation1SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation1SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation1SpritesListTearOff {
+  const _$Generation1SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation1SpritesList call(
+      @JsonKey(name: 'red-blue') Generation1PokemonFormSprites redBlue,
+      Generation1PokemonFormSprites yellow) {
+    return _Generation1SpritesList(
+      redBlue,
+      yellow,
+    );
+  }
+
+// ignore: unused_element
+  Generation1SpritesList fromJson(Map<String, Object> json) {
+    return Generation1SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation1SpritesList = _$Generation1SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation1SpritesList {
+  @JsonKey(name: 'red-blue')
+  Generation1PokemonFormSprites get redBlue;
+  Generation1PokemonFormSprites get yellow;
+
+  Map<String, dynamic> toJson();
+  $Generation1SpritesListCopyWith<Generation1SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation1SpritesListCopyWith<$Res> {
+  factory $Generation1SpritesListCopyWith(Generation1SpritesList value,
+          $Res Function(Generation1SpritesList) then) =
+      _$Generation1SpritesListCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'red-blue') Generation1PokemonFormSprites redBlue,
+      Generation1PokemonFormSprites yellow});
+
+  $Generation1PokemonFormSpritesCopyWith<$Res> get redBlue;
+  $Generation1PokemonFormSpritesCopyWith<$Res> get yellow;
+}
+
+/// @nodoc
+class _$Generation1SpritesListCopyWithImpl<$Res>
+    implements $Generation1SpritesListCopyWith<$Res> {
+  _$Generation1SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation1SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation1SpritesList) _then;
+
+  @override
+  $Res call({
+    Object redBlue = freezed,
+    Object yellow = freezed,
+  }) {
+    return _then(_value.copyWith(
+      redBlue: redBlue == freezed
+          ? _value.redBlue
+          : redBlue as Generation1PokemonFormSprites,
+      yellow: yellow == freezed
+          ? _value.yellow
+          : yellow as Generation1PokemonFormSprites,
+    ));
+  }
+
+  @override
+  $Generation1PokemonFormSpritesCopyWith<$Res> get redBlue {
+    if (_value.redBlue == null) {
+      return null;
+    }
+    return $Generation1PokemonFormSpritesCopyWith<$Res>(_value.redBlue,
+        (value) {
+      return _then(_value.copyWith(redBlue: value));
+    });
+  }
+
+  @override
+  $Generation1PokemonFormSpritesCopyWith<$Res> get yellow {
+    if (_value.yellow == null) {
+      return null;
+    }
+    return $Generation1PokemonFormSpritesCopyWith<$Res>(_value.yellow, (value) {
+      return _then(_value.copyWith(yellow: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation1SpritesListCopyWith<$Res>
+    implements $Generation1SpritesListCopyWith<$Res> {
+  factory _$Generation1SpritesListCopyWith(_Generation1SpritesList value,
+          $Res Function(_Generation1SpritesList) then) =
+      __$Generation1SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'red-blue') Generation1PokemonFormSprites redBlue,
+      Generation1PokemonFormSprites yellow});
+
+  @override
+  $Generation1PokemonFormSpritesCopyWith<$Res> get redBlue;
+  @override
+  $Generation1PokemonFormSpritesCopyWith<$Res> get yellow;
+}
+
+/// @nodoc
+class __$Generation1SpritesListCopyWithImpl<$Res>
+    extends _$Generation1SpritesListCopyWithImpl<$Res>
+    implements _$Generation1SpritesListCopyWith<$Res> {
+  __$Generation1SpritesListCopyWithImpl(_Generation1SpritesList _value,
+      $Res Function(_Generation1SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation1SpritesList));
+
+  @override
+  _Generation1SpritesList get _value => super._value as _Generation1SpritesList;
+
+  @override
+  $Res call({
+    Object redBlue = freezed,
+    Object yellow = freezed,
+  }) {
+    return _then(_Generation1SpritesList(
+      redBlue == freezed
+          ? _value.redBlue
+          : redBlue as Generation1PokemonFormSprites,
+      yellow == freezed
+          ? _value.yellow
+          : yellow as Generation1PokemonFormSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation1SpritesList implements _Generation1SpritesList {
+  const _$_Generation1SpritesList(
+      @JsonKey(name: 'red-blue') this.redBlue, this.yellow)
+      : assert(redBlue != null),
+        assert(yellow != null);
+
+  factory _$_Generation1SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation1SpritesListFromJson(json);
+
+  @override
+  @JsonKey(name: 'red-blue')
+  final Generation1PokemonFormSprites redBlue;
+  @override
+  final Generation1PokemonFormSprites yellow;
+
+  @override
+  String toString() {
+    return 'Generation1SpritesList(redBlue: $redBlue, yellow: $yellow)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation1SpritesList &&
+            (identical(other.redBlue, redBlue) ||
+                const DeepCollectionEquality()
+                    .equals(other.redBlue, redBlue)) &&
+            (identical(other.yellow, yellow) ||
+                const DeepCollectionEquality().equals(other.yellow, yellow)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(redBlue) ^
+      const DeepCollectionEquality().hash(yellow);
+
+  @override
+  _$Generation1SpritesListCopyWith<_Generation1SpritesList> get copyWith =>
+      __$Generation1SpritesListCopyWithImpl<_Generation1SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation1SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation1SpritesList implements Generation1SpritesList {
+  const factory _Generation1SpritesList(
+      @JsonKey(name: 'red-blue') Generation1PokemonFormSprites redBlue,
+      Generation1PokemonFormSprites yellow) = _$_Generation1SpritesList;
+
+  factory _Generation1SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation1SpritesList.fromJson;
+
+  @override
+  @JsonKey(name: 'red-blue')
+  Generation1PokemonFormSprites get redBlue;
+  @override
+  Generation1PokemonFormSprites get yellow;
+  @override
+  _$Generation1SpritesListCopyWith<_Generation1SpritesList> get copyWith;
+}
+
+Generation1PokemonFormSprites _$Generation1PokemonFormSpritesFromJson(
+    Map<String, dynamic> json) {
+  return _Generation1PokemonFormSprites.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation1PokemonFormSpritesTearOff {
+  const _$Generation1PokemonFormSpritesTearOff();
+
+// ignore: unused_element
+  _Generation1PokemonFormSprites call(
+      @nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_gray') String frontGray,
+      @nullable @JsonKey(name: 'back_default') String backDefault,
+      @nullable @JsonKey(name: 'back_gray') String backGray) {
+    return _Generation1PokemonFormSprites(
+      frontDefault,
+      frontGray,
+      backDefault,
+      backGray,
+    );
+  }
+
+// ignore: unused_element
+  Generation1PokemonFormSprites fromJson(Map<String, Object> json) {
+    return Generation1PokemonFormSprites.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation1PokemonFormSprites = _$Generation1PokemonFormSpritesTearOff();
+
+/// @nodoc
+mixin _$Generation1PokemonFormSprites {
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+  @nullable
+  @JsonKey(name: 'front_gray')
+  String get frontGray;
+  @nullable
+  @JsonKey(name: 'back_default')
+  String get backDefault;
+  @nullable
+  @JsonKey(name: 'back_gray')
+  String get backGray;
+
+  Map<String, dynamic> toJson();
+  $Generation1PokemonFormSpritesCopyWith<Generation1PokemonFormSprites>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation1PokemonFormSpritesCopyWith<$Res> {
+  factory $Generation1PokemonFormSpritesCopyWith(
+          Generation1PokemonFormSprites value,
+          $Res Function(Generation1PokemonFormSprites) then) =
+      _$Generation1PokemonFormSpritesCopyWithImpl<$Res>;
+  $Res call(
+      {@nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_gray') String frontGray,
+      @nullable @JsonKey(name: 'back_default') String backDefault,
+      @nullable @JsonKey(name: 'back_gray') String backGray});
+}
+
+/// @nodoc
+class _$Generation1PokemonFormSpritesCopyWithImpl<$Res>
+    implements $Generation1PokemonFormSpritesCopyWith<$Res> {
+  _$Generation1PokemonFormSpritesCopyWithImpl(this._value, this._then);
+
+  final Generation1PokemonFormSprites _value;
+  // ignore: unused_field
+  final $Res Function(Generation1PokemonFormSprites) _then;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+    Object frontGray = freezed,
+    Object backDefault = freezed,
+    Object backGray = freezed,
+  }) {
+    return _then(_value.copyWith(
+      frontDefault: frontDefault == freezed
+          ? _value.frontDefault
+          : frontDefault as String,
+      frontGray: frontGray == freezed ? _value.frontGray : frontGray as String,
+      backDefault:
+          backDefault == freezed ? _value.backDefault : backDefault as String,
+      backGray: backGray == freezed ? _value.backGray : backGray as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$Generation1PokemonFormSpritesCopyWith<$Res>
+    implements $Generation1PokemonFormSpritesCopyWith<$Res> {
+  factory _$Generation1PokemonFormSpritesCopyWith(
+          _Generation1PokemonFormSprites value,
+          $Res Function(_Generation1PokemonFormSprites) then) =
+      __$Generation1PokemonFormSpritesCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@nullable @JsonKey(name: 'front_default') String frontDefault,
+      @nullable @JsonKey(name: 'front_gray') String frontGray,
+      @nullable @JsonKey(name: 'back_default') String backDefault,
+      @nullable @JsonKey(name: 'back_gray') String backGray});
+}
+
+/// @nodoc
+class __$Generation1PokemonFormSpritesCopyWithImpl<$Res>
+    extends _$Generation1PokemonFormSpritesCopyWithImpl<$Res>
+    implements _$Generation1PokemonFormSpritesCopyWith<$Res> {
+  __$Generation1PokemonFormSpritesCopyWithImpl(
+      _Generation1PokemonFormSprites _value,
+      $Res Function(_Generation1PokemonFormSprites) _then)
+      : super(_value, (v) => _then(v as _Generation1PokemonFormSprites));
+
+  @override
+  _Generation1PokemonFormSprites get _value =>
+      super._value as _Generation1PokemonFormSprites;
+
+  @override
+  $Res call({
+    Object frontDefault = freezed,
+    Object frontGray = freezed,
+    Object backDefault = freezed,
+    Object backGray = freezed,
+  }) {
+    return _then(_Generation1PokemonFormSprites(
+      frontDefault == freezed ? _value.frontDefault : frontDefault as String,
+      frontGray == freezed ? _value.frontGray : frontGray as String,
+      backDefault == freezed ? _value.backDefault : backDefault as String,
+      backGray == freezed ? _value.backGray : backGray as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation1PokemonFormSprites
+    implements _Generation1PokemonFormSprites {
+  const _$_Generation1PokemonFormSprites(
+      @nullable @JsonKey(name: 'front_default') this.frontDefault,
+      @nullable @JsonKey(name: 'front_gray') this.frontGray,
+      @nullable @JsonKey(name: 'back_default') this.backDefault,
+      @nullable @JsonKey(name: 'back_gray') this.backGray);
+
+  factory _$_Generation1PokemonFormSprites.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_Generation1PokemonFormSpritesFromJson(json);
+
+  @override
+  @nullable
+  @JsonKey(name: 'front_default')
+  final String frontDefault;
+  @override
+  @nullable
+  @JsonKey(name: 'front_gray')
+  final String frontGray;
+  @override
+  @nullable
+  @JsonKey(name: 'back_default')
+  final String backDefault;
+  @override
+  @nullable
+  @JsonKey(name: 'back_gray')
+  final String backGray;
+
+  @override
+  String toString() {
+    return 'Generation1PokemonFormSprites(frontDefault: $frontDefault, frontGray: $frontGray, backDefault: $backDefault, backGray: $backGray)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation1PokemonFormSprites &&
+            (identical(other.frontDefault, frontDefault) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontDefault, frontDefault)) &&
+            (identical(other.frontGray, frontGray) ||
+                const DeepCollectionEquality()
+                    .equals(other.frontGray, frontGray)) &&
+            (identical(other.backDefault, backDefault) ||
+                const DeepCollectionEquality()
+                    .equals(other.backDefault, backDefault)) &&
+            (identical(other.backGray, backGray) ||
+                const DeepCollectionEquality()
+                    .equals(other.backGray, backGray)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(frontDefault) ^
+      const DeepCollectionEquality().hash(frontGray) ^
+      const DeepCollectionEquality().hash(backDefault) ^
+      const DeepCollectionEquality().hash(backGray);
+
+  @override
+  _$Generation1PokemonFormSpritesCopyWith<_Generation1PokemonFormSprites>
+      get copyWith => __$Generation1PokemonFormSpritesCopyWithImpl<
+          _Generation1PokemonFormSprites>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation1PokemonFormSpritesToJson(this);
+  }
+}
+
+abstract class _Generation1PokemonFormSprites
+    implements Generation1PokemonFormSprites {
+  const factory _Generation1PokemonFormSprites(
+          @nullable @JsonKey(name: 'front_default') String frontDefault,
+          @nullable @JsonKey(name: 'front_gray') String frontGray,
+          @nullable @JsonKey(name: 'back_default') String backDefault,
+          @nullable @JsonKey(name: 'back_gray') String backGray) =
+      _$_Generation1PokemonFormSprites;
+
+  factory _Generation1PokemonFormSprites.fromJson(Map<String, dynamic> json) =
+      _$_Generation1PokemonFormSprites.fromJson;
+
+  @override
+  @nullable
+  @JsonKey(name: 'front_default')
+  String get frontDefault;
+  @override
+  @nullable
+  @JsonKey(name: 'front_gray')
+  String get frontGray;
+  @override
+  @nullable
+  @JsonKey(name: 'back_default')
+  String get backDefault;
+  @override
+  @nullable
+  @JsonKey(name: 'back_gray')
+  String get backGray;
+  @override
+  _$Generation1PokemonFormSpritesCopyWith<_Generation1PokemonFormSprites>
+      get copyWith;
+}
+
+Generation2SpritesList _$Generation2SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation2SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation2SpritesListTearOff {
+  const _$Generation2SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation2SpritesList call(PokemonFormSprites crystal,
+      PokemonFormSprites gold, PokemonFormSprites silver) {
+    return _Generation2SpritesList(
+      crystal,
+      gold,
+      silver,
+    );
+  }
+
+// ignore: unused_element
+  Generation2SpritesList fromJson(Map<String, Object> json) {
+    return Generation2SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation2SpritesList = _$Generation2SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation2SpritesList {
+  PokemonFormSprites get crystal;
+  PokemonFormSprites get gold;
+  PokemonFormSprites get silver;
+
+  Map<String, dynamic> toJson();
+  $Generation2SpritesListCopyWith<Generation2SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation2SpritesListCopyWith<$Res> {
+  factory $Generation2SpritesListCopyWith(Generation2SpritesList value,
+          $Res Function(Generation2SpritesList) then) =
+      _$Generation2SpritesListCopyWithImpl<$Res>;
+  $Res call(
+      {PokemonFormSprites crystal,
+      PokemonFormSprites gold,
+      PokemonFormSprites silver});
+
+  $PokemonFormSpritesCopyWith<$Res> get crystal;
+  $PokemonFormSpritesCopyWith<$Res> get gold;
+  $PokemonFormSpritesCopyWith<$Res> get silver;
+}
+
+/// @nodoc
+class _$Generation2SpritesListCopyWithImpl<$Res>
+    implements $Generation2SpritesListCopyWith<$Res> {
+  _$Generation2SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation2SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation2SpritesList) _then;
+
+  @override
+  $Res call({
+    Object crystal = freezed,
+    Object gold = freezed,
+    Object silver = freezed,
+  }) {
+    return _then(_value.copyWith(
+      crystal:
+          crystal == freezed ? _value.crystal : crystal as PokemonFormSprites,
+      gold: gold == freezed ? _value.gold : gold as PokemonFormSprites,
+      silver: silver == freezed ? _value.silver : silver as PokemonFormSprites,
+    ));
+  }
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get crystal {
+    if (_value.crystal == null) {
+      return null;
+    }
+    return $PokemonFormSpritesCopyWith<$Res>(_value.crystal, (value) {
+      return _then(_value.copyWith(crystal: value));
+    });
+  }
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get gold {
+    if (_value.gold == null) {
+      return null;
+    }
+    return $PokemonFormSpritesCopyWith<$Res>(_value.gold, (value) {
+      return _then(_value.copyWith(gold: value));
+    });
+  }
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get silver {
+    if (_value.silver == null) {
+      return null;
+    }
+    return $PokemonFormSpritesCopyWith<$Res>(_value.silver, (value) {
+      return _then(_value.copyWith(silver: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation2SpritesListCopyWith<$Res>
+    implements $Generation2SpritesListCopyWith<$Res> {
+  factory _$Generation2SpritesListCopyWith(_Generation2SpritesList value,
+          $Res Function(_Generation2SpritesList) then) =
+      __$Generation2SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {PokemonFormSprites crystal,
+      PokemonFormSprites gold,
+      PokemonFormSprites silver});
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get crystal;
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get gold;
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get silver;
+}
+
+/// @nodoc
+class __$Generation2SpritesListCopyWithImpl<$Res>
+    extends _$Generation2SpritesListCopyWithImpl<$Res>
+    implements _$Generation2SpritesListCopyWith<$Res> {
+  __$Generation2SpritesListCopyWithImpl(_Generation2SpritesList _value,
+      $Res Function(_Generation2SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation2SpritesList));
+
+  @override
+  _Generation2SpritesList get _value => super._value as _Generation2SpritesList;
+
+  @override
+  $Res call({
+    Object crystal = freezed,
+    Object gold = freezed,
+    Object silver = freezed,
+  }) {
+    return _then(_Generation2SpritesList(
+      crystal == freezed ? _value.crystal : crystal as PokemonFormSprites,
+      gold == freezed ? _value.gold : gold as PokemonFormSprites,
+      silver == freezed ? _value.silver : silver as PokemonFormSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation2SpritesList implements _Generation2SpritesList {
+  const _$_Generation2SpritesList(this.crystal, this.gold, this.silver)
+      : assert(crystal != null),
+        assert(gold != null),
+        assert(silver != null);
+
+  factory _$_Generation2SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation2SpritesListFromJson(json);
+
+  @override
+  final PokemonFormSprites crystal;
+  @override
+  final PokemonFormSprites gold;
+  @override
+  final PokemonFormSprites silver;
+
+  @override
+  String toString() {
+    return 'Generation2SpritesList(crystal: $crystal, gold: $gold, silver: $silver)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation2SpritesList &&
+            (identical(other.crystal, crystal) ||
+                const DeepCollectionEquality()
+                    .equals(other.crystal, crystal)) &&
+            (identical(other.gold, gold) ||
+                const DeepCollectionEquality().equals(other.gold, gold)) &&
+            (identical(other.silver, silver) ||
+                const DeepCollectionEquality().equals(other.silver, silver)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(crystal) ^
+      const DeepCollectionEquality().hash(gold) ^
+      const DeepCollectionEquality().hash(silver);
+
+  @override
+  _$Generation2SpritesListCopyWith<_Generation2SpritesList> get copyWith =>
+      __$Generation2SpritesListCopyWithImpl<_Generation2SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation2SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation2SpritesList implements Generation2SpritesList {
+  const factory _Generation2SpritesList(
+      PokemonFormSprites crystal,
+      PokemonFormSprites gold,
+      PokemonFormSprites silver) = _$_Generation2SpritesList;
+
+  factory _Generation2SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation2SpritesList.fromJson;
+
+  @override
+  PokemonFormSprites get crystal;
+  @override
+  PokemonFormSprites get gold;
+  @override
+  PokemonFormSprites get silver;
+  @override
+  _$Generation2SpritesListCopyWith<_Generation2SpritesList> get copyWith;
+}
+
+Generation3SpritesList _$Generation3SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation3SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation3SpritesListTearOff {
+  const _$Generation3SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation3SpritesList call(
+      PokemonFormSprites emerald,
+      @JsonKey(name: 'firered-leafgreen') PokemonFormSprites frlg,
+      @JsonKey(name: 'ruby-sapphire') PokemonFormSprites rs) {
+    return _Generation3SpritesList(
+      emerald,
+      frlg,
+      rs,
+    );
+  }
+
+// ignore: unused_element
+  Generation3SpritesList fromJson(Map<String, Object> json) {
+    return Generation3SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation3SpritesList = _$Generation3SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation3SpritesList {
+  PokemonFormSprites get emerald;
+  @JsonKey(name: 'firered-leafgreen')
+  PokemonFormSprites get frlg;
+  @JsonKey(name: 'ruby-sapphire')
+  PokemonFormSprites get rs;
+
+  Map<String, dynamic> toJson();
+  $Generation3SpritesListCopyWith<Generation3SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation3SpritesListCopyWith<$Res> {
+  factory $Generation3SpritesListCopyWith(Generation3SpritesList value,
+          $Res Function(Generation3SpritesList) then) =
+      _$Generation3SpritesListCopyWithImpl<$Res>;
+  $Res call(
+      {PokemonFormSprites emerald,
+      @JsonKey(name: 'firered-leafgreen') PokemonFormSprites frlg,
+      @JsonKey(name: 'ruby-sapphire') PokemonFormSprites rs});
+
+  $PokemonFormSpritesCopyWith<$Res> get emerald;
+  $PokemonFormSpritesCopyWith<$Res> get frlg;
+  $PokemonFormSpritesCopyWith<$Res> get rs;
+}
+
+/// @nodoc
+class _$Generation3SpritesListCopyWithImpl<$Res>
+    implements $Generation3SpritesListCopyWith<$Res> {
+  _$Generation3SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation3SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation3SpritesList) _then;
+
+  @override
+  $Res call({
+    Object emerald = freezed,
+    Object frlg = freezed,
+    Object rs = freezed,
+  }) {
+    return _then(_value.copyWith(
+      emerald:
+          emerald == freezed ? _value.emerald : emerald as PokemonFormSprites,
+      frlg: frlg == freezed ? _value.frlg : frlg as PokemonFormSprites,
+      rs: rs == freezed ? _value.rs : rs as PokemonFormSprites,
+    ));
+  }
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get emerald {
+    if (_value.emerald == null) {
+      return null;
+    }
+    return $PokemonFormSpritesCopyWith<$Res>(_value.emerald, (value) {
+      return _then(_value.copyWith(emerald: value));
+    });
+  }
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get frlg {
+    if (_value.frlg == null) {
+      return null;
+    }
+    return $PokemonFormSpritesCopyWith<$Res>(_value.frlg, (value) {
+      return _then(_value.copyWith(frlg: value));
+    });
+  }
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get rs {
+    if (_value.rs == null) {
+      return null;
+    }
+    return $PokemonFormSpritesCopyWith<$Res>(_value.rs, (value) {
+      return _then(_value.copyWith(rs: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation3SpritesListCopyWith<$Res>
+    implements $Generation3SpritesListCopyWith<$Res> {
+  factory _$Generation3SpritesListCopyWith(_Generation3SpritesList value,
+          $Res Function(_Generation3SpritesList) then) =
+      __$Generation3SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {PokemonFormSprites emerald,
+      @JsonKey(name: 'firered-leafgreen') PokemonFormSprites frlg,
+      @JsonKey(name: 'ruby-sapphire') PokemonFormSprites rs});
+
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get emerald;
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get frlg;
+  @override
+  $PokemonFormSpritesCopyWith<$Res> get rs;
+}
+
+/// @nodoc
+class __$Generation3SpritesListCopyWithImpl<$Res>
+    extends _$Generation3SpritesListCopyWithImpl<$Res>
+    implements _$Generation3SpritesListCopyWith<$Res> {
+  __$Generation3SpritesListCopyWithImpl(_Generation3SpritesList _value,
+      $Res Function(_Generation3SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation3SpritesList));
+
+  @override
+  _Generation3SpritesList get _value => super._value as _Generation3SpritesList;
+
+  @override
+  $Res call({
+    Object emerald = freezed,
+    Object frlg = freezed,
+    Object rs = freezed,
+  }) {
+    return _then(_Generation3SpritesList(
+      emerald == freezed ? _value.emerald : emerald as PokemonFormSprites,
+      frlg == freezed ? _value.frlg : frlg as PokemonFormSprites,
+      rs == freezed ? _value.rs : rs as PokemonFormSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation3SpritesList implements _Generation3SpritesList {
+  const _$_Generation3SpritesList(
+      this.emerald,
+      @JsonKey(name: 'firered-leafgreen') this.frlg,
+      @JsonKey(name: 'ruby-sapphire') this.rs)
+      : assert(emerald != null),
+        assert(frlg != null),
+        assert(rs != null);
+
+  factory _$_Generation3SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation3SpritesListFromJson(json);
+
+  @override
+  final PokemonFormSprites emerald;
+  @override
+  @JsonKey(name: 'firered-leafgreen')
+  final PokemonFormSprites frlg;
+  @override
+  @JsonKey(name: 'ruby-sapphire')
+  final PokemonFormSprites rs;
+
+  @override
+  String toString() {
+    return 'Generation3SpritesList(emerald: $emerald, frlg: $frlg, rs: $rs)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation3SpritesList &&
+            (identical(other.emerald, emerald) ||
+                const DeepCollectionEquality()
+                    .equals(other.emerald, emerald)) &&
+            (identical(other.frlg, frlg) ||
+                const DeepCollectionEquality().equals(other.frlg, frlg)) &&
+            (identical(other.rs, rs) ||
+                const DeepCollectionEquality().equals(other.rs, rs)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(emerald) ^
+      const DeepCollectionEquality().hash(frlg) ^
+      const DeepCollectionEquality().hash(rs);
+
+  @override
+  _$Generation3SpritesListCopyWith<_Generation3SpritesList> get copyWith =>
+      __$Generation3SpritesListCopyWithImpl<_Generation3SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation3SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation3SpritesList implements Generation3SpritesList {
+  const factory _Generation3SpritesList(
+          PokemonFormSprites emerald,
+          @JsonKey(name: 'firered-leafgreen') PokemonFormSprites frlg,
+          @JsonKey(name: 'ruby-sapphire') PokemonFormSprites rs) =
+      _$_Generation3SpritesList;
+
+  factory _Generation3SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation3SpritesList.fromJson;
+
+  @override
+  PokemonFormSprites get emerald;
+  @override
+  @JsonKey(name: 'firered-leafgreen')
+  PokemonFormSprites get frlg;
+  @override
+  @JsonKey(name: 'ruby-sapphire')
+  PokemonFormSprites get rs;
+  @override
+  _$Generation3SpritesListCopyWith<_Generation3SpritesList> get copyWith;
+}
+
+Generation4SpritesList _$Generation4SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation4SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation4SpritesListTearOff {
+  const _$Generation4SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation4SpritesList call(
+      @JsonKey(name: 'diamond-pearl') PokemonSprites dp,
+      @JsonKey(name: 'heartgold-soulsilver') PokemonSprites hgss,
+      PokemonSprites platinum) {
+    return _Generation4SpritesList(
+      dp,
+      hgss,
+      platinum,
+    );
+  }
+
+// ignore: unused_element
+  Generation4SpritesList fromJson(Map<String, Object> json) {
+    return Generation4SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation4SpritesList = _$Generation4SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation4SpritesList {
+  @JsonKey(name: 'diamond-pearl')
+  PokemonSprites get dp;
+  @JsonKey(name: 'heartgold-soulsilver')
+  PokemonSprites get hgss;
+  PokemonSprites get platinum;
+
+  Map<String, dynamic> toJson();
+  $Generation4SpritesListCopyWith<Generation4SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation4SpritesListCopyWith<$Res> {
+  factory $Generation4SpritesListCopyWith(Generation4SpritesList value,
+          $Res Function(Generation4SpritesList) then) =
+      _$Generation4SpritesListCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'diamond-pearl') PokemonSprites dp,
+      @JsonKey(name: 'heartgold-soulsilver') PokemonSprites hgss,
+      PokemonSprites platinum});
+
+  $PokemonSpritesCopyWith<$Res> get dp;
+  $PokemonSpritesCopyWith<$Res> get hgss;
+  $PokemonSpritesCopyWith<$Res> get platinum;
+}
+
+/// @nodoc
+class _$Generation4SpritesListCopyWithImpl<$Res>
+    implements $Generation4SpritesListCopyWith<$Res> {
+  _$Generation4SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation4SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation4SpritesList) _then;
+
+  @override
+  $Res call({
+    Object dp = freezed,
+    Object hgss = freezed,
+    Object platinum = freezed,
+  }) {
+    return _then(_value.copyWith(
+      dp: dp == freezed ? _value.dp : dp as PokemonSprites,
+      hgss: hgss == freezed ? _value.hgss : hgss as PokemonSprites,
+      platinum:
+          platinum == freezed ? _value.platinum : platinum as PokemonSprites,
+    ));
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get dp {
+    if (_value.dp == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.dp, (value) {
+      return _then(_value.copyWith(dp: value));
+    });
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get hgss {
+    if (_value.hgss == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.hgss, (value) {
+      return _then(_value.copyWith(hgss: value));
+    });
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get platinum {
+    if (_value.platinum == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.platinum, (value) {
+      return _then(_value.copyWith(platinum: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation4SpritesListCopyWith<$Res>
+    implements $Generation4SpritesListCopyWith<$Res> {
+  factory _$Generation4SpritesListCopyWith(_Generation4SpritesList value,
+          $Res Function(_Generation4SpritesList) then) =
+      __$Generation4SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'diamond-pearl') PokemonSprites dp,
+      @JsonKey(name: 'heartgold-soulsilver') PokemonSprites hgss,
+      PokemonSprites platinum});
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get dp;
+  @override
+  $PokemonSpritesCopyWith<$Res> get hgss;
+  @override
+  $PokemonSpritesCopyWith<$Res> get platinum;
+}
+
+/// @nodoc
+class __$Generation4SpritesListCopyWithImpl<$Res>
+    extends _$Generation4SpritesListCopyWithImpl<$Res>
+    implements _$Generation4SpritesListCopyWith<$Res> {
+  __$Generation4SpritesListCopyWithImpl(_Generation4SpritesList _value,
+      $Res Function(_Generation4SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation4SpritesList));
+
+  @override
+  _Generation4SpritesList get _value => super._value as _Generation4SpritesList;
+
+  @override
+  $Res call({
+    Object dp = freezed,
+    Object hgss = freezed,
+    Object platinum = freezed,
+  }) {
+    return _then(_Generation4SpritesList(
+      dp == freezed ? _value.dp : dp as PokemonSprites,
+      hgss == freezed ? _value.hgss : hgss as PokemonSprites,
+      platinum == freezed ? _value.platinum : platinum as PokemonSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation4SpritesList implements _Generation4SpritesList {
+  const _$_Generation4SpritesList(@JsonKey(name: 'diamond-pearl') this.dp,
+      @JsonKey(name: 'heartgold-soulsilver') this.hgss, this.platinum)
+      : assert(dp != null),
+        assert(hgss != null),
+        assert(platinum != null);
+
+  factory _$_Generation4SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation4SpritesListFromJson(json);
+
+  @override
+  @JsonKey(name: 'diamond-pearl')
+  final PokemonSprites dp;
+  @override
+  @JsonKey(name: 'heartgold-soulsilver')
+  final PokemonSprites hgss;
+  @override
+  final PokemonSprites platinum;
+
+  @override
+  String toString() {
+    return 'Generation4SpritesList(dp: $dp, hgss: $hgss, platinum: $platinum)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation4SpritesList &&
+            (identical(other.dp, dp) ||
+                const DeepCollectionEquality().equals(other.dp, dp)) &&
+            (identical(other.hgss, hgss) ||
+                const DeepCollectionEquality().equals(other.hgss, hgss)) &&
+            (identical(other.platinum, platinum) ||
+                const DeepCollectionEquality()
+                    .equals(other.platinum, platinum)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dp) ^
+      const DeepCollectionEquality().hash(hgss) ^
+      const DeepCollectionEquality().hash(platinum);
+
+  @override
+  _$Generation4SpritesListCopyWith<_Generation4SpritesList> get copyWith =>
+      __$Generation4SpritesListCopyWithImpl<_Generation4SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation4SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation4SpritesList implements Generation4SpritesList {
+  const factory _Generation4SpritesList(
+      @JsonKey(name: 'diamond-pearl') PokemonSprites dp,
+      @JsonKey(name: 'heartgold-soulsilver') PokemonSprites hgss,
+      PokemonSprites platinum) = _$_Generation4SpritesList;
+
+  factory _Generation4SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation4SpritesList.fromJson;
+
+  @override
+  @JsonKey(name: 'diamond-pearl')
+  PokemonSprites get dp;
+  @override
+  @JsonKey(name: 'heartgold-soulsilver')
+  PokemonSprites get hgss;
+  @override
+  PokemonSprites get platinum;
+  @override
+  _$Generation4SpritesListCopyWith<_Generation4SpritesList> get copyWith;
+}
+
+Generation5SpritesList _$Generation5SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation5SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation5SpritesListTearOff {
+  const _$Generation5SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation5SpritesList call(
+      @JsonKey(name: 'black-white') AnimatedPokemonSprites bw) {
+    return _Generation5SpritesList(
+      bw,
+    );
+  }
+
+// ignore: unused_element
+  Generation5SpritesList fromJson(Map<String, Object> json) {
+    return Generation5SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation5SpritesList = _$Generation5SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation5SpritesList {
+  @JsonKey(name: 'black-white')
+  AnimatedPokemonSprites get bw;
+
+  Map<String, dynamic> toJson();
+  $Generation5SpritesListCopyWith<Generation5SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation5SpritesListCopyWith<$Res> {
+  factory $Generation5SpritesListCopyWith(Generation5SpritesList value,
+          $Res Function(Generation5SpritesList) then) =
+      _$Generation5SpritesListCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'black-white') AnimatedPokemonSprites bw});
+
+  $AnimatedPokemonSpritesCopyWith<$Res> get bw;
+}
+
+/// @nodoc
+class _$Generation5SpritesListCopyWithImpl<$Res>
+    implements $Generation5SpritesListCopyWith<$Res> {
+  _$Generation5SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation5SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation5SpritesList) _then;
+
+  @override
+  $Res call({
+    Object bw = freezed,
+  }) {
+    return _then(_value.copyWith(
+      bw: bw == freezed ? _value.bw : bw as AnimatedPokemonSprites,
+    ));
+  }
+
+  @override
+  $AnimatedPokemonSpritesCopyWith<$Res> get bw {
+    if (_value.bw == null) {
+      return null;
+    }
+    return $AnimatedPokemonSpritesCopyWith<$Res>(_value.bw, (value) {
+      return _then(_value.copyWith(bw: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation5SpritesListCopyWith<$Res>
+    implements $Generation5SpritesListCopyWith<$Res> {
+  factory _$Generation5SpritesListCopyWith(_Generation5SpritesList value,
+          $Res Function(_Generation5SpritesList) then) =
+      __$Generation5SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'black-white') AnimatedPokemonSprites bw});
+
+  @override
+  $AnimatedPokemonSpritesCopyWith<$Res> get bw;
+}
+
+/// @nodoc
+class __$Generation5SpritesListCopyWithImpl<$Res>
+    extends _$Generation5SpritesListCopyWithImpl<$Res>
+    implements _$Generation5SpritesListCopyWith<$Res> {
+  __$Generation5SpritesListCopyWithImpl(_Generation5SpritesList _value,
+      $Res Function(_Generation5SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation5SpritesList));
+
+  @override
+  _Generation5SpritesList get _value => super._value as _Generation5SpritesList;
+
+  @override
+  $Res call({
+    Object bw = freezed,
+  }) {
+    return _then(_Generation5SpritesList(
+      bw == freezed ? _value.bw : bw as AnimatedPokemonSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation5SpritesList implements _Generation5SpritesList {
+  const _$_Generation5SpritesList(@JsonKey(name: 'black-white') this.bw)
+      : assert(bw != null);
+
+  factory _$_Generation5SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation5SpritesListFromJson(json);
+
+  @override
+  @JsonKey(name: 'black-white')
+  final AnimatedPokemonSprites bw;
+
+  @override
+  String toString() {
+    return 'Generation5SpritesList(bw: $bw)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation5SpritesList &&
+            (identical(other.bw, bw) ||
+                const DeepCollectionEquality().equals(other.bw, bw)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(bw);
+
+  @override
+  _$Generation5SpritesListCopyWith<_Generation5SpritesList> get copyWith =>
+      __$Generation5SpritesListCopyWithImpl<_Generation5SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation5SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation5SpritesList implements Generation5SpritesList {
+  const factory _Generation5SpritesList(
+          @JsonKey(name: 'black-white') AnimatedPokemonSprites bw) =
+      _$_Generation5SpritesList;
+
+  factory _Generation5SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation5SpritesList.fromJson;
+
+  @override
+  @JsonKey(name: 'black-white')
+  AnimatedPokemonSprites get bw;
+  @override
+  _$Generation5SpritesListCopyWith<_Generation5SpritesList> get copyWith;
+}
+
+Generation6SpritesList _$Generation6SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation6SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation6SpritesListTearOff {
+  const _$Generation6SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation6SpritesList call(
+      @JsonKey(name: 'omegaruby-alphasapphire') PokemonSprites oras,
+      @JsonKey(name: 'x-y') PokemonSprites xy) {
+    return _Generation6SpritesList(
+      oras,
+      xy,
+    );
+  }
+
+// ignore: unused_element
+  Generation6SpritesList fromJson(Map<String, Object> json) {
+    return Generation6SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation6SpritesList = _$Generation6SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation6SpritesList {
+  @JsonKey(name: 'omegaruby-alphasapphire')
+  PokemonSprites get oras;
+  @JsonKey(name: 'x-y')
+  PokemonSprites get xy;
+
+  Map<String, dynamic> toJson();
+  $Generation6SpritesListCopyWith<Generation6SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation6SpritesListCopyWith<$Res> {
+  factory $Generation6SpritesListCopyWith(Generation6SpritesList value,
+          $Res Function(Generation6SpritesList) then) =
+      _$Generation6SpritesListCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'omegaruby-alphasapphire') PokemonSprites oras,
+      @JsonKey(name: 'x-y') PokemonSprites xy});
+
+  $PokemonSpritesCopyWith<$Res> get oras;
+  $PokemonSpritesCopyWith<$Res> get xy;
+}
+
+/// @nodoc
+class _$Generation6SpritesListCopyWithImpl<$Res>
+    implements $Generation6SpritesListCopyWith<$Res> {
+  _$Generation6SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation6SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation6SpritesList) _then;
+
+  @override
+  $Res call({
+    Object oras = freezed,
+    Object xy = freezed,
+  }) {
+    return _then(_value.copyWith(
+      oras: oras == freezed ? _value.oras : oras as PokemonSprites,
+      xy: xy == freezed ? _value.xy : xy as PokemonSprites,
+    ));
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get oras {
+    if (_value.oras == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.oras, (value) {
+      return _then(_value.copyWith(oras: value));
+    });
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get xy {
+    if (_value.xy == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.xy, (value) {
+      return _then(_value.copyWith(xy: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation6SpritesListCopyWith<$Res>
+    implements $Generation6SpritesListCopyWith<$Res> {
+  factory _$Generation6SpritesListCopyWith(_Generation6SpritesList value,
+          $Res Function(_Generation6SpritesList) then) =
+      __$Generation6SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'omegaruby-alphasapphire') PokemonSprites oras,
+      @JsonKey(name: 'x-y') PokemonSprites xy});
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get oras;
+  @override
+  $PokemonSpritesCopyWith<$Res> get xy;
+}
+
+/// @nodoc
+class __$Generation6SpritesListCopyWithImpl<$Res>
+    extends _$Generation6SpritesListCopyWithImpl<$Res>
+    implements _$Generation6SpritesListCopyWith<$Res> {
+  __$Generation6SpritesListCopyWithImpl(_Generation6SpritesList _value,
+      $Res Function(_Generation6SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation6SpritesList));
+
+  @override
+  _Generation6SpritesList get _value => super._value as _Generation6SpritesList;
+
+  @override
+  $Res call({
+    Object oras = freezed,
+    Object xy = freezed,
+  }) {
+    return _then(_Generation6SpritesList(
+      oras == freezed ? _value.oras : oras as PokemonSprites,
+      xy == freezed ? _value.xy : xy as PokemonSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation6SpritesList implements _Generation6SpritesList {
+  const _$_Generation6SpritesList(
+      @JsonKey(name: 'omegaruby-alphasapphire') this.oras,
+      @JsonKey(name: 'x-y') this.xy)
+      : assert(oras != null),
+        assert(xy != null);
+
+  factory _$_Generation6SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation6SpritesListFromJson(json);
+
+  @override
+  @JsonKey(name: 'omegaruby-alphasapphire')
+  final PokemonSprites oras;
+  @override
+  @JsonKey(name: 'x-y')
+  final PokemonSprites xy;
+
+  @override
+  String toString() {
+    return 'Generation6SpritesList(oras: $oras, xy: $xy)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation6SpritesList &&
+            (identical(other.oras, oras) ||
+                const DeepCollectionEquality().equals(other.oras, oras)) &&
+            (identical(other.xy, xy) ||
+                const DeepCollectionEquality().equals(other.xy, xy)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(oras) ^
+      const DeepCollectionEquality().hash(xy);
+
+  @override
+  _$Generation6SpritesListCopyWith<_Generation6SpritesList> get copyWith =>
+      __$Generation6SpritesListCopyWithImpl<_Generation6SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation6SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation6SpritesList implements Generation6SpritesList {
+  const factory _Generation6SpritesList(
+      @JsonKey(name: 'omegaruby-alphasapphire') PokemonSprites oras,
+      @JsonKey(name: 'x-y') PokemonSprites xy) = _$_Generation6SpritesList;
+
+  factory _Generation6SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation6SpritesList.fromJson;
+
+  @override
+  @JsonKey(name: 'omegaruby-alphasapphire')
+  PokemonSprites get oras;
+  @override
+  @JsonKey(name: 'x-y')
+  PokemonSprites get xy;
+  @override
+  _$Generation6SpritesListCopyWith<_Generation6SpritesList> get copyWith;
+}
+
+Generation7SpritesList _$Generation7SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation7SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation7SpritesListTearOff {
+  const _$Generation7SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation7SpritesList call(
+      @JsonKey(name: 'ultra-sun-ultra-moon') PokemonSprites usum,
+      PokemonSprites icons) {
+    return _Generation7SpritesList(
+      usum,
+      icons,
+    );
+  }
+
+// ignore: unused_element
+  Generation7SpritesList fromJson(Map<String, Object> json) {
+    return Generation7SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation7SpritesList = _$Generation7SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation7SpritesList {
+  @JsonKey(name: 'ultra-sun-ultra-moon')
+  PokemonSprites get usum;
+  PokemonSprites get icons;
+
+  Map<String, dynamic> toJson();
+  $Generation7SpritesListCopyWith<Generation7SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation7SpritesListCopyWith<$Res> {
+  factory $Generation7SpritesListCopyWith(Generation7SpritesList value,
+          $Res Function(Generation7SpritesList) then) =
+      _$Generation7SpritesListCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: 'ultra-sun-ultra-moon') PokemonSprites usum,
+      PokemonSprites icons});
+
+  $PokemonSpritesCopyWith<$Res> get usum;
+  $PokemonSpritesCopyWith<$Res> get icons;
+}
+
+/// @nodoc
+class _$Generation7SpritesListCopyWithImpl<$Res>
+    implements $Generation7SpritesListCopyWith<$Res> {
+  _$Generation7SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation7SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation7SpritesList) _then;
+
+  @override
+  $Res call({
+    Object usum = freezed,
+    Object icons = freezed,
+  }) {
+    return _then(_value.copyWith(
+      usum: usum == freezed ? _value.usum : usum as PokemonSprites,
+      icons: icons == freezed ? _value.icons : icons as PokemonSprites,
+    ));
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get usum {
+    if (_value.usum == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.usum, (value) {
+      return _then(_value.copyWith(usum: value));
+    });
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get icons {
+    if (_value.icons == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.icons, (value) {
+      return _then(_value.copyWith(icons: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation7SpritesListCopyWith<$Res>
+    implements $Generation7SpritesListCopyWith<$Res> {
+  factory _$Generation7SpritesListCopyWith(_Generation7SpritesList value,
+          $Res Function(_Generation7SpritesList) then) =
+      __$Generation7SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: 'ultra-sun-ultra-moon') PokemonSprites usum,
+      PokemonSprites icons});
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get usum;
+  @override
+  $PokemonSpritesCopyWith<$Res> get icons;
+}
+
+/// @nodoc
+class __$Generation7SpritesListCopyWithImpl<$Res>
+    extends _$Generation7SpritesListCopyWithImpl<$Res>
+    implements _$Generation7SpritesListCopyWith<$Res> {
+  __$Generation7SpritesListCopyWithImpl(_Generation7SpritesList _value,
+      $Res Function(_Generation7SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation7SpritesList));
+
+  @override
+  _Generation7SpritesList get _value => super._value as _Generation7SpritesList;
+
+  @override
+  $Res call({
+    Object usum = freezed,
+    Object icons = freezed,
+  }) {
+    return _then(_Generation7SpritesList(
+      usum == freezed ? _value.usum : usum as PokemonSprites,
+      icons == freezed ? _value.icons : icons as PokemonSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation7SpritesList implements _Generation7SpritesList {
+  const _$_Generation7SpritesList(
+      @JsonKey(name: 'ultra-sun-ultra-moon') this.usum, this.icons)
+      : assert(usum != null),
+        assert(icons != null);
+
+  factory _$_Generation7SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation7SpritesListFromJson(json);
+
+  @override
+  @JsonKey(name: 'ultra-sun-ultra-moon')
+  final PokemonSprites usum;
+  @override
+  final PokemonSprites icons;
+
+  @override
+  String toString() {
+    return 'Generation7SpritesList(usum: $usum, icons: $icons)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation7SpritesList &&
+            (identical(other.usum, usum) ||
+                const DeepCollectionEquality().equals(other.usum, usum)) &&
+            (identical(other.icons, icons) ||
+                const DeepCollectionEquality().equals(other.icons, icons)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(usum) ^
+      const DeepCollectionEquality().hash(icons);
+
+  @override
+  _$Generation7SpritesListCopyWith<_Generation7SpritesList> get copyWith =>
+      __$Generation7SpritesListCopyWithImpl<_Generation7SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation7SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation7SpritesList implements Generation7SpritesList {
+  const factory _Generation7SpritesList(
+      @JsonKey(name: 'ultra-sun-ultra-moon') PokemonSprites usum,
+      PokemonSprites icons) = _$_Generation7SpritesList;
+
+  factory _Generation7SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation7SpritesList.fromJson;
+
+  @override
+  @JsonKey(name: 'ultra-sun-ultra-moon')
+  PokemonSprites get usum;
+  @override
+  PokemonSprites get icons;
+  @override
+  _$Generation7SpritesListCopyWith<_Generation7SpritesList> get copyWith;
+}
+
+Generation8SpritesList _$Generation8SpritesListFromJson(
+    Map<String, dynamic> json) {
+  return _Generation8SpritesList.fromJson(json);
+}
+
+/// @nodoc
+class _$Generation8SpritesListTearOff {
+  const _$Generation8SpritesListTearOff();
+
+// ignore: unused_element
+  _Generation8SpritesList call(PokemonSprites icons) {
+    return _Generation8SpritesList(
+      icons,
+    );
+  }
+
+// ignore: unused_element
+  Generation8SpritesList fromJson(Map<String, Object> json) {
+    return Generation8SpritesList.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $Generation8SpritesList = _$Generation8SpritesListTearOff();
+
+/// @nodoc
+mixin _$Generation8SpritesList {
+  PokemonSprites get icons;
+
+  Map<String, dynamic> toJson();
+  $Generation8SpritesListCopyWith<Generation8SpritesList> get copyWith;
+}
+
+/// @nodoc
+abstract class $Generation8SpritesListCopyWith<$Res> {
+  factory $Generation8SpritesListCopyWith(Generation8SpritesList value,
+          $Res Function(Generation8SpritesList) then) =
+      _$Generation8SpritesListCopyWithImpl<$Res>;
+  $Res call({PokemonSprites icons});
+
+  $PokemonSpritesCopyWith<$Res> get icons;
+}
+
+/// @nodoc
+class _$Generation8SpritesListCopyWithImpl<$Res>
+    implements $Generation8SpritesListCopyWith<$Res> {
+  _$Generation8SpritesListCopyWithImpl(this._value, this._then);
+
+  final Generation8SpritesList _value;
+  // ignore: unused_field
+  final $Res Function(Generation8SpritesList) _then;
+
+  @override
+  $Res call({
+    Object icons = freezed,
+  }) {
+    return _then(_value.copyWith(
+      icons: icons == freezed ? _value.icons : icons as PokemonSprites,
+    ));
+  }
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get icons {
+    if (_value.icons == null) {
+      return null;
+    }
+    return $PokemonSpritesCopyWith<$Res>(_value.icons, (value) {
+      return _then(_value.copyWith(icons: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$Generation8SpritesListCopyWith<$Res>
+    implements $Generation8SpritesListCopyWith<$Res> {
+  factory _$Generation8SpritesListCopyWith(_Generation8SpritesList value,
+          $Res Function(_Generation8SpritesList) then) =
+      __$Generation8SpritesListCopyWithImpl<$Res>;
+  @override
+  $Res call({PokemonSprites icons});
+
+  @override
+  $PokemonSpritesCopyWith<$Res> get icons;
+}
+
+/// @nodoc
+class __$Generation8SpritesListCopyWithImpl<$Res>
+    extends _$Generation8SpritesListCopyWithImpl<$Res>
+    implements _$Generation8SpritesListCopyWith<$Res> {
+  __$Generation8SpritesListCopyWithImpl(_Generation8SpritesList _value,
+      $Res Function(_Generation8SpritesList) _then)
+      : super(_value, (v) => _then(v as _Generation8SpritesList));
+
+  @override
+  _Generation8SpritesList get _value => super._value as _Generation8SpritesList;
+
+  @override
+  $Res call({
+    Object icons = freezed,
+  }) {
+    return _then(_Generation8SpritesList(
+      icons == freezed ? _value.icons : icons as PokemonSprites,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Generation8SpritesList implements _Generation8SpritesList {
+  const _$_Generation8SpritesList(this.icons) : assert(icons != null);
+
+  factory _$_Generation8SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$_$_Generation8SpritesListFromJson(json);
+
+  @override
+  final PokemonSprites icons;
+
+  @override
+  String toString() {
+    return 'Generation8SpritesList(icons: $icons)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generation8SpritesList &&
+            (identical(other.icons, icons) ||
+                const DeepCollectionEquality().equals(other.icons, icons)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(icons);
+
+  @override
+  _$Generation8SpritesListCopyWith<_Generation8SpritesList> get copyWith =>
+      __$Generation8SpritesListCopyWithImpl<_Generation8SpritesList>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_Generation8SpritesListToJson(this);
+  }
+}
+
+abstract class _Generation8SpritesList implements Generation8SpritesList {
+  const factory _Generation8SpritesList(PokemonSprites icons) =
+      _$_Generation8SpritesList;
+
+  factory _Generation8SpritesList.fromJson(Map<String, dynamic> json) =
+      _$_Generation8SpritesList.fromJson;
+
+  @override
+  PokemonSprites get icons;
+  @override
+  _$Generation8SpritesListCopyWith<_Generation8SpritesList> get copyWith;
 }
 
 LocationAreaEncounter _$LocationAreaEncounterFromJson(

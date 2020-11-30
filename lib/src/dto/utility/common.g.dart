@@ -84,12 +84,21 @@ _$_FlavorText _$_$_FlavorTextFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_FlavorTextToJson(_$_FlavorText instance) =>
-    <String, dynamic>{
-      'flavor_text': instance.flavorText,
-      'language': instance.language?.toJson(),
-      'version': instance.version?.toJson(),
-    };
+Map<String, dynamic> _$_$_FlavorTextToJson(_$_FlavorText instance) {
+  final val = <String, dynamic>{
+    'flavor_text': instance.flavorText,
+    'language': instance.language?.toJson(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('version', instance.version?.toJson());
+  return val;
+}
 
 _$_GenerationGameIndex _$_$_GenerationGameIndexFromJson(
     Map<String, dynamic> json) {

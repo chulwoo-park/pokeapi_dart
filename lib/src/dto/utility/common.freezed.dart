@@ -859,8 +859,10 @@ class _$FlavorTextTearOff {
   const _$FlavorTextTearOff();
 
 // ignore: unused_element
-  _FlavorText call(@JsonKey(name: 'flavor_text') String flavorText,
-      NamedApiResource language, @nullable NamedApiResource version) {
+  _FlavorText call(
+      @JsonKey(name: 'flavor_text') String flavorText,
+      NamedApiResource language,
+      @nullable @JsonKey(includeIfNull: false) NamedApiResource version) {
     return _FlavorText(
       flavorText,
       language,
@@ -897,6 +899,7 @@ mixin _$FlavorText {
   ///
   ///  * [Version]
   @nullable
+  @JsonKey(includeIfNull: false)
   NamedApiResource get version;
 
   Map<String, dynamic> toJson();
@@ -911,7 +914,7 @@ abstract class $FlavorTextCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'flavor_text') String flavorText,
       NamedApiResource language,
-      @nullable NamedApiResource version});
+      @nullable @JsonKey(includeIfNull: false) NamedApiResource version});
 
   $NamedApiResourceCopyWith<$Res> get language;
   $NamedApiResourceCopyWith<$Res> get version;
@@ -971,7 +974,7 @@ abstract class _$FlavorTextCopyWith<$Res> implements $FlavorTextCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'flavor_text') String flavorText,
       NamedApiResource language,
-      @nullable NamedApiResource version});
+      @nullable @JsonKey(includeIfNull: false) NamedApiResource version});
 
   @override
   $NamedApiResourceCopyWith<$Res> get language;
@@ -1008,7 +1011,7 @@ class __$FlavorTextCopyWithImpl<$Res> extends _$FlavorTextCopyWithImpl<$Res>
 /// @nodoc
 class _$_FlavorText implements _FlavorText {
   const _$_FlavorText(@JsonKey(name: 'flavor_text') this.flavorText,
-      this.language, @nullable this.version)
+      this.language, @nullable @JsonKey(includeIfNull: false) this.version)
       : assert(flavorText != null),
         assert(language != null);
 
@@ -1036,6 +1039,7 @@ class _$_FlavorText implements _FlavorText {
   ///
   ///  * [Version]
   @nullable
+  @JsonKey(includeIfNull: false)
   final NamedApiResource version;
 
   @override
@@ -1076,9 +1080,10 @@ class _$_FlavorText implements _FlavorText {
 
 abstract class _FlavorText implements FlavorText {
   const factory _FlavorText(
-      @JsonKey(name: 'flavor_text') String flavorText,
-      NamedApiResource language,
-      @nullable NamedApiResource version) = _$_FlavorText;
+          @JsonKey(name: 'flavor_text') String flavorText,
+          NamedApiResource language,
+          @nullable @JsonKey(includeIfNull: false) NamedApiResource version) =
+      _$_FlavorText;
 
   factory _FlavorText.fromJson(Map<String, dynamic> json) =
       _$_FlavorText.fromJson;
@@ -1104,6 +1109,7 @@ abstract class _FlavorText implements FlavorText {
   ///
   ///  * [Version]
   @nullable
+  @JsonKey(includeIfNull: false)
   NamedApiResource get version;
   @override
   _$FlavorTextCopyWith<_FlavorText> get copyWith;

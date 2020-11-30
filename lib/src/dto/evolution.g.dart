@@ -37,10 +37,12 @@ _$_ChainLink _$_$_ChainLinkFromJson(Map<String, dynamic> json) {
             ? null
             : EvolutionDetail.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    (json['evolvesTo'] as List)
-        ?.map((e) =>
-            e == null ? null : ChainLink.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    (json['evolves_to'] as List)
+            ?.map((e) => e == null
+                ? null
+                : ChainLink.fromJson(e as Map<String, dynamic>))
+            ?.toList() ??
+        [],
   );
 }
 
@@ -50,7 +52,7 @@ Map<String, dynamic> _$_$_ChainLinkToJson(_$_ChainLink instance) =>
       'species': instance.species?.toJson(),
       'evolution_details':
           instance.evolutionDetails?.map((e) => e?.toJson())?.toList(),
-      'evolvesTo': instance.evolvesTo?.map((e) => e?.toJson())?.toList(),
+      'evolves_to': instance.evolvesTo?.map((e) => e?.toJson())?.toList(),
     };
 
 _$_EvolutionDetail _$_$_EvolutionDetailFromJson(Map<String, dynamic> json) {
@@ -111,7 +113,7 @@ Map<String, dynamic> _$_$_EvolutionDetailToJson(_$_EvolutionDetail instance) =>
       'min_beauty': instance.minBeauty,
       'min_affection': instance.minAffection,
       'needs_overworld_rain': instance.needsOverworldRain,
-      'party_species': instance.party_species?.toJson(),
+      'party_species': instance.partySpecies?.toJson(),
       'party_type': instance.partyType?.toJson(),
       'relative_physical_stats': instance.relativePhysicalStats,
       'time_of_day': instance.timeOfDay,
