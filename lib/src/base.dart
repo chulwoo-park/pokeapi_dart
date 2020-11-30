@@ -29,14 +29,14 @@ class BasePokeApiEndpoints extends PokeApiEndpoints {
           berries: BaseNamedEndpoint<Berry>(client),
           berryFirmness: BaseNamedEndpoint<BerryFirmness>(client),
           berryFlavors: BaseNamedEndpoint<BerryFlavor>(client),
-          contestType: BaseNamedEndpoint<ContestType>(client),
-          contestEffect: BaseEndpoint<ContestEffect>(client),
+          contestTypes: BaseNamedEndpoint<ContestType>(client),
+          contestEffects: BaseEndpoint<ContestEffect>(client),
           superContestEffects: BaseEndpoint<SuperContestEffect>(client),
           encounterMethods: BaseNamedEndpoint<EncounterMethod>(client),
           encounterConditions: BaseNamedEndpoint<EncounterCondition>(client),
           encounterConditionValues:
               BaseNamedEndpoint<EncounterConditionValue>(client),
-          evolutionChain: BaseEndpoint<EvolutionChain>(client),
+          evolutionChains: BaseEndpoint<EvolutionChain>(client),
           evolutionTriggers: BaseNamedEndpoint<EvolutionTrigger>(client),
           generations: BaseNamedEndpoint<Generation>(client),
           pokedexes: BaseNamedEndpoint<Pokedex>(client),
@@ -74,7 +74,7 @@ class BasePokeApiEndpoints extends PokeApiEndpoints {
           pokemonShapes: BaseNamedEndpoint<PokemonShape>(client),
           pokemonSpecies: BaseNamedEndpoint<PokemonSpecies>(client),
           stats: BaseNamedEndpoint<Stat>(client),
-          type: BaseNamedEndpoint<Type>(client),
+          types: BaseNamedEndpoint<Type>(client),
           languages: BaseNamedEndpoint<Language>(client),
         );
 }
