@@ -34,13 +34,13 @@ class PokeApiEndpoints {
     this.berries,
     this.berryFirmness,
     this.berryFlavors,
-    this.contestType,
-    this.contestEffect,
+    this.contestTypes,
+    this.contestEffects,
     this.superContestEffects,
     this.encounterMethods,
     this.encounterConditions,
     this.encounterConditionValues,
-    this.evolutionChain,
+    this.evolutionChains,
     this.evolutionTriggers,
     this.generations,
     this.pokedexes,
@@ -77,20 +77,20 @@ class PokeApiEndpoints {
     this.pokemonShapes,
     this.pokemonSpecies,
     this.stats,
-    this.type,
+    this.types,
     this.languages,
   });
 
   final NamedEndpoint<Berry> berries;
   final NamedEndpoint<BerryFirmness> berryFirmness;
   final NamedEndpoint<BerryFlavor> berryFlavors;
-  final NamedEndpoint<ContestType> contestType;
-  final Endpoint<ContestEffect> contestEffect;
+  final NamedEndpoint<ContestType> contestTypes;
+  final Endpoint<ContestEffect> contestEffects;
   final Endpoint<SuperContestEffect> superContestEffects;
   final NamedEndpoint<EncounterMethod> encounterMethods;
   final NamedEndpoint<EncounterCondition> encounterConditions;
   final NamedEndpoint<EncounterConditionValue> encounterConditionValues;
-  final Endpoint<EvolutionChain> evolutionChain;
+  final Endpoint<EvolutionChain> evolutionChains;
   final NamedEndpoint<EvolutionTrigger> evolutionTriggers;
   final NamedEndpoint<Generation> generations;
   final NamedEndpoint<Pokedex> pokedexes;
@@ -127,6 +127,6 @@ class PokeApiEndpoints {
   final NamedEndpoint<PokemonShape> pokemonShapes;
   final NamedEndpoint<PokemonSpecies> pokemonSpecies;
   final NamedEndpoint<Stat> stats;
-  final NamedEndpoint<Type> type;
+  final NamedEndpoint<Type> types;
   final NamedEndpoint<Language> languages;
 }
