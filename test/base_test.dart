@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:pokeapi_dart/pokeapi_dart.dart';
 import 'package:pokeapi_dart/src/base.dart';
@@ -9,9 +8,12 @@ import 'mock.dart';
 import 'util.dart';
 
 void main() {
+  PokeApiClient mockClient;
   PokeApi mockApi;
+
   setUp(() {
-    mockApi = PokeApi(client: MockClient());
+    mockClient = MockClient();
+    mockApi = PokeApi(client: mockClient);
   });
 
   test('ResourceEndpointMixin resource test', () {
@@ -25,7 +27,7 @@ void main() {
   test('Endpoint path test', () async {
     final jsonString = await getJsonString('/api/v2');
     final json = jsonDecode(jsonString);
-    void checkEndpoint(endpoint) {
+    void testEndpointPath(endpoint) {
       expect(endpoint, isA<ResourceEndpointMixin>());
       expect(
         json[(endpoint as ResourceEndpointMixin).resource],
@@ -34,14 +36,45 @@ void main() {
     }
 
     for (final endpoint in reflectEndpoints(mockApi)) {
-      checkEndpoint(endpoint);
+      testEndpointPath(endpoint);
     }
+  });
+
+  group('BaseEndpoint assertion test', () {
+    Endpoint endpoint;
+    setUp(() {
+      endpoint = BaseEndpoint<Berry>(mockClient);
+    });
+
+    test('If id is null when calling get, then throws AssertionError', () {
+      expect(() {
+        endpoint.get(null);
+      }, throwsA(isA<AssertionError>()));
+    });
+  });
+
+  group('BaseNamedEndpoint assertion test', () {
+    NamedEndpoint namedEndpoint;
+    setUp(() {
+      namedEndpoint = BaseNamedEndpoint<Berry>(mockClient);
+    });
+
+    test('If id is null when calling get, then throws AssertionError', () {
+      expect(() {
+        namedEndpoint.get(id: null);
+      }, throwsA(isA<AssertionError>()));
+    });
+
+    test('If name is null when calling get, then throws AssertionError', () {
+      expect(() {
+        namedEndpoint.get(name: null);
+      }, throwsA(isA<AssertionError>()));
+    });
   });
 
   group('Live server test', () {
     PokeApi liveApi;
     setUp(() {
-      mockApi = PokeApi(client: MockClient());
       liveApi = PokeApi();
     });
 

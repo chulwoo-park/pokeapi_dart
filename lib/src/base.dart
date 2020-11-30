@@ -130,12 +130,15 @@ class BaseEndpoint<Resource>
     int limit = 20,
     int offset = 20,
   }) {
+    limit ??= 0;
+    offset ??= 0;
     return client
         .get<ApiResourceList>('$_baseUrl$path?limit=$limit&?offset=$offset');
   }
 
   @override
   Future<Resource> get(int id) {
+    assert(id != null);
     return client.get<Resource>('$_baseUrl$path/$id');
   }
 }
@@ -152,6 +155,8 @@ class BaseNamedEndpoint<Resource>
     int limit = 20,
     int offset = 20,
   }) {
+    limit ??= 0;
+    offset ??= 0;
     return client.get<NamedApiResourceList>(
         '$_baseUrl$path?limit=$limit&offset=$offset');
   }
