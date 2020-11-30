@@ -58,7 +58,9 @@ abstract class ChainLink with _$ChainLink {
     @JsonKey(name: 'evolution_details') List<EvolutionDetail> evolutionDetails,
 
     /// A List of chain objects.
-    @nullable List<ChainLink> evolvesTo,
+    @nullable
+    @JsonKey(name: 'evolves_to', defaultValue: const [])
+        List<ChainLink> evolvesTo,
   ) = _ChainLink;
 
   factory ChainLink.fromJson(Map<String, dynamic> json) =>
@@ -75,7 +77,7 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// See also:
     ///
     ///  * [Item]
-    NamedApiResource item,
+    @nullable NamedApiResource item,
 
     /// The type of event that triggers evolution into this Pokémon species.
     ///
@@ -86,7 +88,7 @@ abstract class EvolutionDetail with _$EvolutionDetail {
 
     /// The id of the gender of the evolving Pokémon species must be in order to
     /// evolve into this Pokémon species.
-    int gender,
+    @nullable int gender,
 
     /// The item the evolving Pokémon species must be holding during the evolution
     /// trigger event to evolve into this Pokémon species.
@@ -94,7 +96,7 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// See also:
     ///
     ///  * [Item]
-    @JsonKey(name: 'held_item') NamedApiResource heldItem,
+    @nullable @JsonKey(name: 'held_item') NamedApiResource heldItem,
 
     /// The move that must be known by the evolving Pokémon species during the
     /// evolution trigger event in order to evolve into this Pokémon species.
@@ -102,7 +104,7 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// See also:
     ///
     ///  * [Move]
-    @JsonKey(name: 'known_move') NamedApiResource knownMove,
+    @nullable @JsonKey(name: 'known_move') NamedApiResource knownMove,
 
     /// The evolving Pokémon species must know a move with this type during the
     /// evolution trigger event in order to evolve into this Pokémon species.
@@ -110,30 +112,30 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// See also:
     ///
     ///  * [Type]
-    @JsonKey(name: 'known_move_type') NamedApiResource knownMoveType,
+    @nullable @JsonKey(name: 'known_move_type') NamedApiResource knownMoveType,
 
     /// The location the evolution must be triggered at.
     ///
     /// See also:
     ///
     ///  * [Location]
-    NamedApiResource location,
+    @nullable NamedApiResource location,
 
     /// The minimum required level of the evolving Pokémon species to evolve into
     /// this Pokémon species.
-    @JsonKey(name: 'min_level') int minLevel,
+    @nullable @JsonKey(name: 'min_level') int minLevel,
 
     /// The minimum required level of happiness the evolving Pokémon species to
     /// evolve into this Pokémon species.
-    @JsonKey(name: 'min_happiness') int minHappiness,
+    @nullable @JsonKey(name: 'min_happiness') int minHappiness,
 
     /// The minimum required level of beauty the evolving Pokémon species to
     /// evolve into this Pokémon species.
-    @JsonKey(name: 'min_beauty') int minBeauty,
+    @nullable @JsonKey(name: 'min_beauty') int minBeauty,
 
     /// The minimum required level of affection the evolving Pokémon species to
     /// evolve into this Pokémon species.
-    @JsonKey(name: 'min_affection') int minAffection,
+    @nullable @JsonKey(name: 'min_affection') int minAffection,
 
     /// Whether or not it must be raining in the overworld to cause evolution this
     /// Pokémon species.
@@ -145,7 +147,7 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// See also:
     ///
     ///  * [PokemonSpecies]
-    @JsonKey(name: 'party_species') NamedApiResource party_species,
+    @nullable @JsonKey(name: 'party_species') NamedApiResource partySpecies,
 
     /// The player must have a Pokémon of this type in their party during the
     /// evolution trigger event in order for the evolving Pokémon species to
@@ -154,12 +156,14 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// See also:
     ///
     ///  * [Type]
-    @JsonKey(name: 'party_type') NamedApiResource partyType,
+    @nullable @JsonKey(name: 'party_type') NamedApiResource partyType,
 
     /// The required relation between the Pokémon's Attack and Defense stats.
     /// 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack <
     /// Defense.
-    @JsonKey(name: 'relative_physical_stats') int relativePhysicalStats,
+    @nullable
+    @JsonKey(name: 'relative_physical_stats')
+        int relativePhysicalStats,
 
     /// The required time of day. Day or night.
     @JsonKey(name: 'time_of_day') String timeOfDay,
@@ -169,7 +173,7 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// See also:
     ///
     ///  * [PokemonSpecies]
-    @JsonKey(name: 'trade_species') NamedApiResource tradeSpecies,
+    @nullable @JsonKey(name: 'trade_species') NamedApiResource tradeSpecies,
 
     /// Whether or not the 3DS needs to be turned upside-down as this Pokémon
     /// levels up.

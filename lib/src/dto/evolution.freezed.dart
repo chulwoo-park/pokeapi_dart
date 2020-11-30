@@ -295,6 +295,7 @@ class _$ChainLinkTearOff {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
+      @JsonKey(name: 'evolves_to', defaultValue: const [])
           List<ChainLink> evolvesTo) {
     return _ChainLink(
       isBaby,
@@ -335,6 +336,7 @@ mixin _$ChainLink {
 
   /// A List of chain objects.
   @nullable
+  @JsonKey(name: 'evolves_to', defaultValue: const [])
   List<ChainLink> get evolvesTo;
 
   Map<String, dynamic> toJson();
@@ -352,6 +354,7 @@ abstract class $ChainLinkCopyWith<$Res> {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
+      @JsonKey(name: 'evolves_to', defaultValue: const [])
           List<ChainLink> evolvesTo});
 
   $NamedApiResourceCopyWith<$Res> get species;
@@ -409,6 +412,7 @@ abstract class _$ChainLinkCopyWith<$Res> implements $ChainLinkCopyWith<$Res> {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
+      @JsonKey(name: 'evolves_to', defaultValue: const [])
           List<ChainLink> evolvesTo});
 
   @override
@@ -447,10 +451,14 @@ class __$ChainLinkCopyWithImpl<$Res> extends _$ChainLinkCopyWithImpl<$Res>
 /// @nodoc
 class _$_ChainLink implements _ChainLink {
   const _$_ChainLink(
-      @JsonKey(name: 'is_baby') this.isBaby,
+      @JsonKey(name: 'is_baby')
+          this.isBaby,
       this.species,
-      @JsonKey(name: 'evolution_details') this.evolutionDetails,
-      @nullable this.evolvesTo)
+      @JsonKey(name: 'evolution_details')
+          this.evolutionDetails,
+      @nullable
+      @JsonKey(name: 'evolves_to', defaultValue: const [])
+          this.evolvesTo)
       : assert(isBaby != null),
         assert(species != null),
         assert(evolutionDetails != null);
@@ -482,6 +490,7 @@ class _$_ChainLink implements _ChainLink {
 
   /// A List of chain objects.
   @nullable
+  @JsonKey(name: 'evolves_to', defaultValue: const [])
   final List<ChainLink> evolvesTo;
 
   @override
@@ -532,6 +541,7 @@ abstract class _ChainLink implements ChainLink {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
+      @JsonKey(name: 'evolves_to', defaultValue: const [])
           List<ChainLink> evolvesTo) = _$_ChainLink;
 
   factory _ChainLink.fromJson(Map<String, dynamic> json) =
@@ -561,6 +571,7 @@ abstract class _ChainLink implements ChainLink {
 
   /// A List of chain objects.
   @nullable
+  @JsonKey(name: 'evolves_to', defaultValue: const [])
   List<ChainLink> get evolvesTo;
   @override
   _$ChainLinkCopyWith<_ChainLink> get copyWith;
@@ -576,24 +587,52 @@ class _$EvolutionDetailTearOff {
 
 // ignore: unused_element
   _EvolutionDetail call(
-      NamedApiResource item,
+      @nullable
+          NamedApiResource item,
       NamedApiResource trigger,
-      int gender,
-      @JsonKey(name: 'held_item') NamedApiResource heldItem,
-      @JsonKey(name: 'known_move') NamedApiResource knownMove,
-      @JsonKey(name: 'known_move_type') NamedApiResource knownMoveType,
-      NamedApiResource location,
-      @JsonKey(name: 'min_level') int minLevel,
-      @JsonKey(name: 'min_happiness') int minHappiness,
-      @JsonKey(name: 'min_beauty') int minBeauty,
-      @JsonKey(name: 'min_affection') int minAffection,
-      @JsonKey(name: 'needs_overworld_rain') bool needsOverworldRain,
-      @JsonKey(name: 'party_species') NamedApiResource party_species,
-      @JsonKey(name: 'party_type') NamedApiResource partyType,
-      @JsonKey(name: 'relative_physical_stats') int relativePhysicalStats,
-      @JsonKey(name: 'time_of_day') String timeOfDay,
-      @JsonKey(name: 'trade_species') NamedApiResource tradeSpecies,
-      @JsonKey(name: 'turn_upside_down') bool turnUpsideDown) {
+      @nullable
+          int gender,
+      @nullable
+      @JsonKey(name: 'held_item')
+          NamedApiResource heldItem,
+      @nullable
+      @JsonKey(name: 'known_move')
+          NamedApiResource knownMove,
+      @nullable
+      @JsonKey(name: 'known_move_type')
+          NamedApiResource knownMoveType,
+      @nullable
+          NamedApiResource location,
+      @nullable
+      @JsonKey(name: 'min_level')
+          int minLevel,
+      @nullable
+      @JsonKey(name: 'min_happiness')
+          int minHappiness,
+      @nullable
+      @JsonKey(name: 'min_beauty')
+          int minBeauty,
+      @nullable
+      @JsonKey(name: 'min_affection')
+          int minAffection,
+      @JsonKey(name: 'needs_overworld_rain')
+          bool needsOverworldRain,
+      @nullable
+      @JsonKey(name: 'party_species')
+          NamedApiResource partySpecies,
+      @nullable
+      @JsonKey(name: 'party_type')
+          NamedApiResource partyType,
+      @nullable
+      @JsonKey(name: 'relative_physical_stats')
+          int relativePhysicalStats,
+      @JsonKey(name: 'time_of_day')
+          String timeOfDay,
+      @nullable
+      @JsonKey(name: 'trade_species')
+          NamedApiResource tradeSpecies,
+      @JsonKey(name: 'turn_upside_down')
+          bool turnUpsideDown) {
     return _EvolutionDetail(
       item,
       trigger,
@@ -607,7 +646,7 @@ class _$EvolutionDetailTearOff {
       minBeauty,
       minAffection,
       needsOverworldRain,
-      party_species,
+      partySpecies,
       partyType,
       relativePhysicalStats,
       timeOfDay,
@@ -633,6 +672,7 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [Item]
+  @nullable
   NamedApiResource get item;
 
   /// The type of event that triggers evolution into this Pokémon species.
@@ -644,6 +684,7 @@ mixin _$EvolutionDetail {
 
   /// The id of the gender of the evolving Pokémon species must be in order to
   /// evolve into this Pokémon species.
+  @nullable
   int get gender;
 
   /// The item the evolving Pokémon species must be holding during the evolution
@@ -652,6 +693,7 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [Item]
+  @nullable
   @JsonKey(name: 'held_item')
   NamedApiResource get heldItem;
 
@@ -661,6 +703,7 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [Move]
+  @nullable
   @JsonKey(name: 'known_move')
   NamedApiResource get knownMove;
 
@@ -670,6 +713,7 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [Type]
+  @nullable
   @JsonKey(name: 'known_move_type')
   NamedApiResource get knownMoveType;
 
@@ -678,25 +722,30 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [Location]
+  @nullable
   NamedApiResource get location;
 
   /// The minimum required level of the evolving Pokémon species to evolve into
   /// this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_level')
   int get minLevel;
 
   /// The minimum required level of happiness the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_happiness')
   int get minHappiness;
 
   /// The minimum required level of beauty the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_beauty')
   int get minBeauty;
 
   /// The minimum required level of affection the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_affection')
   int get minAffection;
 
@@ -711,8 +760,9 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [PokemonSpecies]
+  @nullable
   @JsonKey(name: 'party_species')
-  NamedApiResource get party_species;
+  NamedApiResource get partySpecies;
 
   /// The player must have a Pokémon of this type in their party during the
   /// evolution trigger event in order for the evolving Pokémon species to
@@ -721,12 +771,14 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [Type]
+  @nullable
   @JsonKey(name: 'party_type')
   NamedApiResource get partyType;
 
   /// The required relation between the Pokémon's Attack and Defense stats.
   /// 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack <
   /// Defense.
+  @nullable
   @JsonKey(name: 'relative_physical_stats')
   int get relativePhysicalStats;
 
@@ -739,6 +791,7 @@ mixin _$EvolutionDetail {
   /// See also:
   ///
   ///  * [PokemonSpecies]
+  @nullable
   @JsonKey(name: 'trade_species')
   NamedApiResource get tradeSpecies;
 
@@ -757,24 +810,52 @@ abstract class $EvolutionDetailCopyWith<$Res> {
           EvolutionDetail value, $Res Function(EvolutionDetail) then) =
       _$EvolutionDetailCopyWithImpl<$Res>;
   $Res call(
-      {NamedApiResource item,
+      {@nullable
+          NamedApiResource item,
       NamedApiResource trigger,
-      int gender,
-      @JsonKey(name: 'held_item') NamedApiResource heldItem,
-      @JsonKey(name: 'known_move') NamedApiResource knownMove,
-      @JsonKey(name: 'known_move_type') NamedApiResource knownMoveType,
-      NamedApiResource location,
-      @JsonKey(name: 'min_level') int minLevel,
-      @JsonKey(name: 'min_happiness') int minHappiness,
-      @JsonKey(name: 'min_beauty') int minBeauty,
-      @JsonKey(name: 'min_affection') int minAffection,
-      @JsonKey(name: 'needs_overworld_rain') bool needsOverworldRain,
-      @JsonKey(name: 'party_species') NamedApiResource party_species,
-      @JsonKey(name: 'party_type') NamedApiResource partyType,
-      @JsonKey(name: 'relative_physical_stats') int relativePhysicalStats,
-      @JsonKey(name: 'time_of_day') String timeOfDay,
-      @JsonKey(name: 'trade_species') NamedApiResource tradeSpecies,
-      @JsonKey(name: 'turn_upside_down') bool turnUpsideDown});
+      @nullable
+          int gender,
+      @nullable
+      @JsonKey(name: 'held_item')
+          NamedApiResource heldItem,
+      @nullable
+      @JsonKey(name: 'known_move')
+          NamedApiResource knownMove,
+      @nullable
+      @JsonKey(name: 'known_move_type')
+          NamedApiResource knownMoveType,
+      @nullable
+          NamedApiResource location,
+      @nullable
+      @JsonKey(name: 'min_level')
+          int minLevel,
+      @nullable
+      @JsonKey(name: 'min_happiness')
+          int minHappiness,
+      @nullable
+      @JsonKey(name: 'min_beauty')
+          int minBeauty,
+      @nullable
+      @JsonKey(name: 'min_affection')
+          int minAffection,
+      @JsonKey(name: 'needs_overworld_rain')
+          bool needsOverworldRain,
+      @nullable
+      @JsonKey(name: 'party_species')
+          NamedApiResource partySpecies,
+      @nullable
+      @JsonKey(name: 'party_type')
+          NamedApiResource partyType,
+      @nullable
+      @JsonKey(name: 'relative_physical_stats')
+          int relativePhysicalStats,
+      @JsonKey(name: 'time_of_day')
+          String timeOfDay,
+      @nullable
+      @JsonKey(name: 'trade_species')
+          NamedApiResource tradeSpecies,
+      @JsonKey(name: 'turn_upside_down')
+          bool turnUpsideDown});
 
   $NamedApiResourceCopyWith<$Res> get item;
   $NamedApiResourceCopyWith<$Res> get trigger;
@@ -782,7 +863,7 @@ abstract class $EvolutionDetailCopyWith<$Res> {
   $NamedApiResourceCopyWith<$Res> get knownMove;
   $NamedApiResourceCopyWith<$Res> get knownMoveType;
   $NamedApiResourceCopyWith<$Res> get location;
-  $NamedApiResourceCopyWith<$Res> get party_species;
+  $NamedApiResourceCopyWith<$Res> get partySpecies;
   $NamedApiResourceCopyWith<$Res> get partyType;
   $NamedApiResourceCopyWith<$Res> get tradeSpecies;
 }
@@ -810,7 +891,7 @@ class _$EvolutionDetailCopyWithImpl<$Res>
     Object minBeauty = freezed,
     Object minAffection = freezed,
     Object needsOverworldRain = freezed,
-    Object party_species = freezed,
+    Object partySpecies = freezed,
     Object partyType = freezed,
     Object relativePhysicalStats = freezed,
     Object timeOfDay = freezed,
@@ -841,9 +922,9 @@ class _$EvolutionDetailCopyWithImpl<$Res>
       needsOverworldRain: needsOverworldRain == freezed
           ? _value.needsOverworldRain
           : needsOverworldRain as bool,
-      party_species: party_species == freezed
-          ? _value.party_species
-          : party_species as NamedApiResource,
+      partySpecies: partySpecies == freezed
+          ? _value.partySpecies
+          : partySpecies as NamedApiResource,
       partyType: partyType == freezed
           ? _value.partyType
           : partyType as NamedApiResource,
@@ -921,12 +1002,12 @@ class _$EvolutionDetailCopyWithImpl<$Res>
   }
 
   @override
-  $NamedApiResourceCopyWith<$Res> get party_species {
-    if (_value.party_species == null) {
+  $NamedApiResourceCopyWith<$Res> get partySpecies {
+    if (_value.partySpecies == null) {
       return null;
     }
-    return $NamedApiResourceCopyWith<$Res>(_value.party_species, (value) {
-      return _then(_value.copyWith(party_species: value));
+    return $NamedApiResourceCopyWith<$Res>(_value.partySpecies, (value) {
+      return _then(_value.copyWith(partySpecies: value));
     });
   }
 
@@ -959,24 +1040,52 @@ abstract class _$EvolutionDetailCopyWith<$Res>
       __$EvolutionDetailCopyWithImpl<$Res>;
   @override
   $Res call(
-      {NamedApiResource item,
+      {@nullable
+          NamedApiResource item,
       NamedApiResource trigger,
-      int gender,
-      @JsonKey(name: 'held_item') NamedApiResource heldItem,
-      @JsonKey(name: 'known_move') NamedApiResource knownMove,
-      @JsonKey(name: 'known_move_type') NamedApiResource knownMoveType,
-      NamedApiResource location,
-      @JsonKey(name: 'min_level') int minLevel,
-      @JsonKey(name: 'min_happiness') int minHappiness,
-      @JsonKey(name: 'min_beauty') int minBeauty,
-      @JsonKey(name: 'min_affection') int minAffection,
-      @JsonKey(name: 'needs_overworld_rain') bool needsOverworldRain,
-      @JsonKey(name: 'party_species') NamedApiResource party_species,
-      @JsonKey(name: 'party_type') NamedApiResource partyType,
-      @JsonKey(name: 'relative_physical_stats') int relativePhysicalStats,
-      @JsonKey(name: 'time_of_day') String timeOfDay,
-      @JsonKey(name: 'trade_species') NamedApiResource tradeSpecies,
-      @JsonKey(name: 'turn_upside_down') bool turnUpsideDown});
+      @nullable
+          int gender,
+      @nullable
+      @JsonKey(name: 'held_item')
+          NamedApiResource heldItem,
+      @nullable
+      @JsonKey(name: 'known_move')
+          NamedApiResource knownMove,
+      @nullable
+      @JsonKey(name: 'known_move_type')
+          NamedApiResource knownMoveType,
+      @nullable
+          NamedApiResource location,
+      @nullable
+      @JsonKey(name: 'min_level')
+          int minLevel,
+      @nullable
+      @JsonKey(name: 'min_happiness')
+          int minHappiness,
+      @nullable
+      @JsonKey(name: 'min_beauty')
+          int minBeauty,
+      @nullable
+      @JsonKey(name: 'min_affection')
+          int minAffection,
+      @JsonKey(name: 'needs_overworld_rain')
+          bool needsOverworldRain,
+      @nullable
+      @JsonKey(name: 'party_species')
+          NamedApiResource partySpecies,
+      @nullable
+      @JsonKey(name: 'party_type')
+          NamedApiResource partyType,
+      @nullable
+      @JsonKey(name: 'relative_physical_stats')
+          int relativePhysicalStats,
+      @JsonKey(name: 'time_of_day')
+          String timeOfDay,
+      @nullable
+      @JsonKey(name: 'trade_species')
+          NamedApiResource tradeSpecies,
+      @JsonKey(name: 'turn_upside_down')
+          bool turnUpsideDown});
 
   @override
   $NamedApiResourceCopyWith<$Res> get item;
@@ -991,7 +1100,7 @@ abstract class _$EvolutionDetailCopyWith<$Res>
   @override
   $NamedApiResourceCopyWith<$Res> get location;
   @override
-  $NamedApiResourceCopyWith<$Res> get party_species;
+  $NamedApiResourceCopyWith<$Res> get partySpecies;
   @override
   $NamedApiResourceCopyWith<$Res> get partyType;
   @override
@@ -1023,7 +1132,7 @@ class __$EvolutionDetailCopyWithImpl<$Res>
     Object minBeauty = freezed,
     Object minAffection = freezed,
     Object needsOverworldRain = freezed,
-    Object party_species = freezed,
+    Object partySpecies = freezed,
     Object partyType = freezed,
     Object relativePhysicalStats = freezed,
     Object timeOfDay = freezed,
@@ -1047,9 +1156,9 @@ class __$EvolutionDetailCopyWithImpl<$Res>
       needsOverworldRain == freezed
           ? _value.needsOverworldRain
           : needsOverworldRain as bool,
-      party_species == freezed
-          ? _value.party_species
-          : party_species as NamedApiResource,
+      partySpecies == freezed
+          ? _value.partySpecies
+          : partySpecies as NamedApiResource,
       partyType == freezed ? _value.partyType : partyType as NamedApiResource,
       relativePhysicalStats == freezed
           ? _value.relativePhysicalStats
@@ -1070,41 +1179,55 @@ class __$EvolutionDetailCopyWithImpl<$Res>
 /// @nodoc
 class _$_EvolutionDetail implements _EvolutionDetail {
   const _$_EvolutionDetail(
-      this.item,
+      @nullable
+          this.item,
       this.trigger,
-      this.gender,
-      @JsonKey(name: 'held_item') this.heldItem,
-      @JsonKey(name: 'known_move') this.knownMove,
-      @JsonKey(name: 'known_move_type') this.knownMoveType,
-      this.location,
-      @JsonKey(name: 'min_level') this.minLevel,
-      @JsonKey(name: 'min_happiness') this.minHappiness,
-      @JsonKey(name: 'min_beauty') this.minBeauty,
-      @JsonKey(name: 'min_affection') this.minAffection,
-      @JsonKey(name: 'needs_overworld_rain') this.needsOverworldRain,
-      @JsonKey(name: 'party_species') this.party_species,
-      @JsonKey(name: 'party_type') this.partyType,
-      @JsonKey(name: 'relative_physical_stats') this.relativePhysicalStats,
-      @JsonKey(name: 'time_of_day') this.timeOfDay,
-      @JsonKey(name: 'trade_species') this.tradeSpecies,
-      @JsonKey(name: 'turn_upside_down') this.turnUpsideDown)
-      : assert(item != null),
-        assert(trigger != null),
-        assert(gender != null),
-        assert(heldItem != null),
-        assert(knownMove != null),
-        assert(knownMoveType != null),
-        assert(location != null),
-        assert(minLevel != null),
-        assert(minHappiness != null),
-        assert(minBeauty != null),
-        assert(minAffection != null),
+      @nullable
+          this.gender,
+      @nullable
+      @JsonKey(name: 'held_item')
+          this.heldItem,
+      @nullable
+      @JsonKey(name: 'known_move')
+          this.knownMove,
+      @nullable
+      @JsonKey(name: 'known_move_type')
+          this.knownMoveType,
+      @nullable
+          this.location,
+      @nullable
+      @JsonKey(name: 'min_level')
+          this.minLevel,
+      @nullable
+      @JsonKey(name: 'min_happiness')
+          this.minHappiness,
+      @nullable
+      @JsonKey(name: 'min_beauty')
+          this.minBeauty,
+      @nullable
+      @JsonKey(name: 'min_affection')
+          this.minAffection,
+      @JsonKey(name: 'needs_overworld_rain')
+          this.needsOverworldRain,
+      @nullable
+      @JsonKey(name: 'party_species')
+          this.partySpecies,
+      @nullable
+      @JsonKey(name: 'party_type')
+          this.partyType,
+      @nullable
+      @JsonKey(name: 'relative_physical_stats')
+          this.relativePhysicalStats,
+      @JsonKey(name: 'time_of_day')
+          this.timeOfDay,
+      @nullable
+      @JsonKey(name: 'trade_species')
+          this.tradeSpecies,
+      @JsonKey(name: 'turn_upside_down')
+          this.turnUpsideDown)
+      : assert(trigger != null),
         assert(needsOverworldRain != null),
-        assert(party_species != null),
-        assert(partyType != null),
-        assert(relativePhysicalStats != null),
         assert(timeOfDay != null),
-        assert(tradeSpecies != null),
         assert(turnUpsideDown != null);
 
   factory _$_EvolutionDetail.fromJson(Map<String, dynamic> json) =>
@@ -1117,6 +1240,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [Item]
+  @nullable
   final NamedApiResource item;
   @override
 
@@ -1130,6 +1254,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
 
   /// The id of the gender of the evolving Pokémon species must be in order to
   /// evolve into this Pokémon species.
+  @nullable
   final int gender;
   @override
 
@@ -1139,6 +1264,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [Item]
+  @nullable
   @JsonKey(name: 'held_item')
   final NamedApiResource heldItem;
   @override
@@ -1149,6 +1275,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [Move]
+  @nullable
   @JsonKey(name: 'known_move')
   final NamedApiResource knownMove;
   @override
@@ -1159,6 +1286,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [Type]
+  @nullable
   @JsonKey(name: 'known_move_type')
   final NamedApiResource knownMoveType;
   @override
@@ -1168,29 +1296,34 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [Location]
+  @nullable
   final NamedApiResource location;
   @override
 
   /// The minimum required level of the evolving Pokémon species to evolve into
   /// this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_level')
   final int minLevel;
   @override
 
   /// The minimum required level of happiness the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_happiness')
   final int minHappiness;
   @override
 
   /// The minimum required level of beauty the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_beauty')
   final int minBeauty;
   @override
 
   /// The minimum required level of affection the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_affection')
   final int minAffection;
   @override
@@ -1207,8 +1340,9 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [PokemonSpecies]
+  @nullable
   @JsonKey(name: 'party_species')
-  final NamedApiResource party_species;
+  final NamedApiResource partySpecies;
   @override
 
   /// The player must have a Pokémon of this type in their party during the
@@ -1218,6 +1352,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [Type]
+  @nullable
   @JsonKey(name: 'party_type')
   final NamedApiResource partyType;
   @override
@@ -1225,6 +1360,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// The required relation between the Pokémon's Attack and Defense stats.
   /// 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack <
   /// Defense.
+  @nullable
   @JsonKey(name: 'relative_physical_stats')
   final int relativePhysicalStats;
   @override
@@ -1239,6 +1375,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
   /// See also:
   ///
   ///  * [PokemonSpecies]
+  @nullable
   @JsonKey(name: 'trade_species')
   final NamedApiResource tradeSpecies;
   @override
@@ -1250,7 +1387,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
 
   @override
   String toString() {
-    return 'EvolutionDetail(item: $item, trigger: $trigger, gender: $gender, heldItem: $heldItem, knownMove: $knownMove, knownMoveType: $knownMoveType, location: $location, minLevel: $minLevel, minHappiness: $minHappiness, minBeauty: $minBeauty, minAffection: $minAffection, needsOverworldRain: $needsOverworldRain, party_species: $party_species, partyType: $partyType, relativePhysicalStats: $relativePhysicalStats, timeOfDay: $timeOfDay, tradeSpecies: $tradeSpecies, turnUpsideDown: $turnUpsideDown)';
+    return 'EvolutionDetail(item: $item, trigger: $trigger, gender: $gender, heldItem: $heldItem, knownMove: $knownMove, knownMoveType: $knownMoveType, location: $location, minLevel: $minLevel, minHappiness: $minHappiness, minBeauty: $minBeauty, minAffection: $minAffection, needsOverworldRain: $needsOverworldRain, partySpecies: $partySpecies, partyType: $partyType, relativePhysicalStats: $relativePhysicalStats, timeOfDay: $timeOfDay, tradeSpecies: $tradeSpecies, turnUpsideDown: $turnUpsideDown)';
   }
 
   @override
@@ -1291,9 +1428,9 @@ class _$_EvolutionDetail implements _EvolutionDetail {
             (identical(other.needsOverworldRain, needsOverworldRain) ||
                 const DeepCollectionEquality()
                     .equals(other.needsOverworldRain, needsOverworldRain)) &&
-            (identical(other.party_species, party_species) ||
+            (identical(other.partySpecies, partySpecies) ||
                 const DeepCollectionEquality()
-                    .equals(other.party_species, party_species)) &&
+                    .equals(other.partySpecies, partySpecies)) &&
             (identical(other.partyType, partyType) ||
                 const DeepCollectionEquality()
                     .equals(other.partyType, partyType)) &&
@@ -1326,7 +1463,7 @@ class _$_EvolutionDetail implements _EvolutionDetail {
       const DeepCollectionEquality().hash(minBeauty) ^
       const DeepCollectionEquality().hash(minAffection) ^
       const DeepCollectionEquality().hash(needsOverworldRain) ^
-      const DeepCollectionEquality().hash(party_species) ^
+      const DeepCollectionEquality().hash(partySpecies) ^
       const DeepCollectionEquality().hash(partyType) ^
       const DeepCollectionEquality().hash(relativePhysicalStats) ^
       const DeepCollectionEquality().hash(timeOfDay) ^
@@ -1345,25 +1482,52 @@ class _$_EvolutionDetail implements _EvolutionDetail {
 
 abstract class _EvolutionDetail implements EvolutionDetail {
   const factory _EvolutionDetail(
+      @nullable
           NamedApiResource item,
-          NamedApiResource trigger,
+      NamedApiResource trigger,
+      @nullable
           int gender,
-          @JsonKey(name: 'held_item') NamedApiResource heldItem,
-          @JsonKey(name: 'known_move') NamedApiResource knownMove,
-          @JsonKey(name: 'known_move_type') NamedApiResource knownMoveType,
+      @nullable
+      @JsonKey(name: 'held_item')
+          NamedApiResource heldItem,
+      @nullable
+      @JsonKey(name: 'known_move')
+          NamedApiResource knownMove,
+      @nullable
+      @JsonKey(name: 'known_move_type')
+          NamedApiResource knownMoveType,
+      @nullable
           NamedApiResource location,
-          @JsonKey(name: 'min_level') int minLevel,
-          @JsonKey(name: 'min_happiness') int minHappiness,
-          @JsonKey(name: 'min_beauty') int minBeauty,
-          @JsonKey(name: 'min_affection') int minAffection,
-          @JsonKey(name: 'needs_overworld_rain') bool needsOverworldRain,
-          @JsonKey(name: 'party_species') NamedApiResource party_species,
-          @JsonKey(name: 'party_type') NamedApiResource partyType,
-          @JsonKey(name: 'relative_physical_stats') int relativePhysicalStats,
-          @JsonKey(name: 'time_of_day') String timeOfDay,
-          @JsonKey(name: 'trade_species') NamedApiResource tradeSpecies,
-          @JsonKey(name: 'turn_upside_down') bool turnUpsideDown) =
-      _$_EvolutionDetail;
+      @nullable
+      @JsonKey(name: 'min_level')
+          int minLevel,
+      @nullable
+      @JsonKey(name: 'min_happiness')
+          int minHappiness,
+      @nullable
+      @JsonKey(name: 'min_beauty')
+          int minBeauty,
+      @nullable
+      @JsonKey(name: 'min_affection')
+          int minAffection,
+      @JsonKey(name: 'needs_overworld_rain')
+          bool needsOverworldRain,
+      @nullable
+      @JsonKey(name: 'party_species')
+          NamedApiResource partySpecies,
+      @nullable
+      @JsonKey(name: 'party_type')
+          NamedApiResource partyType,
+      @nullable
+      @JsonKey(name: 'relative_physical_stats')
+          int relativePhysicalStats,
+      @JsonKey(name: 'time_of_day')
+          String timeOfDay,
+      @nullable
+      @JsonKey(name: 'trade_species')
+          NamedApiResource tradeSpecies,
+      @JsonKey(name: 'turn_upside_down')
+          bool turnUpsideDown) = _$_EvolutionDetail;
 
   factory _EvolutionDetail.fromJson(Map<String, dynamic> json) =
       _$_EvolutionDetail.fromJson;
@@ -1375,6 +1539,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [Item]
+  @nullable
   NamedApiResource get item;
   @override
 
@@ -1388,6 +1553,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
 
   /// The id of the gender of the evolving Pokémon species must be in order to
   /// evolve into this Pokémon species.
+  @nullable
   int get gender;
   @override
 
@@ -1397,6 +1563,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [Item]
+  @nullable
   @JsonKey(name: 'held_item')
   NamedApiResource get heldItem;
   @override
@@ -1407,6 +1574,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [Move]
+  @nullable
   @JsonKey(name: 'known_move')
   NamedApiResource get knownMove;
   @override
@@ -1417,6 +1585,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [Type]
+  @nullable
   @JsonKey(name: 'known_move_type')
   NamedApiResource get knownMoveType;
   @override
@@ -1426,29 +1595,34 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [Location]
+  @nullable
   NamedApiResource get location;
   @override
 
   /// The minimum required level of the evolving Pokémon species to evolve into
   /// this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_level')
   int get minLevel;
   @override
 
   /// The minimum required level of happiness the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_happiness')
   int get minHappiness;
   @override
 
   /// The minimum required level of beauty the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_beauty')
   int get minBeauty;
   @override
 
   /// The minimum required level of affection the evolving Pokémon species to
   /// evolve into this Pokémon species.
+  @nullable
   @JsonKey(name: 'min_affection')
   int get minAffection;
   @override
@@ -1465,8 +1639,9 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [PokemonSpecies]
+  @nullable
   @JsonKey(name: 'party_species')
-  NamedApiResource get party_species;
+  NamedApiResource get partySpecies;
   @override
 
   /// The player must have a Pokémon of this type in their party during the
@@ -1476,6 +1651,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [Type]
+  @nullable
   @JsonKey(name: 'party_type')
   NamedApiResource get partyType;
   @override
@@ -1483,6 +1659,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// The required relation between the Pokémon's Attack and Defense stats.
   /// 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack <
   /// Defense.
+  @nullable
   @JsonKey(name: 'relative_physical_stats')
   int get relativePhysicalStats;
   @override
@@ -1497,6 +1674,7 @@ abstract class _EvolutionDetail implements EvolutionDetail {
   /// See also:
   ///
   ///  * [PokemonSpecies]
+  @nullable
   @JsonKey(name: 'trade_species')
   NamedApiResource get tradeSpecies;
   @override

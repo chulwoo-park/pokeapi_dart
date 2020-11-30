@@ -116,7 +116,7 @@ abstract class FlavorText with _$FlavorText {
     /// See also:
     ///
     ///  * [Version]
-    @nullable NamedApiResource version,
+    @nullable @JsonKey(includeIfNull: false) NamedApiResource version,
   ) = _FlavorText;
 
   factory FlavorText.fromJson(Map<String, dynamic> json) =>

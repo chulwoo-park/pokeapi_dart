@@ -144,6 +144,12 @@ abstract class Characteristic with _$Characteristic {
     /// The possible values of the highest stat that would result in a Pokémon
     /// recieving this characteristic when divided by 5.
     @JsonKey(name: 'possible_values') List<int> possibleValues,
+
+    /// The stat which results in this characteristic
+    @JsonKey(name: 'highest_stat') NamedApiResource highestStat,
+
+    /// The descriptions of this characteristic in different languages.
+    List<Description> descriptions,
   ) = _Characteristic;
 
   factory Characteristic.fromJson(Map<String, dynamic> json) =>
@@ -692,10 +698,225 @@ abstract class PokemonSprites with _$PokemonSprites {
 
     /// The shiny female depiction of this Pokémon from the back in battle.
     @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+    @nullable @JsonKey(includeIfNull: false) GenerationSprites versions,
+    @nullable @JsonKey(includeIfNull: false) PokemonOtherSprites other,
   ) = _PokemonSprites;
 
   factory PokemonSprites.fromJson(Map<String, dynamic> json) =>
       _$PokemonSpritesFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class AnimatedPokemonSprites with _$AnimatedPokemonSprites {
+  @JsonSerializable()
+  const factory AnimatedPokemonSprites(
+    /// The default depiction of this Pokémon from the front in battle.
+    @nullable @JsonKey(name: 'front_default') String frontDefault,
+
+    /// The shiny depiction of this Pokémon from the front in battle.
+    @nullable @JsonKey(name: 'front_shiny') String frontShiny,
+
+    /// The felmale depiction of this Pokémon from the front in battle.
+    @nullable @JsonKey(name: 'front_female') String frontFemale,
+
+    /// The shiny female depiction of this Pokémon from the front in battle.
+    @nullable @JsonKey(name: 'front_shiny_female') String frontShinyFemale,
+
+    /// The default depiction of this Pokémon from the back in battle.
+    @nullable @JsonKey(name: 'back_default') String backDefault,
+
+    /// The shiny depiction of this Pokémon from the back in battle.
+    @nullable @JsonKey(name: 'back_shiny') String backShiny,
+
+    /// The felmale depiction of this Pokémon from the back in battle.
+    @nullable @JsonKey(name: 'back_female') String backFemale,
+
+    /// The shiny female depiction of this Pokémon from the back in battle.
+    @nullable @JsonKey(name: 'back_shiny_female') String backShinyFemale,
+    @nullable PokemonSprites animated,
+  ) = _AnimatedPokemonSprites;
+
+  factory AnimatedPokemonSprites.fromJson(Map<String, dynamic> json) =>
+      _$AnimatedPokemonSpritesFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class PokemonOtherSprites with _$PokemonOtherSprites {
+  @JsonSerializable()
+  const factory PokemonOtherSprites(
+    @JsonKey(name: 'dream_world') DreamWorldSprites dreamWorld,
+    @JsonKey(name: 'official-artwork') OfficialArtworkSprites officialArtwork,
+  ) = _PokemonOtherSprites;
+
+  factory PokemonOtherSprites.fromJson(Map<String, dynamic> json) =>
+      _$PokemonOtherSpritesFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class DreamWorldSprites with _$DreamWorldSprites {
+  @JsonSerializable()
+  const factory DreamWorldSprites(
+    @nullable @JsonKey(name: 'front_default') String frontDefault,
+    @nullable @JsonKey(name: 'front_female') String frontFemale,
+  ) = _DreamWorldSprites;
+
+  factory DreamWorldSprites.fromJson(Map<String, dynamic> json) =>
+      _$DreamWorldSpritesFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class OfficialArtworkSprites with _$OfficialArtworkSprites {
+  @JsonSerializable()
+  const factory OfficialArtworkSprites(
+    @nullable @JsonKey(name: 'front_default') String frontDefault,
+  ) = _OfficialArtworkSprites;
+
+  factory OfficialArtworkSprites.fromJson(Map<String, dynamic> json) =>
+      _$OfficialArtworkSpritesFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class GenerationSprites with _$GenerationSprites {
+  @JsonSerializable()
+  const factory GenerationSprites(
+    @JsonKey(name: 'generation-i') Generation1SpritesList gen1,
+    @JsonKey(name: 'generation-ii') Generation2SpritesList gen2,
+    @JsonKey(name: 'generation-iii') Generation3SpritesList gen3,
+    @JsonKey(name: 'generation-iv') Generation4SpritesList gen4,
+    @JsonKey(name: 'generation-v') Generation5SpritesList gen5,
+    @JsonKey(name: 'generation-vi') Generation6SpritesList gen6,
+    @JsonKey(name: 'generation-vii') Generation7SpritesList gen7,
+    @JsonKey(name: 'generation-viii') Generation8SpritesList gen8,
+  ) = _GenerationSprites;
+
+  factory GenerationSprites.fromJson(Map<String, dynamic> json) =>
+      _$GenerationSpritesFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation1SpritesList with _$Generation1SpritesList {
+  @JsonSerializable()
+  const factory Generation1SpritesList(
+    @JsonKey(name: 'red-blue') Generation1PokemonFormSprites redBlue,
+    Generation1PokemonFormSprites yellow,
+  ) = _Generation1SpritesList;
+
+  factory Generation1SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation1SpritesListFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation1PokemonFormSprites
+    with _$Generation1PokemonFormSprites {
+  @JsonSerializable()
+  const factory Generation1PokemonFormSprites(
+    @nullable @JsonKey(name: 'front_default') String frontDefault,
+    @nullable @JsonKey(name: 'front_gray') String frontGray,
+    @nullable @JsonKey(name: 'back_default') String backDefault,
+    @nullable @JsonKey(name: 'back_gray') String backGray,
+  ) = _Generation1PokemonFormSprites;
+
+  factory Generation1PokemonFormSprites.fromJson(Map<String, dynamic> json) =>
+      _$Generation1PokemonFormSpritesFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation2SpritesList with _$Generation2SpritesList {
+  @JsonSerializable()
+  const factory Generation2SpritesList(
+    PokemonFormSprites crystal,
+    PokemonFormSprites gold,
+    PokemonFormSprites silver,
+  ) = _Generation2SpritesList;
+
+  factory Generation2SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation2SpritesListFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation3SpritesList with _$Generation3SpritesList {
+  @JsonSerializable()
+  const factory Generation3SpritesList(
+    PokemonFormSprites emerald,
+    @JsonKey(name: 'firered-leafgreen') PokemonFormSprites frlg,
+    @JsonKey(name: 'ruby-sapphire') PokemonFormSprites rs,
+  ) = _Generation3SpritesList;
+
+  factory Generation3SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation3SpritesListFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation4SpritesList with _$Generation4SpritesList {
+  @JsonSerializable()
+  const factory Generation4SpritesList(
+    @JsonKey(name: 'diamond-pearl') PokemonSprites dp,
+    @JsonKey(name: 'heartgold-soulsilver') PokemonSprites hgss,
+    PokemonSprites platinum,
+  ) = _Generation4SpritesList;
+
+  factory Generation4SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation4SpritesListFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation5SpritesList with _$Generation5SpritesList {
+  @JsonSerializable()
+  const factory Generation5SpritesList(
+    @JsonKey(name: 'black-white') AnimatedPokemonSprites bw,
+  ) = _Generation5SpritesList;
+
+  factory Generation5SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation5SpritesListFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation6SpritesList with _$Generation6SpritesList {
+  @JsonSerializable()
+  const factory Generation6SpritesList(
+    @JsonKey(name: 'omegaruby-alphasapphire') PokemonSprites oras,
+    @JsonKey(name: 'x-y') PokemonSprites xy,
+  ) = _Generation6SpritesList;
+
+  factory Generation6SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation6SpritesListFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation7SpritesList with _$Generation7SpritesList {
+  @JsonSerializable()
+  const factory Generation7SpritesList(
+    @JsonKey(name: 'ultra-sun-ultra-moon') PokemonSprites usum,
+    PokemonSprites icons,
+  ) = _Generation7SpritesList;
+
+  factory Generation7SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation7SpritesListFromJson(json);
+}
+
+@immutable
+@freezed
+abstract class Generation8SpritesList with _$Generation8SpritesList {
+  @JsonSerializable()
+  const factory Generation8SpritesList(
+    PokemonSprites icons,
+  ) = _Generation8SpritesList;
+
+  factory Generation8SpritesList.fromJson(Map<String, dynamic> json) =>
+      _$Generation8SpritesListFromJson(json);
 }
 
 @immutable
