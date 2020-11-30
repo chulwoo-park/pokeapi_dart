@@ -1,7 +1,6 @@
 import 'dart:mirrors';
 
 import 'package:pokeapi_dart/pokeapi_dart.dart';
-import 'package:pokeapi_dart/src/base.dart';
 import 'package:test/test.dart';
 
 import 'mock.dart';
