@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:pokeapi_dart/pokeapi_dart.dart';
 import 'package:pokeapi_dart/src/base.dart';
 import 'package:test/test.dart';
@@ -25,8 +23,7 @@ void main() {
   });
 
   test('Endpoint path test', () async {
-    final jsonString = await getJsonString('/api/v2');
-    final json = jsonDecode(jsonString);
+    final json = getJson('/api/v2');
     void testEndpointPath(endpoint) {
       expect(endpoint, isA<ResourceEndpointMixin>());
       expect(
@@ -49,9 +46,7 @@ void main() {
 
     Future<void> testConverter(endpoint, converter) async {
       expect(endpoint, isA<ResourceEndpointMixin>());
-      final json = jsonDecode(await getJsonString(
-        '${(endpoint as ResourceEndpointMixin).path}/1',
-      ));
+      final json = getJson('${(endpoint as ResourceEndpointMixin).path}/1');
       var data;
       if (endpoint is Endpoint) {
         data = await endpoint.get(1);
@@ -78,19 +73,19 @@ void main() {
 
     test('ApiResourceList', () async {
       final converter = factory.get<ApiResourceList>();
-      final json = jsonDecode(await getJsonString('/api/v2/contest-effect'));
+      final json = getJson('/api/v2/contest-effect');
       final data = await mockApi.contestEffects.getPage();
       expect(converter.fromJson(json), data);
-      expect(converter.toJson(data), json);
+      expect(removeNulls(converter.toJson(data)), json);
     });
 
     test('NamedApiResourceList', () async {
       final converter = factory.get<NamedApiResourceList>();
-      final json = jsonDecode(await getJsonString('/api/v2/berry'));
+      final json = getJson('/api/v2/berry');
       final data = await mockApi.berries.getPage();
 
       expect(converter.fromJson(json), data);
-      expect(converter.toJson(data), json);
+      expect(removeNulls(converter.toJson(data)), json);
     });
 
     test('Berry', () async {
