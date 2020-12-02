@@ -1,6 +1,6 @@
 name: pokeapi_dart
 description: All the Pokémon data you'll ever need in one place, easily accessible through a modern RESTful API.
-version: 0.0.1-dev.1
+version: 0.0.1
 homepage: https://chulwoo.dev
 repository: https://github.com/chulwoo-park/pokeapi_dart/
 issue_tracker: https://github.com/chulwoo-park/pokeapi_dart/issues
