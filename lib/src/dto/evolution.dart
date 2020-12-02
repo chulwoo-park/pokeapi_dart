@@ -59,7 +59,7 @@ abstract class ChainLink with _$ChainLink {
 
     /// A List of chain objects.
     @nullable
-    @JsonKey(name: 'evolves_to', defaultValue: const [])
+    @JsonKey(name: 'evolves_to', defaultValue: [])
         List<ChainLink> evolvesTo,
   ) = _ChainLink;
 
