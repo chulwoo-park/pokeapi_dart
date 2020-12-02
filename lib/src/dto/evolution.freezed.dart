@@ -295,7 +295,7 @@ class _$ChainLinkTearOff {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
-      @JsonKey(name: 'evolves_to', defaultValue: const [])
+      @JsonKey(name: 'evolves_to', defaultValue: [])
           List<ChainLink> evolvesTo) {
     return _ChainLink(
       isBaby,
@@ -336,7 +336,7 @@ mixin _$ChainLink {
 
   /// A List of chain objects.
   @nullable
-  @JsonKey(name: 'evolves_to', defaultValue: const [])
+  @JsonKey(name: 'evolves_to', defaultValue: [])
   List<ChainLink> get evolvesTo;
 
   Map<String, dynamic> toJson();
@@ -354,7 +354,7 @@ abstract class $ChainLinkCopyWith<$Res> {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
-      @JsonKey(name: 'evolves_to', defaultValue: const [])
+      @JsonKey(name: 'evolves_to', defaultValue: [])
           List<ChainLink> evolvesTo});
 
   $NamedApiResourceCopyWith<$Res> get species;
@@ -412,7 +412,7 @@ abstract class _$ChainLinkCopyWith<$Res> implements $ChainLinkCopyWith<$Res> {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
-      @JsonKey(name: 'evolves_to', defaultValue: const [])
+      @JsonKey(name: 'evolves_to', defaultValue: [])
           List<ChainLink> evolvesTo});
 
   @override
@@ -451,14 +451,10 @@ class __$ChainLinkCopyWithImpl<$Res> extends _$ChainLinkCopyWithImpl<$Res>
 /// @nodoc
 class _$_ChainLink implements _ChainLink {
   const _$_ChainLink(
-      @JsonKey(name: 'is_baby')
-          this.isBaby,
+      @JsonKey(name: 'is_baby') this.isBaby,
       this.species,
-      @JsonKey(name: 'evolution_details')
-          this.evolutionDetails,
-      @nullable
-      @JsonKey(name: 'evolves_to', defaultValue: const [])
-          this.evolvesTo)
+      @JsonKey(name: 'evolution_details') this.evolutionDetails,
+      @nullable @JsonKey(name: 'evolves_to', defaultValue: []) this.evolvesTo)
       : assert(isBaby != null),
         assert(species != null),
         assert(evolutionDetails != null);
@@ -490,7 +486,7 @@ class _$_ChainLink implements _ChainLink {
 
   /// A List of chain objects.
   @nullable
-  @JsonKey(name: 'evolves_to', defaultValue: const [])
+  @JsonKey(name: 'evolves_to', defaultValue: [])
   final List<ChainLink> evolvesTo;
 
   @override
@@ -541,7 +537,7 @@ abstract class _ChainLink implements ChainLink {
       @JsonKey(name: 'evolution_details')
           List<EvolutionDetail> evolutionDetails,
       @nullable
-      @JsonKey(name: 'evolves_to', defaultValue: const [])
+      @JsonKey(name: 'evolves_to', defaultValue: [])
           List<ChainLink> evolvesTo) = _$_ChainLink;
 
   factory _ChainLink.fromJson(Map<String, dynamic> json) =
@@ -571,7 +567,7 @@ abstract class _ChainLink implements ChainLink {
 
   /// A List of chain objects.
   @nullable
-  @JsonKey(name: 'evolves_to', defaultValue: const [])
+  @JsonKey(name: 'evolves_to', defaultValue: [])
   List<ChainLink> get evolvesTo;
   @override
   _$ChainLinkCopyWith<_ChainLink> get copyWith;
