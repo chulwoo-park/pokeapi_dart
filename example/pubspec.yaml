@@ -1,0 +1,13 @@
+name: example
+description: A example package.
+version: 0.0.1
+homepage: https://chulwoo.dev
+repository: https://github.com/chulwoo-park/pokeapi_dart/
+issue_tracker: https://github.com/chulwoo-park/pokeapi_dart/issues
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  pokeapi_dart:
+    path: ../
