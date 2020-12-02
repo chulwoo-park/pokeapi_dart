@@ -1,3 +1,8 @@
+/// This is a Dart (and Flutter) client for
+/// [PokeApi](https://github.com/PokeAPI/pokeapi). It's written in Dart.
+///
+/// All the Pokémon data you'll ever need in one place, easily accessible
+/// through a modern RESTful API.
 library pokeapi_dart;
 
 export 'package:pokeapi_dart/src/api.dart';
