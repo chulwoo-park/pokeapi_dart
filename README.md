@@ -120,7 +120,7 @@ pub run test
 ## Endpoints
 
 The get method can use `id` or `id or name` as a parameter according to each endpoint type.
-Refer to the [pokeapi v2 docs](http://pokeapi.co/docsv2/) to find out more about how the data is structured.
+Refer to the [pokeapi v2 docs](https://pokeapi.co/docs/v2/) to find out more about how the data is structured.
 
 ### Berries
 
