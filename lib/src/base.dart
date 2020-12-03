@@ -128,7 +128,7 @@ class BaseEndpoint<Resource>
   @override
   Future<ApiResourceList> getPage({
     int limit = 20,
-    int offset = 20,
+    int offset = 0,
   }) {
     limit ??= 0;
     offset ??= 0;
@@ -153,7 +153,7 @@ class BaseNamedEndpoint<Resource>
   @override
   Future<NamedApiResourceList> getPage({
     int limit = 20,
-    int offset = 20,
+    int offset = 0,
   }) {
     limit ??= 0;
     offset ??= 0;

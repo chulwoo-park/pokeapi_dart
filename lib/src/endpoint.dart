@@ -14,7 +14,7 @@ import 'dto/utility/language.dart';
 abstract class Endpoint<Resource> {
   Future<ApiResourceList> getPage({
     int limit = 20,
-    int offset = 20,
+    int offset = 0,
   });
 
   Future<Resource> get(int id);
@@ -23,7 +23,7 @@ abstract class Endpoint<Resource> {
 abstract class NamedEndpoint<Resource> {
   Future<NamedApiResourceList> getPage({
     int limit = 20,
-    int offset = 20,
+    int offset = 0,
   });
 
   Future<Resource> get({int id, String name});
