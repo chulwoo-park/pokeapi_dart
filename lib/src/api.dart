@@ -12,7 +12,10 @@ abstract class PokeApiClient {
     Client client,
     ConverterFactory converterFactory,
   }) {
-    return BasePokeApiClient();
+    return BasePokeApiClient(
+      client: client,
+      converterFactory: converterFactory,
+    );
   }
 
   Future<T> get<T>(String url);
